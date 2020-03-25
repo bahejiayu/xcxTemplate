@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index"
+ 
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "斑马同校",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "斑马同校将获取你的位置信息"
+    }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home_cur.png"
+      },
+      {
+        "pagePath": "pages/order/home",
+        "text": "订单",
+        "iconPath": "/images/tabbar/order.png",
+        "selectedIconPath": "/images/tabbar/order_cur.png"
+      },
+      {
+        "pagePath": "pages/chat/list",
+        "text": "消息",
+        "iconPath": "/images/tabbar/message.png",
+        "selectedIconPath": "/images/tabbar/message_cur.png"
+      },
+      {
+        "pagePath": "pages/ucenter/home/home",
+        "text": "我的",
+        "iconPath": "/images/tabbar/ucenter.png",
+        "selectedIconPath": "/images/tabbar/ucenter_cur.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

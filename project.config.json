@@ -1,0 +1,397 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.1",
+	"appid": "wx11b764518a486e6b",
+	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8FTemplate",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 56,
+			"list": [
+				{
+					"id": 0,
+					"name": "1.0.0 首页",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "1.0.1 选择学校",
+					"pathName": "pages/home/choose",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "1.1.1 任务中心",
+					"pathName": "pages/task/list",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "1.2.1 订单详情（角色：发布者，状态：新发布）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=0"
+				},
+				{
+					"id": -1,
+					"name": "1.2.2 订单详情（角色：发布者，状态：被抢了）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=1"
+				},
+				{
+					"id": 10,
+					"name": "1.2.3 订单详情（角色：发布者，状态：已送达）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=2"
+				},
+				{
+					"id": -1,
+					"name": "1.2.4 订单详情（角色：发布者，状态：已结单）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=3"
+				},
+				{
+					"id": 7,
+					"name": "1.3.1 发表评价",
+					"pathName": "pages/task/evaluate",
+					"query": "orderId=12"
+				},
+				{
+					"id": 14,
+					"name": "1.4.1 订单详情（角色：发布者，状态：送达后发布者取消订单）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=2&close=1&closer=master"
+				},
+				{
+					"id": 13,
+					"name": "1.4.2 订单详情（角色：发布者，状态：取消订单完成）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=1&close=2&closer=master"
+				},
+				{
+					"id": -1,
+					"name": "1.4.3 订单详情（角色：发布者，状态：抢单者取消订单）",
+					"pathName": "pages/task/info",
+					"query": "role=master&step=1&close=1&closer=waiter"
+				},
+				{
+					"id": -1,
+					"name": "1.5.1 订单详情（角色：非发布者，状态：新发布 抢单）",
+					"pathName": "pages/task/info",
+					"query": "step=0"
+				},
+				{
+					"id": -1,
+					"name": "1.5.2 订单详情（角色：非发布者，状态：订单被别人抢了）",
+					"pathName": "pages/task/info",
+					"query": "step=1"
+				},
+				{
+					"id": -1,
+					"name": "1.5.3 订单详情（角色：非发布者，状态：订单已送达）",
+					"pathName": "pages/task/info",
+					"query": "step=2"
+				},
+				{
+					"id": -1,
+					"name": "1.5.4 订单详情（角色：非发布者，状态：订单已结单）",
+					"pathName": "pages/task/info",
+					"query": "step=3"
+				},
+				{
+					"id": -1,
+					"name": "1.6.1 订单详情（角色：抢单者，状态：订单已抢）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=1"
+				},
+				{
+					"id": -1,
+					"name": "1.6.2 订单详情（角色：抢单者，状态：订单已送达）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=2"
+				},
+				{
+					"id": -1,
+					"name": "1.6.3 订单详情（角色：抢单者，状态：订单已结单）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=3"
+				},
+				{
+					"id": -1,
+					"name": "1.7.1 订单详情（角色：抢单者，状态：抢单者取消订单）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=2&close=1&closer=waiter"
+				},
+				{
+					"id": -1,
+					"name": "1.7.2 订单详情（角色：抢单者，状态：发布者取消订单）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=2&close=1&closer=master"
+				},
+				{
+					"id": -1,
+					"name": "1.7.3 订单详情（角色：抢单者，状态：取消订单完成）",
+					"pathName": "pages/task/info",
+					"query": "role=waiter&step=2&close=2"
+				},
+				{
+					"id": 21,
+					"name": "2.0.1 发布快递任务",
+					"pathName": "pages/release/form",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "2.0.2 地址选择",
+					"pathName": "pages/release/selectPlace",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.0.0 我的",
+					"pathName": "pages/ucenter/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.1.1 消息中心",
+					"pathName": "pages/chat/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.1.2 消息详情",
+					"pathName": "pages/chat/info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.2.1 我的发单",
+					"pathName": "pages/ucenter/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.2.1 我的发单",
+					"pathName": "pages/ucenter/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.2.2 我的抢单",
+					"pathName": "pages/ucenter/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.3.1 我的余额",
+					"pathName": "pages/ucenter/balance/balance",
+					"query": ""
+				},
+				{
+					"id": 31,
+					"name": "3.3.2 余额充值明细",
+					"pathName": "pages/ucenter/balance/detail",
+					"query": "type=0"
+				},
+				{
+					"id": -1,
+					"name": "3.3.3 提现明细",
+					"pathName": "pages/ucenter/balance/detail",
+					"query": "type=1"
+				},
+				{
+					"id": -1,
+					"name": "3.3.4 感谢费记录",
+					"pathName": "pages/ucenter/balance/detail",
+					"query": "type=2"
+				},
+				{
+					"id": -1,
+					"name": "3.3.5 消费记录",
+					"pathName": "pages/ucenter/balance/detail",
+					"query": "type=3"
+				},
+				{
+					"id": -1,
+					"name": "3.3.6 提现",
+					"pathName": "pages/ucenter/balance/cash",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.3.7 充值",
+					"pathName": "pages/ucenter/balance/recharge",
+					"query": ""
+				},
+				{
+					"id": 30,
+					"name": "3.4.1 实名认证",
+					"pathName": "pages/ucenter/auth/name",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.5.1 地址列表",
+					"pathName": "pages/ucenter/address/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.5.2 添加地址",
+					"pathName": "pages/ucenter/address/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.6.1 个人资料",
+					"pathName": "pages/ucenter/profile/profile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3.7.1 绑定手机",
+					"pathName": "pages/ucenter/bind/phone",
+					"query": ""
+				},
+				{
+					"id": 41,
+					"name": "4.0.0 管理员",
+					"pathName": "pages/manager/home",
+					"query": ""
+				},
+				{
+					"id": 42,
+					"name": "4.1.1  审核认证-列表",
+					"pathName": "pages/manager/profile/list",
+					"query": ""
+				},
+				{
+					"id": 43,
+					"name": "4.1.2  审核认证-详情",
+					"pathName": "pages/manager/profile/info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4.2.1  订单状态审核",
+					"pathName": "pages/manager/order/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4.3.1  提现审核",
+					"pathName": "pages/manager/cash/cash",
+					"query": ""
+				},
+				{
+					"id": 46,
+					"name": "3.7.2 新增学校申请",
+					"pathName": "pages/ucenter/cooperation/school",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4.1.1 虚拟用户",
+					"pathName": "pages/manager/robot/robot",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "服务协议",
+					"pathName": "pages/ucenter/disclaimer/disclaimer",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠券",
+					"pathName": "pages/ucenter/coupon/coupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 50,
+					"name": "设置管理员",
+					"pathName": "pages/manager/set/set",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员详情",
+					"pathName": "pages/manager/managerInfo/managerInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "解绑手机",
+					"pathName": "pages/ucenter/Untying/phone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 53,
+					"name": "分润明细",
+					"pathName": "pages/manager/getDetail/getDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现审核",
+					"pathName": "pages/ucenter/auditing/auditing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 55,
+					"name": "分润明细提现",
+					"pathName": "pages/manager/getMoney/getMoney",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图片容器",
+					"pathName": "pages/imgDetail/imgDetail",
+					"scene": null
+				}
+			]
+		}
+	}
+}
