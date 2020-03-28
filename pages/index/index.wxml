@@ -1,2 +1,5 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<canvas  style="width:{{w}}px; height:{{h}}px;  " canvas-id="canvas_">
+
+
+
+</canvas>
