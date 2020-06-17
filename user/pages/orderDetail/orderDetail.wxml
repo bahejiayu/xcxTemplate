@@ -1,0 +1,114 @@
+	<navigator hover-class="none" class="hasAddress">
+		<!-- <view class="icon icon-right">
+		</view> -->
+		<view class="geterInfo">
+			<view>
+				{{orderInfo.address.name}}
+			</view>
+			<view>
+				{{orderInfo.address.mobile}}
+			</view>
+		</view>
+		<view class="addressTxt">
+			{{orderInfo.address.atxt}}{{orderInfo.address.content}}
+		</view>
+	</navigator>
+
+	<view class="orderDetail">
+		<view class="orderGoods">
+			<view class="orderGoodItem" wx:for='{{orderInfo.goods_data}}'>
+				<navigator hover-class="none">
+					<view class="orderGoodImg">
+						<image src="{{item.logo||'/images/jpImg.png'}}" mode="aspectFit"> </image>
+					</view>
+					<view class="orderGoodContetn">
+						<view class="bookInfoName dan">
+							{{item.name}}
+							<view class="orderStatus cur">
+								<text wx:if='{{orderInfo.status==0}}'>待付款</text>
+								<text wx:if='{{orderInfo.status==1}}'>待发货</text>
+								<text wx:if='{{orderInfo.status==2}}'>已完成</text>
+								<text wx:if='{{orderInfo.status==3}}'>待收货</text>
+								<text wx:if='{{orderInfo.status==7}}'>已取消</text>
+							</view>
+						</view>
+						<view class="bookWiter dan">
+							作者: {{item.author||''}}
+							<view class="endPayTiem" wx:if='{{orderInfo.status==0}}'>
+								{{item.jsTime}}
+							</view>
+						</view>
+						<view class="bookPublish dan">
+							{{item.cbs||''}}
+						</view>
+						<view class="bookDes">
+							共{{item.product_num}}件
+						</view>
+						<view class="bookBottom">
+							<view class="bookTepPriceTxt dan">
+								￥{{item.price}}
+							</view>
+
+						</view>
+					</view>
+				</navigator>
+			</view>
+		</view>
+
+		<view class="orderInfoBox">
+			<view class="orderInfoItem">
+				<view>配送方式：</view>
+				<view>快递</view>
+			</view>
+			<view class="orderInfoItem">
+				<view>订单备注：</view>
+				<view>{{orderInfo.remarks||"无"}}</view>
+			</view>
+			<view class="orderInfoItem">
+				<view>订单编号：</view>
+				<view>{{orderInfo.order_no||""}}</view>
+			</view>
+		</view>
+
+		<view class="orderInfoBox">
+			<view class="orderInfoItem" wx:for='{{orderInfo.log}}'>
+				<view wx:if='{{item.status==0}}'>创建时间：</view>
+				<view wx:if='{{item.status==1}}'>支付时间：</view>
+				<view wx:if='{{item.status==3}}'>发货时间：</view>
+				<view wx:if='{{item.status==4}}'>收货时间：</view>
+				<view wx:if='{{item.status==2}}'>完成时间：</view>
+				<view wx:if='{{item.status==7}}'>取消时间：</view>
+				<view>{{item.created_at}}</view>
+			</view>
+			<!-- <view class="orderInfoItem">
+				<view>支付时间：</view>
+				<view>2020/05/08 12:46:32</view>
+			</view>
+			<view class="orderInfoItem">
+				<view>发货时间：</view>
+				<view>2020/05/08 12:46:32</view>
+			</view> -->
+		</view>
+	</view>
+
+
+	<view class="carFixBottom" wx:if='{{orderInfo.status==0||orderInfo.status==2||orderInfo.status==7}}'>
+		<view class="orderPayBtn flexMid btnActive" wx:if='{{orderInfo.status==0}}' bindtap="orderPay">
+			立即支付
+		</view>
+
+		<view class="orderPayBtn flexMid btnActive" wx:if='{{orderInfo.status==3}}' bindtap="sureGet">
+			确认收货
+		</view>
+
+		<view class="orderPayBtn flexMid btnActive" wx:if='{{orderInfo.status==2&&orderInfo.order_type!=1}}' bindtap="bohao">
+			联系客服 
+		</view>
+
+		<view class="orderPayBtn flexMid btnActive" wx:if='{{orderInfo.status==2&&orderInfo.order_type==1}}' bindtap="goRead" >
+			立即阅读
+		</view>
+		<!-- <view class="orderPayBtn flexMid btnActive" wx:if='{{orderInfo.status==7&&orderInfo.order_type==2}}'>
+			再次购买
+		</view> -->
+	</view>

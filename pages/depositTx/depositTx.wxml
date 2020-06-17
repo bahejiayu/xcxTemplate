@@ -1,0 +1,53 @@
+<view class="tiBox">
+	<view class="tiContainer">
+		<view class="tiInp" bindtap="goAccount">
+			<view class="tiInpTitle">
+				选择账户
+			</view>
+			<input type="text" disabled="{{true}}" placeholder="请选中账户类型" placeholder-class="inpStyle" value="银行卡"></input>
+			<view class="icon icon-right">
+			</view>
+		</view>
+		<view class="tiInp">
+			<view class="tiInpTitle">
+				户名
+			</view>
+			<input type="text" placeholder="请选择账户" value="{{accountData.open_name}}" disabled="{{true}}" placeholder-class="inpStyle"></input>
+
+		</view>
+		<view class="tiInp">
+			<view class="tiInpTitle">
+				账号
+			</view>
+			<input type="text" placeholder="请选择账户" value="{{accountData.account}}" disabled="{{true}}" placeholder-class="inpStyle"></input>
+
+		</view>
+		<view class="paymentBox">
+			<view class="paymentTit">
+				提现金额：
+			</view>
+			<view class="paymentInp">
+				<view class="paymentInpL">
+					￥
+				</view>
+				<input type="digit" placeholder="请输入金额" value="{{money}}" bindblur="changeMoney" placeholder-class="inpStyle"></input>
+			</view>
+		</view>
+		<view class="bServie">
+			<view>本次可提现{{userAccountInfo.be_left_bond||0}}元</view>
+			<view wx:if='{{money}}'>收取服务费{{fwf||'0.00'}}元</view>
+		</view>
+
+	</view>
+
+	<navigator url="../chooseAccount/chooseAccount?type=2"  class="fixAcc">
+		<view>账号</view>
+		<view>管理</view>
+	</navigator>
+
+
+	<view class="depositFix">
+
+		<button form-type="submit" bindtap="pay_" data-ok="{{accountData.account&&accountData.open_name&&money<=userAccountInfo.be_left_bond&&money?'isOk':''}}" class="formBtn   {{accountData.account&&accountData.open_name&&money<=userAccountInfo.be_left_bond&&money?'isOk':''}}  addressBtn">立即提现</button>
+	</view>
+</view>

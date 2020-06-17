@@ -1,0 +1,371 @@
+.marketTop{
+  padding: 0 40rpx;
+}
+.searchBox {
+padding-left: 0;
+}
+.searchInp {
+background-color: #F9F9F9;
+}
+.searchInp input{
+color: #222;
+}
+.searchTxt{
+
+color: #94959C;
+}
+.filtrateLine{
+justify-content: space-around;
+}
+
+
+.marketGoodList{
+padding: 0 40rpx;
+overflow: hidden;
+
+}
+.closeRange{
+position: fixed;
+left: 0;
+top: 0;
+height: 100%;
+width: 230rpx;
+z-index: 1000;
+}
+.mkBox{
+padding-top: 160rpx;
+}
+.marketGoodL{
+float: left;
+width: 50%;
+box-sizing: border-box;
+padding-right: 10rpx;
+}
+.marketGoodR{
+float: left;
+width: 50%;
+box-sizing: border-box;
+padding-left: 10rpx;
+
+}
+.marketGoodImg{
+  /* height:312rpx ; */
+  height: auto;
+
+}
+.marketGoodImg image{
+width: 100%;
+/* height: 100%!important; */
+}
+.marketGoodInfo{
+padding: 0 20rpx;
+background-color: #F5F5F5;
+padding-top: 14rpx;
+}
+.marketGoodL navigator{
+display: block;
+}
+.marketGood{
+border-radius: 8rpx;
+overflow: hidden;
+margin-bottom: 25rpx;
+background-color: #F5F5F5;
+
+
+}
+.marketGoodName{
+  font-size: 28rpx;
+  font-weight: bold;
+ margin-bottom: 14rpx;
+  color: #222222;
+
+}
+.pAw{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+
+.gPri{
+font-size:30rpx ;
+font-weight: bold;
+color: #9A141E;
+}
+.peopleNub{
+font-size:26rpx ;
+color: #94959C;
+}
+.newOldAyou{
+display: flex;
+justify-content: space-between;
+margin-top: 12rpx;
+}
+
+.newOld{
+font-size: 26rpx;
+color: #222222;
+}
+.you_{
+font-size:26rpx ;
+color: #94959C;
+}
+.auctNub{
+font-size: 25rpx;
+color: #94959C;
+}
+.auctNub{
+margin: 12rpx 0;
+}
+.endTime{
+font-size: 26rpx;
+color: #222222;
+}
+.marGoodBottom{
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 32rpx 0;
+}
+.marHeadImg{
+width:70rpx;
+height: 70rpx;
+border-radius: 50%;
+overflow: hidden;
+
+}
+.marHeadImg image{
+width: 100%;
+height: 100%;
+}
+.marStatus{
+width: 106rpx;
+height: 50rpx;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24rpx;
+background-color: #D5D5D5;
+border-radius: 8rpx;
+}
+.marStatus.cur{
+background-color: #9A141E;
+color: #fff;
+
+}
+.searchTxt {
+  left: 50%;
+}
+.mkFix{
+position: fixed;
+width: 100%;
+top: 0;
+background-color: #fff;
+left: 0;
+}
+
+.booksItem{
+  position: relative;
+  height: 322rpx;
+  padding-left: 310rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+  padding-bottom: 40rpx;
+  overflow: hidden;
+}
+.bookItemImg{
+  position: absolute;
+  width:240rpx ;
+  height: 322rpx;
+  left: 0;
+  top: 0;
+}
+.bookItemImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.bookInfoName{
+  font-size:34rpx ;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+.bookWiter{
+  font-size: 26rpx;
+  color:#222222 ;
+  /* padding-right: 140rpx; */
+  position: relative;
+}
+.bookPublish{
+  font-size: 24rpx;
+  color:#A2A2A2 ;
+  margin-top: 10rpx;
+  margin-bottom: 6rpx;
+}
+.icon-delete{
+  /* font-weight: bold; */
+  font-size: 40rpx;
+}
+
+.bookDes{
+  font-size:24rpx ;
+  color: #ADADAD;
+  line-height: 35rpx;
+  height: 114rpx;
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bookTepPriceTxt {
+ font-size: 32rpx;
+  color: #222222;
+  max-width: 55%;
+
+  }
+  .bookBottom{
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 10rpx; */
+    align-items: center;
+  }
+  .bookTepTip{
+    height: 42rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #A2A2A2;
+    padding: 0 12rpx;
+    line-height: 42rpx;
+    max-width: 130rpx;
+    background-color: #F5F5F5;
+    /* max-width: 40%; */
+}
+.dwI{
+  position: absolute;
+  display: none;
+  right: 0;
+  top: 0;
+}
+.freedX{
+  width:120rpx ;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #9A141E;
+  border-radius: 5rpx;
+}
+.booksContainer{
+  padding:  40rpx;
+  padding-bottom: 0;
+
+}
+.collectAddBtn{
+  width:148rpx ;
+  height: 50rpx;
+  border: 1px solid #9A141E;
+  color: #9A141E;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+
+
+}
+.vipFixTop{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color:#fff;
+  z-index: 100;
+  padding-bottom: 20rpx;
+}
+.bookShelfBox{
+  padding: 20rpx 40rpx;
+  padding-top: 95rpx;
+}
+.fixPay{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+padding-bottom: 40rpx;
+background-color: #fff;
+z-index: 30;
+transform: translateY(100%);
+transition: all 0.3s;
+
+}
+.fixPay.showPay{
+transform: translateY(0);
+
+}
+.fixPayTitle{
+position: relative;
+height:130rpx ;
+border-bottom: 1px solid #EAEAEA;
+font-size: 36rpx;
+color: #222222;
+text-align: center;
+line-height: 130rpx;
+}
+.fixPayTitle text{
+position: absolute;
+font-size: 36rpx;
+color: #222222;
+right: 0;
+padding: 0 20rpx;
+}
+
+.payInfoItem{
+height: 105rpx;
+font-size: 32rpx;
+border-bottom: 1px solid #EAEAEA;
+color: #222222;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.payRed{
+color: #9A141E;
+}
+
+
+.bookPayBtn{
+
+width: 280rpx;
+height: 86rpx;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 34rpx;
+background-color: #9A141E;
+margin: 0 auto;
+border-radius: 10rpx;
+}
+.payInfoList{
+margin-bottom: 80rpx;
+}
+.bookInfo{
+  position: relative;
+}
+.bookBottom{
+  position: absolute;
+  bottom: 0;
+}
+.formBook{
+  font-size: 26rpx;
+  color: #A2A2A2;
+
+}

@@ -1,104 +1,147 @@
 
- function  wordsWrap(ctx, name, nameWidth, maxWidth, startX, srartY, wordsHight) {
-    let lineWidth = 0;
-    let lastSubStrIndex = 0;
-    for (let i = 0; i < name.length; i++) {
-      lineWidth += ctx.measureText(name[i]).width;
-      if (lineWidth > maxWidth) {
-        ctx.fillText(name.substring(lastSubStrIndex, i), startX, srartY);
-        srartY += wordsHight;
-        lineWidth = 0;
-        lastSubStrIndex = i;
-      }
-      if (i == name.length - 1) {
-        ctx.fillText(name.substring(lastSubStrIndex, i + 1), startX, srartY);
-      }
-    }
-  }
-
-
+import util from '../../utils/util.js'
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据R
    */
   data: {
-    w:0,
-    h:0
+    indicator:0,
+    bannerList:[],
+    bookList:[{},{},{}],
+    previewList:[{},{},{},{}],
+    resultList:[{},{},{},{}],
+    artNewList:[]
   },
-  lv(imgPx,sheWidth=540){
-
-    var lv = (imgPx * this.data.w) /sheWidth;
-    return lv
+  goTabBar(e){
+    util.wxRouter('switchTab',e.currentTarget.dataset.url)
+  },
+  goNav(e){
+    util.wxRouter('navigateTo',e.currentTarget.dataset.url)
+  },
+  
+  swiperChange(e){
+   
+      this.setData({
+        indicator:e.detail.current
+      });
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-        var that=this;
-        wx.getSystemInfo({
-          success: function(res) {
-              that.setData({
-                w: res.screenWidth,
-                h: res.screenHeight
-              })
-
-          },
+  // 获取首页轮播图数据
+  getBanner(){  
+    var that=this;
+      util.request('/api/v1.opt/home').then(res=>{
+            if(res.code==0){
+              res.data.banner.map((item,index)=>{
+                  var wpUrl='';
+                  if(item.path_type==1){
+                    wpUrl='/library/pages/bookDetail/bookDetail?id='+item.path_id
+                  }else if(item.path_type==2){
+                        if(item.goods_url_type==1){
+                          wpUrl='/auction/pages/auctionDetail/auctionDetail?id='+item.path_id
+                        }else{
+                          wpUrl='/auction/pages/lotDetail/lotDetail?id='+item.path_id
+                        }
+                  }else{
+                    wpUrl='/pages/artNewDetail/artNewDetail?id='+item.path_id
+                  }
+                item.wpUrl=wpUrl;
+              });
+                that.setData({
+                  bannerList:res.data.banner
+                });
+            }
+      });
+  },
+    // 获取首页书籍数据
+    getBookData(){  
+      var that=this;
+        util.request('/doc/v1.pages/getDocList').then(res=>{
+              if(res.code==0){
+                  that.setData({
+                    bookList:res.data.list
+                  });
+              }
         });
-    
+    },
+    errimg(e){
+      console.log(e);
+          util.errImg(e,this,'/images/jpImg.png','pics');
+    },
+    getPreview(){  
+      var that=this;
+        util.request('/doc/v1.pages/yuZhanGoodsList',{page:1,limit:4}).then(res=>{
+              if(res.code==0){
+                res.data.list.map((item,index)=>{
+                  if(item.pics){
+                    item.pics=item.pics.replace(/\s/g,'%20');
+                    item.pics=item.pics.replace(/'/g,'%27');
+                  }
+                 
+                });
 
-    const canvasCtx = wx.createCanvasContext('canvas_');
+                  that.setData({
+                    previewList:res.data.list
+                  });
+              }
+        });
+    },
+    // 获取拍卖结果
+    resultList(){
+      var that=this;
+      util.request('/doc/v1.pages/passGoodsList').then(res=>{
+            if(res.code==0){
+              res.data.list.map((item,index)=>{
+                if(item.pics){
+                  item.pics=item.pics.replace(/\s/g,'%20');
+                  item.pics=item.pics.replace(/'/g,'%27');
+                }
+             
+              });
 
-    // 绘制背景
-    canvasCtx.setFillStyle('red');
-    canvasCtx.fillRect(0, 0, this.data.sysWidth, this.data.sysHeight);
+           
+                that.setData({
+                  resultList:res.data.list
+                });
+            }
+      });
+    },
+    // 艺术资讯
+    getArtNews(){
+      var that=this;
+      util.request('/doc/v1.pages/newsList',{
+        page:1,
+        limit:3
+      },'POST').then(res=>{
+            if(res.code==0){
+              console.log(res)
+             res.data.list.map((item,index)=>{
+                item.created_at=  `${new Date(item.created_at.replace(/-/g,'/')).getMonth()}月${new Date(item.created_at.replace(/-/g,'/')).getDay()}日`
+              });
+                that.setData({
+                  artNewList:res.data.list
+                });
+            }
+      });
+    },
+  onLoad: function (options) {
+    // wx.setStorageSync('token', '1fa8ada1894ec2c36e78029e3da34ae6');
+    util.request('/goods/v1.pages/newValueBeat',{
+      goods_id: "38666"
+    },'POST').then(res=>{
+        console.log(res);
+    });
 
 
-    canvasCtx.setFontSize(18);//字体大小
-    canvasCtx.setFillStyle('black');//字体颜色
-    canvasCtx.setTextAlign('left');//字体对齐方式
-    canvasCtx.fillText('这是商品标题', 0, 30);//20是 x 轴的坐标，30 是 y 轴的坐标，以此确定字的位置
-
-    //绘制图片
-    canvasCtx.drawImage('./a.jpg', (this.data.w / 2) - (this.lv(362) / 2), 100, this.lv(362), this.lv(225));
-
-
-    //文字换行
-    // wordsWrap(ctx, name, nameWidth, maxWidth, startX, srartY, wordsHight)
-    // this.wordsWrap(ctx, name, nameWidth, 252, 16, 252, 16);  
-    wordsWrap(canvasCtx, 'namenamenamenamenamenamennnnnnnn', 30, this.data.w, 16, 252, 16)
-
-//绘制一个圆型头像
-    canvasCtx.save()
-    canvasCtx.beginPath();
-    canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'red';
-    canvasCtx.arc(60, 400, 50, 0, Math.PI * 2)
-    canvasCtx.stroke()
-    canvasCtx.clip()
-    canvasCtx.drawImage('./a.jpg', 60-50, 400-50, 100, 100);
-    canvasCtx.restore();
-    canvasCtx.draw();
-    
-    setTimeout(() => {
-      // 将生成的canvas图片，转为真实图片
-      wx.canvasToTempFilePath({
-        x: 0,
-        y: 0,
-        canvasId: 'canvas_',
-        success: function (res) {
-
-          console.log(res.tempFilePath)
-          wx.navigateTo({
-            url: '../logs/logs?img=' + res.tempFilePath,
-          })
-                        },
-        fail: function (res) {
-        }
-      })
-    }, 500)
-    
-
+ 
+ 
+      this.getBanner();
+      this.getBookData();
+      this.getPreview();
+      this.resultList();
+      this.getArtNews();
   },
 
   /**

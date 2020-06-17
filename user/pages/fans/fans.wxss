@@ -1,0 +1,70 @@
+.myFans{
+  padding: 0 40rpx;
+}
+
+.fansItem{
+  padding: 30rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.fansContainer{
+    height: 80rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:110rpx ;
+}
+
+.fansImg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fansImg image{
+  width: 100%;
+  height: 100%!important;
+}
+.fansL{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.fansName{
+  font-size:32rpx ;
+  color: #222222;
+  margin-right: 10rpx;
+  max-width: 300rpx;
+}
+.fansSex image{
+  width: 32rpx;
+}
+
+.fansBtn{
+  width: 140rpx;
+  height:54rpx ;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #94959C;
+  border: 1px solid #DCDCDC;
+}
+
+.fansBtn image{
+  width: 22rpx;
+  padding-right: 4rpx;
+}
+.fansAct{
+  color: #9A141E;
+  border: 1px solid #9A141E;
+
+}
+
+

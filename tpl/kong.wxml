@@ -1,0 +1,6 @@
+<template name='kong'>
+    <view class="kongBox">
+        <image src="/images/kong.png" mode="widthFix"></image>
+        <view class="congTxt">{{kongTxt||'暂无数据'}}</view>
+    </view>
+</template>

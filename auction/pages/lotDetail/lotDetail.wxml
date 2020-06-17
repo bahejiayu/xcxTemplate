@@ -1,0 +1,136 @@
+<view class="lotSwiper">
+
+	<swiper bindchange="swiperChange" autoplay="{{4000}}">
+		<swiper-item wx:for='{{pData.pics}}' >
+			<image src="{{item}}" mode="aspectFit" bindtap="pevImg" data-url="{{item}}"></image>
+		</swiper-item>
+	</swiper>
+	<view class="bannerRight">
+
+		<view class="dan">
+			{{bannerIndex}}/{{pData.pics.length}}
+		</view>
+	</view>
+</view>
+
+<view class="lotDetailBox">
+	<view class="lotAndForm">
+		<view class="lotL">
+			Lot: {{pData.info.iot_num}}
+		</view>
+		<view class="formR">
+			图片来源：{{pData.info.source}}
+		</view>
+	</view>
+	<view class="lotTitle">
+		<view class="lotCn">
+			{{pData.info.cn_name}}
+		</view>
+		<view class="lotEn">
+		{{pData.info.en_name}}
+		</view>
+		<view class="lotFavorite"  bindtap="togCollect" data-type="{{pData.iscollect}}">
+			<image src="/images/icon_library_like{{pData.iscollect==1?'_red':''}}.png" mode="widthFix"></image>
+		</view>
+	</view>
+
+	<view class="lotInfo">
+		<view class="lotInfoLine">
+			估价: {{pData.info.evaluation}}
+		</view>
+		<view class="lotInfoLine">
+			成交价: {{pData.info.transaction_price}}
+		</view>
+		<view class="lotInfoLine">
+			尺寸: {{pData.info.size}}
+		</view>
+		<!-- <view class="lotInfoLine">
+			年代 (中): 清康熙
+		</view>
+		<view class="lotInfoLine">
+			年代 (英): CIRCA 1680
+		</view> -->
+
+
+		<navigator hover-class="none" url="{{userInfo.is_vip==1?'../priceZs/priceZs?id='+pId:'/pages/buyVip/buyVip'}}" class="PriceExponent">
+			价格指数
+		</navigator>
+	</view>
+	<view class="lotBtn">
+	<!-- showModuleEven -->
+		<view class="lotBtnItem" bindtap='goAuction'>
+			<view>查看拍卖会</view>
+			<view class="icon icon-right"></view>
+		</view>
+		<view class="lotBtnItem" bindtap="showModuleEven" data-title="拍品详情" >
+			<view>拍品详情</view>
+			<view class="icon icon-add"></view>
+		</view>
+	
+		<view class="lotBtnItem" bindtap='showModuleEven' data-title="品相报告">
+			<view>品相报告</view>
+			<view class="icon icon-add"></view>
+		</view>
+		<view class="lotBtnItem" bindtap='showModuleEven' data-title="来源/著录">
+			<view>来源/著录</view>
+			<view class="icon icon-add"></view>
+		</view>
+
+
+	</view>
+</view>
+
+
+<view class="shadeView" wx:if='{{showAuctionxQ||showModule}}' bindtap="closeAll"></view>
+
+
+<view class="fixBox" wx:if='{{showModule}}'>
+	<view class="fixContent">
+		<view class="fixContentTit">
+			{{moduleData.title}}
+		</view>
+		<view class="pd20">
+			<scroll-view class="fixDes" scroll-y='{{true}}'>
+				<view class="fixNi">
+						<rich-text  nodes='{{moduleData.html}}' ></rich-text>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>
+
+
+<!-- 拍卖会信息 -->
+<view class="fixBox    " wx:if='{{showAuctionxQ}}'>
+	<view class="fixContent">
+		<view class="fixContentTit">
+			拍品详情
+		</view>
+		<view class="pd20">
+			<scroll-view class="fixDes" scroll-y='{{true}}'>
+				<view class="fixNi">
+					<view class="pmhX">
+						<view class="pmhXline">
+							<text>拍卖公司: </text>伦敦苏富比拍卖行
+						</view>
+						<view class="pmhXline">
+							<text>拍卖会: </text>2020年3月拍卖会
+						</view>
+						<view class="pmhXline">
+							<text>拍卖专场: </text>当代艺术品春拍
+						</view>
+						<view class="pmhXline">
+							<text>拍卖日期: </text>2020/03/16
+						</view>
+						<view class="pmhXline">
+							<text>拍卖分类: </text>陶瓷 - 近代陶艺
+						</view>
+
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>
+
+

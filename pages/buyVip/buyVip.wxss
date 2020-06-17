@@ -1,0 +1,165 @@
+page{
+  background-color: #F9F9F9;
+}
+.buyVipTop{
+  padding: 0 40rpx;
+}
+.buyUserBox{
+  height: 204rpx;
+  background: url(http://images.artcpi.com/MyPublice/wx20200615.png) no-repeat ;
+  background-size: 100% 100%;
+  padding:0 40rpx;
+  display: flex;
+ 
+  align-items: center;
+}
+.buyUserContent{
+  height: 100rpx;
+  padding-left: 124rpx;
+  position: relative;
+}
+.buyUserImg{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.buyUserImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.buyerMemberName{
+  font-size:36rpx ;
+  padding-top: 8rpx;
+  color: #fff;
+  padding-bottom: 4rpx;
+}
+.buyerMemberName image{
+  width: 44rpx;
+  vertical-align: middle;
+  padding-left: 10rpx;
+  height: auto;
+}
+.buyerBotm{
+  font-size:24rpx ;
+  color: #fff;
+}
+.memberNameTxt{
+  max-width: 400rpx;
+}
+
+.buyerMemberName{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bgf7{
+  background-color: #f7f7f7!important;
+}
+.memberPackage{
+  padding: 0 20rpx;
+  /* box-shadow:0 -2px -4rpx -3px rgba(152,152,152); */
+  box-shadow:0px -3px 4px rgba(152,152,152,.4);
+  background-color: #fff;
+  padding-bottom: 40rpx;
+}
+.packageTit{
+  height:116rpx ;
+  display: flex;
+  align-items: center;
+  font-size:32rpx ;
+  color: #222222;
+}
+.packageList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+.packageItem{
+  box-sizing: border-box;
+  width:226rpx ;
+  height: 256rpx;
+  background-color: #F5F5F5;
+  border-radius: 8rpx;
+  border: 4rpx solid #F5F5F5;
+  text-align: center;
+}
+.packageName{
+  font-size: 32rpx;
+  color: #222222;
+  font-weight: bold;
+  padding-top: 52rpx;
+}
+.memberPrice{
+  padding: 12rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.memberPrice view:nth-of-type(1){
+  font-size: 34rpx;
+  color: #EC6067;
+  margin-right: 6rpx;
+}
+.memberPrice view:nth-of-type(2){
+  font-size: 22rpx;
+  color: #989898;
+  padding-top: 5rpx;
+  text-decoration: line-through;
+}
+.pjMouth{
+    font-size: 20rpx;
+    color: #B4B4B4;
+}
+.packageItem.cur{
+  border  :4rpx solid #EBC36B ;
+  background-color:#FBF6E9 ;
+
+}
+.yhTip{
+    position: absolute;
+    height:36rpx ;
+    width: 194rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    line-height: 36rpx;
+    font-size:20rpx ;
+    background-color: #EBC36B;
+    color: #A77100;
+    left: 0;
+    top: 0;
+    transform: translateY(-6rpx);
+    border-bottom-right-radius: 15rpx;
+}
+.privilege{
+  background-color: #fff;
+  margin-top: 40rpx;
+  padding:35rpx 20rpx;
+}
+.privilegeTit{
+  font-size:32rpx ;
+  color: #222222;
+padding-bottom: 10rpx;
+}
+.privilegeTxt{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #BEBEBE;
+}
+.buyVipBtn{
+  background: linear-gradient(to right,#D4B07C, #EBD095); /* 标准的语法（必须放在最后） */
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:98rpx;
+  font-size:36rpx ;
+  color: #FFFFFF;
+}

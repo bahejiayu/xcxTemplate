@@ -1,0 +1,103 @@
+.searchInp input{
+    background-color: #F9F9F9;
+    color: #94959C;
+
+}
+.searchTxt{
+  color: #94959C;
+}
+.searchContainer{
+  padding: 0 40rpx;
+  padding-top: 20rpx;
+}
+.searchInp {
+  padding-right: 100rpx;
+}
+.cancelSearch{
+  position: absolute;
+  font-size:30rpx ;
+  color: #222222;
+  top: 0;
+  line-height: 66rpx;
+  right: 0;
+  width: 100rpx;
+  text-align: right;
+
+}
+.searchNav{
+  padding: 0 40rpx;
+  margin-top: 30rpx;
+}
+
+
+
+.libraryNavList{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.libraryNavItem{
+  font-size: 32rpx;
+  color: #A2A2A2;
+}
+.libraryNavItem text{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15rpx;
+}
+.libraryNavItem text.cur{
+  color: #222222;
+  font-weight: bold;
+  /* border-bottom:5rpx solid #222222 ; */
+}
+.libraryNavItem text.cur::before{
+  position: absolute;
+  height: 5rpx;
+  width: 64rpx;
+  bottom: 0;
+  background-color: #222222;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hotSearch{
+  padding:0 40rpx ;
+}
+.hotSearchTop{
+  height: 102rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 30rpx;
+}
+.hotSearchTop view{
+  font-size: 30rpx;
+  color: #6E7685;
+}
+.hotSearchTop view:last-child{
+  font-size: 28rpx;
+}
+.hotSearchTop .icon{
+  margin-right: 10rpx;
+}
+.hotWordList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.hotWordList view{
+  font-size: 28rpx;
+  color: #BCBCBC;
+  width: 47%;
+  margin-bottom: 15rpx;
+}
+.hotWordList view:nth-child(even){
+  text-align: right;
+}
+
+
+

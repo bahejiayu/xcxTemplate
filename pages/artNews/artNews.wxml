@@ -1,0 +1,46 @@
+<view class="artFixTop">
+	<scroll-view scroll-x='{{true}}' style="width:100%;">
+		<view class="artNav">
+
+			<view class="artNavItem {{curNav==item.id?'cur':''}}" data-id="{{item.id}}" wx:for='{{navList}}' bindtap="togNav">
+				{{item.cat_name}}
+			</view>
+		</view>
+	</scroll-view>
+</view>
+
+
+<view class="artNewList">
+	<view class="artNewItem" wx:for='{{dataList}}'>
+		<navigator hover-class="none" url="../artNewDetail/artNewDetail?id={{item.id}}">
+			<view class="artNewTit twoLine">
+				{{item.title}}
+			</view>
+			<view class="artNewImg">
+				<image src="{{item.logo||'/images/artImg.png'}}" mode="widthFix"></image>
+			</view>
+			<view class="arNewBottom">
+				<view class="arNewBottomL dan">
+					{{item.cats_name}}
+				</view>
+				<view class="arNewBottomR">
+					<view class="artNewTime">
+						{{item.updated_at}}
+					</view>
+					<view class="artNewTip" wx:if='{{item.status==2}}'>
+						已结拍
+					</view>
+					<view class="artNewTip cur" wx:else>
+						预展
+					</view>
+
+
+				</view>
+
+
+			</view>
+
+
+		</navigator>
+	</view>
+</view>

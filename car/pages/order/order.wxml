@@ -1,0 +1,116 @@
+<wxs module="filter" src="../../../filter/index.wxs"></wxs>
+
+<view class="addressBox">
+
+	<!-- 有地址 -->
+
+	<navigator class="hasAddress" hover-class="none" url="../addressList/addressList" wx:if='{{addressInfo}}'>
+		<view class="icon icon-right">
+		</view>
+		<view class="geterInfo">
+			<view>
+				{{addressInfo.name}}
+			</view>
+			<view>
+				{{addressInfo.mobile}}
+			</view>
+			<!-- <navigator hover-class="none" class="editorAddress">
+				<image src="/images/editorAddress.png" mode="widthFix"></image>
+			</navigator> -->
+		</view>
+		<view class="addressTxt">
+			{{addressInfo.adTxt}}{{addressInfo.content}}
+		</view>
+	</navigator>
+
+	<navigator class="noAddress"  url="../addressList/addressList" hover-class="none" wx:else>
+	<view>请添加收货地址</view>
+	<view class="icon icon-right">
+	</view>
+</navigator>
+
+</view>
+
+
+
+
+
+
+<view class="orderGoods">
+	<view class="carItem" wx:for='{{book_arr}}'>
+		<!-- arrowLeft -->
+		<view class="carContainer ">
+			<view class="goodsImgContainer">
+				<image src="{{item.logo||'/images/jpImg.png'}}" mode="aspectFit"></image>
+				<!-- <image src="/images/indexLogo1.png" mode="aspectFit"></image> -->
+			</view>
+			<view class="carContent">
+				<view class="goodsNub">
+					X{{item.num}}
+				</view>
+				<view class="carGoodName">
+					{{item.name}}
+				</view>
+				<view class="carGoodWriter dan">
+					作者: {{item.author}}
+				</view>
+				<view class="pressHourse dan ">
+					{{item.cbs_id}}
+				</view>
+				<view class="carConBottom">
+					<view class="carPrice">
+						￥{{item.price}}
+					</view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="orderTable">
+	<view class="orderOtherInfo">
+		<view class="otherInfoItem">
+			<view class="otherInfoTitle">
+				配送方式：
+			</view>
+			<view class="otherInfoCon">
+				快递
+			</view>
+		</view>
+		<view class="otherInfoItem">
+			<view class="otherInfoTitle">
+				订单备注：
+			</view>
+			<view class="otherInfoCon">
+				<input type="text" maxlength="100" bindinput="changeRemarks" placeholder="选填，最多100个字" placeholder-class="inputStyle"></input>
+			</view>
+		</view>
+	</view>
+
+	<view class="orderMoneyInfo">
+		<view class="mInfoItem">
+			<view>商品金额：</view>
+			<view>￥{{goodsTotal}}</view>
+		</view>
+		<view class="mInfoItem">
+			<view>运费：</view>
+			<view>￥{{freight}}</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="orderFix">
+	<view class="orderTotal">
+		<view class="totalTxt">
+			合计:
+		</view>
+		<view class="totalPrice">
+			￥{{filter.toFixed_((goodsTotal*1)+(freight*1))}}
+		</view>
+	</view>
+	<view class="orderPayBtn"  bindtap="downOrder">
+		立即支付
+	</view>
+</view>

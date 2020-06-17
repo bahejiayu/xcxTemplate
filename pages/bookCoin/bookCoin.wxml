@@ -1,0 +1,41 @@
+<view class="bookCoinTop">
+	<view class="bookCoinTit">
+		<view>剩余书币</view>
+		<view>{{coinMoney}}个</view>
+	</view>
+	<view class="mLvB">
+		1元人民币 = 1个书币
+	</view>
+	<view class="coinList"> 
+			<view class="coinItem  {{chkIndex==index?'cur':''}} " data-index='{{index}}'  bindtap="togCoin" wx:for='{{valueList}}'>
+					￥{{item.price}}
+			</view>
+			
+	</view>
+</view>
+<view class="bookCoinLine">
+
+</view>
+<view class="bookCoinTip">
+    <view>说明:</view>
+    <view>1.完成支付后可以在“个人中心-我的钱包”查看书币余额；</view>
+    <view>2.书币只能购买电子类书籍，不能用于购买实体书籍。</view>
+</view>
+
+
+
+
+
+<view class="orderFix">
+	<view class="orderTotal">
+		<view class="totalTxt">
+			实付金额:
+		</view>
+		<view class="totalPrice">
+			￥{{valueList[chkIndex].price||'0.00'}}
+		</view>
+	</view>
+	<view class="orderPayBtn" bindtap="coinPay" >
+		立即支付
+	</view>
+</view>

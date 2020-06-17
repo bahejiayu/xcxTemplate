@@ -1,0 +1,113 @@
+<import src='/tpl/goodTpl.wxml' />
+<view id="box">
+	<view class="userTop">
+		<view class="memberInfo">
+			<view class="memberInfoImg">
+				<image src="{{userData.avatar||'/images/showGood.png'}}" mode="widthFix"></image>
+			</view>
+			<view class="memberInfoContent">
+				<view class="memberInfoContentT">
+					<view class="memberName dan">
+						{{userData.nickname}}
+					</view>
+					<view class="userSex">
+						<image src="/images/boyIocn.png" mode="widthFix" wx:if='{{userData.gender=="男"}}'></image>
+						<image src="/images/girlIcon.png" mode="widthFix" wx:if='{{userData.gender=="女"}}'></image>
+					</view>
+
+				</view>
+				<view class="memberInfoContentB">
+					<view class="memberTip">
+						<view>
+							<image src="/images/vIocn.png" mode="widthFix" wx:if='{{userData.is_real==1}}'></image>
+					<image src="/images/viconh.png" mode="widthFix" wx:else></image>
+						</view>
+						<view>{{userData.is_real==1?'已':'未'}}认证</view>
+					</view>
+					<view class="memberTip">
+						<view>
+							<image src="/images/miocn.png" mode="widthFix"  wx:if='{{userData.is_ensure==1}}'></image>
+					<image src="/images/miconh.png" mode="widthFix" wx:else></image>
+						</view>
+						<view>{{userData.is_ensure==1?'已':'未'}}缴纳保证金</view>
+					</view>
+
+					<view class="fansR">
+						<view class="fansBtn flexMid fansAct" wx:if='{{userData.is_follw==0}}' data-type="{{userData.is_follw}}" bindtap="concernEvent">
+							<image src="/images/addIcon.png" mode="widthFix"></image>
+							关注
+						</view>
+						<view  bindtap="concernEvent" data-type="{{userData.is_follw}}" class="fansBtn flexMid" wx:else>
+							取消关注
+						</view>
+
+
+						<!-- <view class="fansBtn flexMid">
+            <image src="/images/addedIcon.png" mode="widthFix"></image>
+            已关注
+				</view> -->
+						<!-- <view class="fansBtn flexMid">
+					<image src="/images/friendIcon.png" mode="widthFix"></image>
+					互相关注
+				</view> -->
+
+					</view>
+
+
+				</view>
+			</view>
+		</view>
+		<view class="memberNav">
+			<navigator hover-class="none" class="memberNavItem">
+				<view>{{userData.fans}}</view>
+				<view>粉丝</view>
+			</navigator>
+			<navigator hover-class="none" class="memberNavItem">
+				<view>{{userData.follow}}</view>
+				<view>关注</view>
+			</navigator>
+		</view>
+	</view>
+
+	<view class="linege">
+
+	</view>
+
+
+	<view class="homepageNav">
+		<view class="libraryNavList">
+			<view class="libraryNavItem" data-type="1" bindtap="togType">
+				<text class="{{navType==1?'cur':''}} ">已发布</text>
+			</view>
+			<view class="libraryNavItem" data-type="2" bindtap="togType">
+				<text class="{{navType==2?'cur':''}} ">收藏书架</text>
+			</view>
+		</view>
+	</view>
+
+
+</view>
+<scroll-view style="height:{{height_}}px;" scroll-y='{{true}}' scroll-top='{{st}}' bindscrolltolower='onReachBottom' refresher-enabled='{{true}}' refresher-threshold='111'  bindscrolltoupper="refresh"  refresher-triggered='{{true}}' bindrefresherrefresh='aa'> 
+
+			<import src='/tpl/kong.wxml' />
+
+	<view class="productBox">
+		<!-- 作品 -->
+		<view class="marketGoodList" wx:if='{{navType==1&&showY}}'>
+<template is='kong' wx:if='{{userList.length<=0&&navType==1}}' data='{{...{kongTxt:"暂无数据"} }}'></template>
+
+			<view class="marketGoodL">
+				<template is="marketPb" wx:for='{{userList}}' data="{{...{data:item } }}" wx:key='index' wx:if='{{(index+1)%2!=0}}'></template>
+			</view>
+			<view class="marketGoodR">
+				<template is="marketPb" wx:for='{{userList}}' data="{{...{data:item } }}" wx:key='index' wx:if='{{(index+1)%2==0}}'></template>
+			</view>
+		</view>
+		<!-- 收藏书架 -->
+		<view class="collectBook" wx:if='{{navType==2&&showY}}'>
+		<template is='kong' wx:if='{{userList.length<=0&&navType==2}}' data='{{...{kongTxt:"暂无数据"} }}'></template>
+			<template is="booksItem" data="{{...{list:userList } }}"></template>
+		</view>
+
+	</view>
+</scroll-view>

@@ -1,0 +1,81 @@
+<wxs module="filter" src="../../../filter/index.wxs"></wxs>
+
+<view class="auctionTop">
+	<view class="auctionDesInt">
+		<view class="auctionDesImg bg3">
+			<image    src="{{auctionInfo.logo_pic||'/images/showGood.png'}}" mode="aspectFit"></image>
+		</view>
+		<view class="auctionContent">
+			<view class="auctionConNmae threeLine">
+				{{filter.delYear(auctionInfo.title)}}
+			</view>
+			<view class="auctBox">
+				<view class="dan">
+					拍卖公司: {{auctionInfo.au_company_id}}
+				</view>
+					<view class="auDate">
+						拍卖时间: {{auctionInfo.pass_time}}
+					</view>
+			</view>
+			<view class="auctionBottom">
+				<view class="auctArea dan">
+						拍卖地区: {{auctionInfo.city}}
+					</view>
+				<view class="auctionTip  {{pList[0].is_pass==1?'':'now_'}} ">
+				{{pList[0].is_pass==1?'已结拍':'预展'}} 
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="auctionFilt">
+	<view class="filtrateLine">
+		<view class="filtrateItem b2" bindtap="lotSort" data-type="lot">
+			<view class="">Lot号
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.lot==""}}'></image>
+					<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.lot=="desc"}}'></image>
+						<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.lot=="asc"}}'></image>
+			</view>
+		</view>
+		<view class="filtrateItem b2" bindtap="lotSort" data-type="price">
+			<view class="">成交价
+					<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price==""}}'></image>
+					<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="desc"}}'></image>
+						<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="asc"}}'></image>
+
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="antiqueList">
+	<view class="antqueItem" wx:for='{{pList}}' wx:key='index'>
+		<navigator url="/auction/pages/lotDetail/lotDetail?id={{item.goods_id}}" hover-class="none">
+			<view class="antqueImg bg3">
+				<image src="{{item.logo||'/images/showGood.png'}}" mode="aspectFit"  data-index="{{index}}" data-obj="pList" lazy-load='{{true}}' bindload="loadOK"  binderror="errorImg"></image>
+			</view>
+			<view class="antqueContent">
+				<view class="antqueName dan">
+					{{item.cn_name||item.en_name}}
+				</view>
+				<view class="lotNub">
+					Lot: {{item.iot_num}}
+				</view>
+				<view class="antqueSize dan" >
+					<text>尺寸:</text> {{item.size||'暂无'}}
+				</view>
+				<view class="makeBargainPrice dan" wx:if='{{item.is_pass==1}}'>
+					成交价:<text>{{item.transaction_price}}</text>
+				</view>
+						<view class="makeBargainPrice dan" wx:else>
+					估价:<text>{{item.evaluation}}</text>
+				</view>
+
+
+			</view>
+		</navigator>
+	</view>
+
+</view>

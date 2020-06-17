@@ -4,16 +4,28 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
-	"appid": "wx11b764518a486e6b",
+	"appid": "wx09ce30487739e9ab",
 	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8FTemplate",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -37,358 +49,417 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 56,
 			"list": [
 				{
 					"id": 0,
-					"name": "1.0.0 首页",
-					"pathName": "pages/home/home",
-					"query": ""
+					"name": "图书馆",
+					"pathName": "pages/library/library",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "图书列表流",
+					"pathName": "library/pages/booksList/booksList",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "书籍详情",
+					"pathName": "library/pages/bookDetail/bookDetail",
+					"query": "id=87",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "目录",
+					"pathName": "library/pages/catalog/catalog",
+					"query": "id=74&isBuy=1&canLook=0",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "car/pages/car/car",
+					"pathName": "car/pages/car/car",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "确认订单",
+					"pathName": "car/pages/order/order",
+					"query": "type=4&mk=1&yf=10.00",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "新建收货地址",
+					"pathName": "car/pages/addressTable/addressTable",
+					"query": "id=8",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.0.1 选择学校",
-					"pathName": "pages/home/choose",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "1.1.1 任务中心",
-					"pathName": "pages/task/list",
-					"query": ""
+					"name": "地址列表",
+					"pathName": "car/pages/addressList/addressList",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 8,
-					"name": "1.2.1 订单详情（角色：发布者，状态：新发布）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=0"
+					"name": "拍卖会",
+					"pathName": "pages/auction/auction",
+					"query": "",
+					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "1.2.2 订单详情（角色：发布者，状态：被抢了）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=1"
+					"id": 9,
+					"name": "拍卖会详情",
+					"pathName": "auction/pages/auctionDetail/auctionDetail",
+					"query": "id=297",
+					"scene": null
 				},
 				{
 					"id": 10,
-					"name": "1.2.3 订单详情（角色：发布者，状态：已送达）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=2"
+					"name": "拍卖品详情",
+					"pathName": "auction/pages/lotDetail/lotDetail",
+					"query": "id=40386",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.2.4 订单详情（角色：发布者，状态：已结单）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=3"
+					"name": "价格指数",
+					"pathName": "auction/pages/exponent/exponent",
+					"query": "",
+					"scene": null
 				},
 				{
-					"id": 7,
-					"name": "1.3.1 发表评价",
-					"pathName": "pages/task/evaluate",
-					"query": "orderId=12"
-				},
-				{
-					"id": 14,
-					"name": "1.4.1 订单详情（角色：发布者，状态：送达后发布者取消订单）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=2&close=1&closer=master"
+					"id": 12,
+					"name": "市集",
+					"pathName": "pages/market/market",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 13,
-					"name": "1.4.2 订单详情（角色：发布者，状态：取消订单完成）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=1&close=2&closer=master"
+					"name": "市集书籍详情",
+					"pathName": "market/pages/marketDetail/marketDetail",
+					"query": "id=92",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "个人中心",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.4.3 订单详情（角色：发布者，状态：抢单者取消订单）",
-					"pathName": "pages/task/info",
-					"query": "role=master&step=1&close=1&closer=waiter"
+					"name": "收藏",
+					"pathName": "user/pages/collect/collect",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.5.1 订单详情（角色：非发布者，状态：新发布 抢单）",
-					"pathName": "pages/task/info",
-					"query": "step=0"
+					"name": "我的足迹",
+					"pathName": "user/pages/footPrint/footPrint",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "我的粉丝",
+					"pathName": "user/pages/fans/fans",
+					"query": "type=1",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.5.2 订单详情（角色：非发布者，状态：订单被别人抢了）",
-					"pathName": "pages/task/info",
-					"query": "step=1"
+					"name": "实名认证",
+					"pathName": "user/pages/certification/certification",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "提现账户设置",
+					"pathName": "user/pages/withdrawSet/withdrawSet",
+					"query": "type=editor",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1.5.3 订单详情（角色：非发布者，状态：订单已送达）",
-					"pathName": "pages/task/info",
-					"query": "step=2"
-				},
-				{
-					"id": -1,
-					"name": "1.5.4 订单详情（角色：非发布者，状态：订单已结单）",
-					"pathName": "pages/task/info",
-					"query": "step=3"
-				},
-				{
-					"id": -1,
-					"name": "1.6.1 订单详情（角色：抢单者，状态：订单已抢）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=1"
-				},
-				{
-					"id": -1,
-					"name": "1.6.2 订单详情（角色：抢单者，状态：订单已送达）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=2"
-				},
-				{
-					"id": -1,
-					"name": "1.6.3 订单详情（角色：抢单者，状态：订单已结单）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=3"
-				},
-				{
-					"id": -1,
-					"name": "1.7.1 订单详情（角色：抢单者，状态：抢单者取消订单）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=2&close=1&closer=waiter"
-				},
-				{
-					"id": -1,
-					"name": "1.7.2 订单详情（角色：抢单者，状态：发布者取消订单）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=2&close=1&closer=master"
-				},
-				{
-					"id": -1,
-					"name": "1.7.3 订单详情（角色：抢单者，状态：取消订单完成）",
-					"pathName": "pages/task/info",
-					"query": "role=waiter&step=2&close=2"
+					"name": "消息中心",
+					"pathName": "user/pages/messageCenter/messageCenter",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 21,
-					"name": "2.0.1 发布快递任务",
-					"pathName": "pages/release/form",
-					"query": "type=0",
+					"name": "消息详情",
+					"pathName": "user/pages/messageDetail/messageDetail",
+					"query": "type=3",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "2.0.2 地址选择",
-					"pathName": "pages/release/selectPlace",
-					"query": ""
+					"name": "登陆",
+					"pathName": "user/pages/login/login",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.0.0 我的",
-					"pathName": "pages/ucenter/home/home",
-					"query": ""
+					"name": "修改手机号码",
+					"pathName": "user/pages/modifyPhone/modifyPhone",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.1.1 消息中心",
-					"pathName": "pages/chat/list",
-					"query": ""
+					"name": "找回密码",
+					"pathName": "user/pages/findPassword/findPassword",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.1.2 消息详情",
-					"pathName": "pages/chat/info",
-					"query": ""
+					"name": "注册",
+					"pathName": "user/pages/registered/registered",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "艺术资讯",
+					"pathName": "pages/artNews/artNews",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "资讯详情",
+					"pathName": "pages/artNewDetail/artNewDetail",
+					"query": "id=21",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "个人主页",
+					"pathName": "market/pages/homePage/homePage",
+					"query": "uid=16",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.2.1 我的发单",
-					"pathName": "pages/ucenter/order/order",
-					"query": ""
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.2.1 我的发单",
-					"pathName": "pages/ucenter/order/order",
-					"query": ""
+					"name": "出售",
+					"pathName": "user/pages/sell/sell",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.2.2 我的抢单",
-					"pathName": "pages/ucenter/order/order",
-					"query": ""
+					"name": "设置",
+					"pathName": "user/pages/set/set",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "我的订单",
+					"pathName": "user/pages/myOrder/myOrder",
+					"query": "id=1059",
+					"scene": null
+				},
+				{
+					"id": 33,
+					"name": "订单详情",
+					"pathName": "user/pages/orderDetail/orderDetail",
+					"query": "id=1059",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.1 我的余额",
-					"pathName": "pages/ucenter/balance/balance",
-					"query": ""
-				},
-				{
-					"id": 31,
-					"name": "3.3.2 余额充值明细",
-					"pathName": "pages/ucenter/balance/detail",
-					"query": "type=0"
+					"name": "电子书架",
+					"pathName": "pages/bookShelf/bookShelf",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.3 提现明细",
-					"pathName": "pages/ucenter/balance/detail",
-					"query": "type=1"
+					"name": "我的发布",
+					"pathName": "pages/myRelease/myRelease",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.4 感谢费记录",
-					"pathName": "pages/ucenter/balance/detail",
-					"query": "type=2"
+					"name": "我卖出的",
+					"pathName": "pages/mySell/mySell",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.5 消费记录",
-					"pathName": "pages/ucenter/balance/detail",
-					"query": "type=3"
+					"name": "我的钱包",
+					"pathName": "pages/myWallet/myWallet",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.6 提现",
-					"pathName": "pages/ucenter/balance/cash",
-					"query": ""
+					"name": "余额",
+					"pathName": "pages/balance/balance",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.3.7 充值",
-					"pathName": "pages/ucenter/balance/recharge",
-					"query": ""
-				},
-				{
-					"id": 30,
-					"name": "3.4.1 实名认证",
-					"pathName": "pages/ucenter/auth/name",
-					"query": ""
+					"name": "保证金",
+					"pathName": "pages/deposit/deposit",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.5.1 地址列表",
-					"pathName": "pages/ucenter/address/list",
-					"query": ""
+					"name": "提现",
+					"pathName": "pages/tiXian/tiXian",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.5.2 添加地址",
-					"pathName": "pages/ucenter/address/add",
-					"query": ""
+					"name": "书币充值",
+					"pathName": "pages/bookCoin/bookCoin",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "3.6.1 个人资料",
-					"pathName": "pages/ucenter/profile/profile",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "3.7.1 绑定手机",
-					"pathName": "pages/ucenter/bind/phone",
-					"query": ""
-				},
-				{
-					"id": 41,
-					"name": "4.0.0 管理员",
-					"pathName": "pages/manager/home",
-					"query": ""
-				},
-				{
-					"id": 42,
-					"name": "4.1.1  审核认证-列表",
-					"pathName": "pages/manager/profile/list",
-					"query": ""
+					"name": "购买会员",
+					"pathName": "pages/buyVip/buyVip",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 43,
-					"name": "4.1.2  审核认证-详情",
-					"pathName": "pages/manager/profile/info",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "4.2.1  订单状态审核",
-					"pathName": "pages/manager/order/list",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "4.3.1  提现审核",
-					"pathName": "pages/manager/cash/cash",
-					"query": ""
-				},
-				{
-					"id": 46,
-					"name": "3.7.2 新增学校申请",
-					"pathName": "pages/ucenter/cooperation/school",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "4.1.1 虚拟用户",
-					"pathName": "pages/manager/robot/robot",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "服务协议",
-					"pathName": "pages/ucenter/disclaimer/disclaimer",
-					"query": "type=0",
+					"name": "library/pages/reading/reading",
+					"pathName": "library/pages/reading/reading",
+					"query": "id=74",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "优惠券",
-					"pathName": "pages/ucenter/coupon/coupon",
+					"name": "我的关注",
+					"pathName": "user/pages/concern/concern",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "书币",
+					"pathName": "pages/coin/coin",
+					"query": "id=905",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/feedBack/feedBack",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 47,
+					"name": "选择账户",
+					"pathName": "pages/chooseAccount/chooseAccount",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保证金提现",
+					"pathName": "pages/depositTx/depositTx",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 49,
+					"name": "pages/auctionSearch/auctionSearch",
+					"pathName": "pages/auctionSearch/auctionSearch",
+					"query": "keyword=清康",
 					"scene": null
 				},
 				{
 					"id": 50,
-					"name": "设置管理员",
-					"pathName": "pages/manager/set/set",
-					"query": "",
+					"name": "图书搜索",
+					"pathName": "pages/librarySearch/librarySearch",
+					"query": "keyword=陶瓷",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "管理员详情",
-					"pathName": "pages/manager/managerInfo/managerInfo",
-					"query": "",
+					"name": "集市搜索",
+					"pathName": "pages/marketSearch/marketSearch",
+					"query": "keyword=给",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "解绑手机",
-					"pathName": "pages/ucenter/Untying/phone",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 53,
-					"name": "分润明细",
-					"pathName": "pages/manager/getDetail/getDetail",
-					"query": "",
+					"name": "user/pages/sellEditor/sellEditor",
+					"pathName": "user/pages/sellEditor/sellEditor",
+					"query": "id=83",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "提现审核",
-					"pathName": "pages/ucenter/auditing/auditing",
+					"name": "帮助中心",
+					"pathName": "pages/helpCenter/helpCenter",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 55,
-					"name": "分润明细提现",
-					"pathName": "pages/manager/getMoney/getMoney",
-					"query": "",
+					"id": 54,
+					"name": "pages/articleView/articleView",
+					"pathName": "pages/articleView/articleView",
+					"query": "id=1&title=aaa",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "图片容器",
-					"pathName": "pages/imgDetail/imgDetail",
+					"name": "vip搜索",
+					"pathName": "pages/vipSearch/vipSearch",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 56,
+					"name": "pages/vipSearch/vipSearch",
+					"pathName": "pages/vipSearch/vipSearch",
+					"query": "keyword=玻璃",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "h5阅读",
+					"pathName": "pages/readH/readH",
+					"query": "",
 					"scene": null
 				}
 			]

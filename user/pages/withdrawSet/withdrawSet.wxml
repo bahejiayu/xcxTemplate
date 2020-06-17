@@ -1,0 +1,43 @@
+<view class="tableBox">
+	<form>
+		<view class="inpItem">
+			<view class="inpTitle">
+				账户类型
+			</view>
+			<picker mode='region'>
+				<input type="text" placeholder-class="tabInp" value="银行卡" disabled="{{true}}" placeholder="请选择账户类型">
+				</input>
+			</picker>
+			<!-- <view class="icon icon-right"></view> -->
+		</view>
+		<view class="inpItem">
+			<view class="inpTitle">
+				户名
+			</view>
+			<input type="text" placeholder-class="tabInp"  data-name="open_name"  bindinput="inputEven" value="{{accInfo.open_name}}" placeholder="请输入收款人的姓名">
+			</input>
+		</view>
+		<view class="inpItem">
+			<view class="inpTitle">
+				账号
+			</view>
+			<input type="text" placeholder-class="tabInp" data-name="account" bindinput="inputEven" value="{{accInfo.account}}" placeholder="请输入收款人的账号">
+			</input>
+		</view>
+		<view class="setdefault">
+			<view>
+				设为默认账户
+			</view>
+			<switch checked="{{accInfo.default==1}}" bindchange="switch1Change" color='#457AE3' />
+		</view>
+
+		<!-- <view class="accDel" wx:if='{{type=="editor"}}' bindtap="editorAcc">
+				删除
+		</view> -->
+
+
+		<button form-type="submit" bindtap="saveAcc"  data-ok="{{accInfo.open_name&&accInfo.account?'isOk':''}} " class="formBtn  {{accInfo.open_name&&accInfo.account?'isOk':''}}   addressBtn">保存</button>
+
+	</form>
+
+</view>

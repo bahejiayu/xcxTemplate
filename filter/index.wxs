@@ -1,0 +1,126 @@
+// todo 过滤器 module 对象文件
+// 格式过滤
+// 价格小数点  eg: 9 => 9.00
+var numToFixed = function (num, digits = 2) {
+  if (typeof num !== 'number') {
+    num = Number(num)
+  }
+  return num.toFixed(digits)
+}
+ 
+// 格式时间 eg： 2019-12-14 23:59:59 => 2019.12.14
+var sliceDateToDot = function (item) {
+  if (item) {
+    var reg = getRegExp('-', 'g')
+    return item.slice(0, 10).replace(reg, '.')
+  } else {
+    return ''
+  }
+}
+
+var delYear = function(data){
+  if(data){
+    var arr=data.split('_');
+    arr.pop();
+  return arr.join('');
+  }else{
+    return ''
+  }
+}
+
+var formatTime2 = function(date) {
+  return date.replace('/-/g','/')
+}
+
+var newTxt = function(data) {
+  if(data==1){
+      return  '一成新';
+  }else if(data==2){
+    return  '两成新';
+  }else if(data==2){
+    return  '两成新';
+  }else if(data==3){
+    return  '三成新';
+  }else if(data==4){
+    return  '四成新';
+  }else if(data==5){
+    return  '五成新';
+  }else if(data==6){
+    return  '六成新';
+  }else if(data==7){
+    return  '七成新';
+  }else if(data==8){
+    return  '八成新';
+  }else if(data==9){
+    return  '九成新';
+  }else if(data==10){
+    return  '全新';
+  }else {
+    return  '全新';
+  }
+}
+
+var newTxt2 = function(data) {
+  if(data==1){
+      return  '一成新';
+  }else if(data==2){
+    return  '两成新';
+  }else if(data==2){
+    return  '两成新';
+  }else if(data==3){
+    return  '三成新';
+  }else if(data==4){
+    return  '四成新';
+  }else if(data==5){
+    return  '五成新';
+  }else if(data==6){
+    return  '六成新';
+  }else if(data==7){
+    return  '七成新';
+  }else if(data==8){
+    return  '八成新';
+  }else if(data==9){
+    return  '九成新';
+  }else if(data=='0'){
+    return  '全新';
+  }else {
+    return  '';
+  }
+}
+var toHHmmss = function (data) {
+  if(data<=0){
+      return  '拍卖已结束'
+  }
+  var time = parseFloat(data) / 1000;
+    if (null != time && "" != time) {
+        if (time > 60 && time < 60 * 60) {
+            time = parseInt(time / 60.0) + "分" + parseInt((parseFloat(time / 60.0) -
+                parseInt(time / 60.0)) * 60) + "秒";
+        }
+        // else if (time >= 60 * 60 && time < 60 * 60 * 24) {
+        else if (time >= 60 * 60) {
+            time = parseInt(time / 3600.0) + "时" + parseInt((parseFloat(time / 3600.0) -
+                parseInt(time / 3600.0)) * 60) + "分" +
+                parseInt((parseFloat((parseFloat(time / 3600.0) - parseInt(time / 3600.0)) * 60) -
+                parseInt((parseFloat(time / 3600.0) - parseInt(time / 3600.0)) * 60)) * 60) + "秒";
+        }
+        else {
+            time = parseInt(time) + "秒";
+        }
+    }
+    return time;
+}
+var toFixed_ = function(data) {
+  return data.toFixed(2);
+}
+ 
+module.exports = {
+  newTxt2:newTxt2,
+  toFixed_:toFixed_,
+  toHHmmss:toHHmmss,
+  newTxt:newTxt,
+  formatTime2:formatTime2,
+  delYear: delYear,
+  numToFixed: numToFixed,
+  sliceDateToDot: sliceDateToDot
+}

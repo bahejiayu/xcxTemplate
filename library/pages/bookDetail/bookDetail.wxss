@@ -1,0 +1,304 @@
+.detailBanner{
+  height: 620rpx;
+  overflow: hidden;
+  background-color: #F5F5F5;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  
+}
+
+.detailBanner swiper{
+  height: 100%!important;
+}
+.detailBanner image{
+    /* max-width: 45%; */
+    width: 100%;
+    height: 90%!important;
+
+}
+.detailBanner swiper-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bannerRight{
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 41rpx;
+}
+.bannerRight view{
+  width: 107rpx;
+  text-align: center;
+  height: 50rpx;
+  box-sizing: border-box;
+  background-color: #F0F0F0;
+  line-height: 50rpx;
+  font-size:24rpx ;
+  color: #A2A2A2;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  border-top-left-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
+
+}
+.bannerRight view:last-child{
+  margin-top: 30rpx;
+}
+
+
+.bookDetailContent{
+  padding: 0 40rpx;
+}
+
+.bookJ{
+  position: relative;
+  padding-right: 80rpx;
+  padding-bottom: 14rpx;
+}
+.bookDetailTop{
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 5rpx;
+}
+.bookName{
+  font-size: 36rpx;
+  color: #000000;
+}
+
+.Bookinform{
+    position: absolute;
+    font-size: 28rpx;
+    color: #A2A2A2;
+    right: 0;
+    padding-left: 30rpx;
+    padding-bottom: 30rpx;
+    top: 8rpx;
+
+}
+.bookWiter{
+    font-size: 28rpx;
+    color: #222222;
+
+}
+
+.timeAndPrice{
+  display: flex;
+  padding-top: 12rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20rpx;
+  flex-wrap: wrap;
+}
+.chuTiem{
+  font-size:26rpx ;
+  color: #A2A2A2;
+
+}
+.bookPrice{
+  display: flex;
+  /* transform: translateY(-15rpx); */
+  align-items: center;
+}
+.bookPrice .pr{
+    font-size:46rpx ;
+    color: #9A141E;
+    padding-left: 12rpx;
+    display: flex;
+
+}
+.bookPrice .del{
+  font-size:32rpx ;
+  color: #C8C8C8;
+  text-decoration: line-through;
+}
+.bookInfo{
+  padding: 30rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+  position: relative;
+}
+.bookInfo:last-child{
+  border-bottom: none;
+}
+.pdr140{
+  padding-right: 140rpx;
+}
+.bookInfo view{
+  font-size: 26rpx;
+  color: #A2A2A2;
+
+}
+  .bookInfo .infoTitle{
+  font-size:26rpx;
+  color: #222222;
+  line-height: 37rpx;
+  margin-bottom: 8rpx;
+}
+.infoList view{
+  line-height: 37rpx;
+  margin-bottom: 8rpx;
+
+}
+.catalogue{
+  position: absolute;
+  width: 120rpx;
+  height: 54rpx;
+  box-sizing: border-box;
+  border: 1px solid #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:26rpx ;
+  border-radius: 10rpx;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #222222;
+
+}
+.infoDes{
+  line-height: 42rpx!important;
+}
+
+.detailFixBottom{
+  z-index: 300;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  background-color: #fff;
+  height: 112rpx;
+  padding-top:20rpx ;
+  box-shadow: 0px -5rpx 6rpx  #EAEAEA;
+}
+.fixContent{
+  position: relative;
+  padding-left: 190rpx;
+  
+}
+.fixLeft{
+  position: absolute;
+  left: 0;
+  display: flex;
+
+}
+.fixLeftItem{
+  text-align: center;
+  margin-right: 50rpx;
+}
+.fixDetailIconTxt{
+    font-size: 20rpx;
+    color: #222222;
+
+}
+.fixDetailIcon image{
+
+    width: 40rpx;
+    height: auto;
+
+}
+
+.fixRightBtns   {
+  display: flex;
+  justify-content: space-between;
+}
+.fixBtnItem{
+  width:220rpx ;
+  height:75rpx ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.addBook{
+  background-color: #BCBCBC;
+}
+.onceBookBuy{
+  background-color: #9A141E;
+ 
+
+}
+.bookDetailContent{
+  position: relative;
+  z-index: 200;
+  margin-top: 620rpx;
+background-color: #fff;
+  padding-bottom:140rpx ;
+}
+.fixPay{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    z-index: 300;
+  padding-bottom: 40rpx;
+  background-color: #fff;
+  /* z-index: 30; */
+  transform: translateY(100%);
+  transition: all 0.3s;
+
+}
+.shadeView {
+  z-index:299 ;
+}
+.fixPay.showPay{
+  transform: translateY(0);
+
+}
+.fixPayTitle{
+  position: relative;
+  height:130rpx ;
+  border-bottom: 1px solid #EAEAEA;
+  font-size: 36rpx;
+  color: #222222;
+  text-align: center;
+  line-height: 130rpx;
+}
+.fixPayTitle text{
+  position: absolute;
+  font-size: 36rpx;
+  color: #222222;
+  right: 0;
+  padding: 0 20rpx;
+}
+
+.payInfoItem{
+  height: 105rpx;
+  font-size: 32rpx;
+  border-bottom: 1px solid #EAEAEA;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.payRed{
+  color: #9A141E;
+}
+
+
+.bookPayBtn{
+
+  width: 280rpx;
+  height: 86rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+background-color: #9A141E;
+margin: 0 auto;
+border-radius: 10rpx;
+}
+.payInfoList{
+  margin-bottom: 80rpx;
+}
+

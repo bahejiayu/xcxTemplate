@@ -1,0 +1,50 @@
+	<view class="walletTop">
+		<navigator class="depExplain"  url="../allXy/allXy?id=3&title=保证金说明" >
+			保证金说明
+		</navigator>
+		<view class="walletBox">
+			<view>保证金(元)</view>
+			<view>{{depInfo.bond||"0.00"}}</view>
+		</view>
+	</view>
+	<view class="nowGetBox"  wx:if='{{userInfo.is_ensure==1}}'>
+		<view class="nowGetLine flexMid">
+			正在提现: ￥{{depInfo.is_bond_now||"0.00"}}
+		</view>
+	</view>
+	<view class="topUp" wx:if='{{userInfo.is_ensure==1}}'>
+		<navigator url="../depositTx/depositTx" hover-class="none">
+			<view class="topUpL">
+				<view class="topUpIcon">
+					<image src="/images/withdraw.png" mode="widthFix"></image>
+				</view>
+				<view>提现</view>
+			</view>
+			<view>
+				<view class="icon icon-right">
+
+				</view>
+			</view>
+		</navigator>
+	</view>
+
+	<view class="paymentBox" wx:if='{{userInfo.is_ensure==0}}'>
+		<view class="paymentTit">
+			缴纳保证金 (最低缴纳￥500)：
+		</view>
+		<view class="paymentInp">
+			<view class="paymentInpL">
+				￥
+			</view>
+			<input type="digit" bindinput="changePri"  value="{{moneyP}}" placeholder="请输入金额" placeholder-class="inpStyle"></input>
+
+		</view>
+
+	</view>
+
+	<view class="depositFix" wx:if='{{userInfo.is_ensure==0}}'>
+		<button form-type="submit"   data-ok="{{moneyP>=500?'isOk':''}}"  bindtap='pay_' class="formBtn {{moneyP>=500?'isOk':''}}   addressBtn">立即支付</button    >
+		<view class="depositTip">
+			点击“立即支付”即表示您同意<navigator hover-class="none" url="../../pages/allXy/allXy?id=11&title=艺览消费者保障服务协议"  >《艺览消费者保障服务协议》</navigator>
+		</view>
+	</view>

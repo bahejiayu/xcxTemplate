@@ -1,0 +1,109 @@
+.feedContainer{
+  padding: 40rpx;
+  padding-top: 20rpx;
+}
+.feedArea textarea{
+   width: 100%;
+   height: 300rpx;
+   padding: 28rpx;
+   background-color:rgba(249,249,251,1) ;
+   font-size: 28rpx;
+   box-sizing: border-box;
+   color: #333;
+   border-radius: 8rpx;
+}
+.feedArea{
+  margin-bottom: 40rpx;
+}
+.feedUpBox{
+  padding:  0 28rpx ;
+  background-color: rgb(249,249,251);
+}
+.feedTitle{
+  line-height: 88rpx;
+  font-size:28rpx ;
+  color: #B4B4B4;
+  border-bottom: 1px solid #E9E9E9;
+}
+.feedImgList{
+  padding-top: 20rpx;
+  padding-bottom: 8rpx;
+  overflow: hidden;
+}
+.feedImgList>view{
+  float: left;
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+}
+.feedImgList>view:last-child{
+  margin-right: 0;
+}
+.feedUpBtn{
+  background-color: rgba(243,242,245,1);
+}
+.feedUpBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.addTxtB{
+  padding-top: 8rpx;
+  font-size:22rpx ;
+  color: #BEBEBE;
+}
+.feedUpBtn .icon{
+  font-size: 40rpx;
+  color: #BEBEBE;
+
+}
+.feedImgItem{
+  position: relative;
+}
+.feedImgItem image{
+  width: 100%;
+  height: 100%!important;
+}
+.feedDel{
+  position: absolute;
+  width:40rpx ;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, .4);
+  right: 6rpx;
+  bottom: 6rpx;
+  font-size: 28rpx;
+}
+.feedDel view{
+  color: #fff;
+}
+.feedInp{
+  height: 96rpx;
+  padding-left: 200rpx;
+  line-height: 96rpx;
+  position: relative;
+  background-color: #F9F9FB;
+  margin-top: 40rpx;
+  margin-bottom: 250rpx;
+}
+.feedInpTit{
+  font-size: 28rpx;
+  color: #B4B4B4;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 28rpx;
+  border-radius: 8rpx;
+}
+
+.feedInp input{
+  width: 100%;
+  height: 100%;
+  color: #333;
+  font-size: 28rpx;
+  text-align: right;
+}
+
+

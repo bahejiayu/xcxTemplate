@@ -1,0 +1,569 @@
+.auctionEndTime{
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(154,20,30,.2);
+  font-size: 26rpx;
+  color:#9A141E ;
+
+}
+.marketDetailBox{
+  padding: 0 40rpx;
+  padding-bottom:160rpx ;
+}
+.masterInfo{
+  padding: 30rpx 0;
+  position: relative;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 30rpx;
+
+}
+.masterInfoBox{
+  height: 82rpx;
+  position: relative;
+  padding-left: 100rpx;
+  padding-right: 160rpx;
+
+
+}
+.masInfoLink{
+    position: absolute;
+    right: 0;
+    height: 82rpx;
+    top: 0;
+    text-align: left;
+}
+.masInfoLink image{
+  width: 32rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+  height: auto;
+}
+.masInfoLink view{
+  font-size: 24rpx;
+  color: #94959C;
+
+}
+.masInfoLink view:first-child{
+  margin-bottom:13rpx ;
+}
+.masterImg {
+    width: 82rpx;
+    height: 82rpx;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    left: 0px;
+    top: 0;
+}
+.masterImg image{
+  width: 100%;
+  height: 100%!important;
+}
+.masterInfoTxt{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+}
+.masterInfoTxt view:first-child{
+  font-size: 30rpx;
+  color: #222222;
+}
+
+.masterInfoTxt view:last-child{
+  font-size: 24rpx;
+  color: #A2A2A2;
+}
+.masketGoodNmae{
+  font-size: 34rpx;
+  line-height: 48rpx;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  padding-right: 120rpx;
+  position: relative;
+}
+.masketSource{
+  font-size: 28rpx;
+  color: #94959C;
+  position: relative;
+}
+.masketSource>view{
+  margin-bottom: 6rpx;
+}
+
+.masketSource view:first-child{
+  padding-right: 120rpx;
+}
+.masCollect{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-left: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.masCollect image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.maskPrice{
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  position: relative;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.maskPriceL{
+  display: flex;
+  align-items: center;
+}
+.maskPriceR{
+
+  font-size:28rpx ;
+  color:#222222 ;
+}
+.curPriceTip{
+  width: 90rpx;
+  height: 40rpx;
+  border: 1px solid #9A141E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:22rpx ;
+  margin-right: 12rpx;
+  border-radius: 8rpx;
+  color: #9A141E;
+}
+.curPriceTxt{
+  font-size:40rpx ;
+  color: #9A141E;
+  font-weight: bold;
+}
+.masketGoodDes{
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.marketGoodTxt{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #696F7C;
+  margin: 30rpx 0;
+  height: 210rpx;
+  overflow: hidden;
+}
+.showAll.marketGoodTxt{
+  height: auto;
+}
+.marketMore{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #222222;
+}
+
+.marketMore .icon{
+  margin-left: 6rpx;
+}
+.marketImgList{
+  margin-bottom:73rpx ;
+}
+
+.marketImgList image{
+  width: 100%;
+  margin-bottom: 10rpx;
+  height: auto;
+}
+.circuseeBox{
+  height:112rpx ;
+  border-top:1px solid #EAEAEA ;
+  border-bottom:1px solid #EAEAEA ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circuseeBoxL{
+  display: flex;
+  align-items: center;
+  height: 112rpx;
+}
+.cirImgs{
+    position: relative;
+    height: 100%;
+}
+.cirImgItem{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 56rpx;
+    width: 56rpx;
+    box-sizing: border-box;
+    /* border: 3rpx solid #fff; */
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+.pd1{
+  padding-left: 70rpx;
+
+}
+.pd2{
+  padding-left: 100rpx;
+
+}
+.pd3{
+  padding-left: 130rpx;
+
+}
+.pd4{
+    padding-left: 160rpx;
+
+}
+.cirImgItem:nth-of-type(2){
+  left: 30rpx;
+}
+.cirImgItem:nth-of-type(3){
+  left: 60rpx;
+}
+.cirImgItem:nth-of-type(4){
+  left: 90rpx;
+}
+.cirImgItem:nth-of-type(5){
+  left: 120rpx;
+}
+.cirImgItem image{
+  width: 100%;
+  height: 100%!important;  
+}
+.circuseeTxt{
+  font-size: 32rpx;
+  color: #94959C;
+}
+.circuseeBoxR{
+  font-size: 30rpx;
+  color: #94959C;
+  padding: 20rpx;
+  padding-right: 0;
+}
+.bidRecordTit{
+  height:105rpx ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bidRecordTitL{
+  font-size: 32rpx;
+  color: #222222;
+}
+.bidRecordTitR{
+  font-size: 28rpx;
+  color: #A2A2A2;
+}
+.bidRecordItem{
+  height:76rpx ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+.bidRecordItemL{
+  display: flex;
+  align-items: center;
+}
+.bidReImg{
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.bidReImg image{
+  width: 100%;
+  height: 100%!important;
+}
+.bidReName{
+  font-size:28rpx ;
+  color: #A2A2A2;
+  margin-left: 16rpx;
+  width: 200rpx;
+}
+
+.bidRecordItemR{
+  display: flex;
+  justify-content: center;
+}
+.bidRecTip{
+  width:110rpx ;
+  height: 40rpx;
+  border: 1px solid #9A141E;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9A141E;
+  font-size: 22rpx;
+}
+.bidRecPrice{
+  font-size: 32rpx;
+  color: #222222;
+  margin-left: 14rpx;
+}
+.bold{
+  font-weight: bold;
+}
+.bidRecordList{
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.bidRecordList scroll-view{
+  max-height:318rpx ;
+}
+.bidRecordList scroll-view.showBid{
+  max-height: auto;
+}
+.bd{
+  border-bottom: 1px solid #EAEAEA;
+
+}
+
+.lotBtnItem{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #000000;
+}
+.lotBtn{
+  border-bottom: 1px solid #EAEAEA;
+}
+.bidBtn{
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font-size:32rpx ;
+    background-color: #9A141E;
+    color: #fff;
+    border-radius: 8rpx;
+    width: 100%;
+}
+.sureBid{
+
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 600;
+    bottom: 0;
+    padding: 0 40rpx;
+    background-color: #fff;
+    transform: translateY(100%);
+    transition: all 0.3s;
+
+}
+.sureBid.showAdd{
+  transform: none;
+
+}
+.sureBidTitle{
+  height: 130rpx;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.sureBidTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #222222;
+  position: relative;
+  border-bottom: 1px solid #EAEAEA;
+}
+.sureBidClose{
+    position: absolute;
+  right: 0;
+  top: 50%;
+  padding: 10rpx;
+  font-size: 36rpx;
+  padding-right: 0;
+  transform: translateY(-50%);
+
+}
+.pio{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.pio .del{
+  font-size:32rpx ;
+  color: #C8C8C8;
+  text-decoration: line-through;
+  padding-left: 14rpx;
+
+}
+.sureBidPrice{
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  color:#222222 ;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.bidAddBox{
+  padding-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bidAddRange{
+  width: 44rpx;
+  height: 44rpx;
+  box-sizing: border-box;
+  border: 1px solid #9A141E;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9A141E;
+}
+.bidInp{
+  padding:0 30rpx;
+}
+.bidInp  input{
+  width: 260rpx;
+  height:90rpx ;
+  background-color: #F5F5F5;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 46rpx;
+  color: #9A141E;
+}
+.minAddPrice{
+  text-align: center;
+  font-size: 26rpx;
+  color: #94959C;
+  padding: 14rpx 0 30rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 50rpx;
+}
+.addPricePay{
+  margin-bottom: 30rpx;
+}
+
+.addPriceTip{
+  font-size:22rpx ;
+  color: #94959C;
+  line-height: 30rpx;
+  padding-bottom: 25rpx;
+  display: flex;
+}
+
+.addPriceTip text{
+  color: #222222;
+
+}
+.orderTotal{
+  display: flex;
+}
+.totalTxt{
+  font-size: 34rpx;
+  color: #222222;
+}
+
+.totalPrice{
+  font-size: 36rpx;
+  color: #9A141E;
+  font-weight: bold;
+}
+
+.orderPayBtn{
+  width: 200rpx;
+  height: 74rpx;
+  background-color: #9A141E;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  justify-content: center;
+  border-radius: 8rpx;
+}
+.totalTxt text{
+  font-size:26rpx ;
+  
+}
+
+
+
+.fixBox{
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  z-index: 200;
+  box-sizing: border-box;
+  padding: 0 60rpx;
+
+}
+.fixContent{
+  
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 8rpx;
+}
+.fixContentTit{
+          height: 106rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 36rpx;
+          background-color: #F5F5F5;
+          color: #000000;
+
+}
+.fixDes{
+    min-height: 340rpx;
+    box-sizing: border-box;
+    max-height: 750rpx;
+
+}
+.shadeView {
+  z-index: 100;
+}
+.pd20{
+  padding-bottom: 40rpx;
+}
+.fixNi{
+  font-size: 30rpx;
+  color: #696F7C;
+  line-height: 50rpx;
+  padding: 40rpx ;
+
+}
+.pmhX{
+
+  padding: 0 86rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #696F7C;
+}
+.pmhXline{
+  margin-bottom: 18rpx;
+
+}
+.pmhX text{
+  color: #000000;
+}

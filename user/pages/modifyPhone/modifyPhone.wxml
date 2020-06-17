@@ -1,0 +1,44 @@
+<view class="modifyBox">
+<view class="midifyItem">
+		<view class="midifyTit">
+			<view class="quPhone">
+      +86
+      </view>
+		</view>
+    <picker>
+    		<input type="number" placeholder="" value="中国" placeholder-class="inpStyle" disabled="{{true}}"></input>
+    </picker>
+
+
+    <view class="righUnfold">
+        <view class="icon icon-right">  
+        
+        </view>
+    </view>
+	</view>
+	<view class="midifyItem">
+		<view class="midifyTit">
+			手机号码
+		</view>
+		<input type="number" placeholder="请输入手机号码" placeholder-class="inpStyle"></input>
+	</view>
+	<view class="midifyItem">
+		<view class="midifyTit">
+			短信验证码
+		</view>
+		<input type="text" placeholder="请输入" placeholder-class="inpStyle"></input>
+		<view class="getCode flexMid">
+			获取验证码
+		</view>
+	</view>
+  	<view class="midifyItem">
+		<view class="midifyTit">
+			输入密码
+		</view>
+		<input type="number" placeholder="请输入密码" placeholder-class="inpStyle"></input>
+	</view>
+
+  <button form-type="submit"  class="formBtn isOk addressBtn" >修改</button>
+
+
+</view>

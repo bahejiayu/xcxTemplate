@@ -1,0 +1,77 @@
+.messageTop{
+  height: 80rpx;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F9F9F9;
+}
+.b3{
+  color: #333!important;
+}
+.messageTop view{
+  font-size: 30rpx;
+  color: #A2A2A2;
+  line-height: 80rpx;
+  height: 100%;
+}
+.mesCenterList{
+  padding: 0 40rpx;
+}
+
+.mesCenterItem{
+  padding: 40rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+.mesCenContainer{
+  height: 82rpx;
+  padding-left: 110rpx;
+  position: relative;
+}
+.mesImage{
+  width: 82rpx;
+  height: 82rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+}
+.mesImage image{
+  width: 100%;
+  height: auto;
+}
+.mesBoxT{
+  display: flex;
+  justify-content: space-between;
+}
+.mesTit{
+  font-size:32rpx ;
+  color: #222222;
+}
+.redY{
+  position: relative;
+}
+.redY::before{
+  content: '';
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #CE1B28;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(20rpx,10%);
+  right: 0;
+}
+
+.mesDate{
+  font-size:26rpx ;
+  color: #BCBCBC;
+}
+.mesBoxB{
+  font-size: 26rpx;
+  /* margin-top: 6rpx; */
+  color: #A2A2A2;
+  line-height:37rpx ;
+}
+
+

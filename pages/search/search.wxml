@@ -1,0 +1,44 @@
+<view class="searchContainer">
+	<view class="searchInp">
+		<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+			<text class="icon icon-search" ></text>
+			<text>搜索</text>
+		</view>
+		<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+		<view class="cancelSearch" bindtap="cancelBack">
+			取消
+		</view>
+	</view>
+</view>
+
+<view class="searchNav">
+	<view class="libraryNavList">
+		<view class="libraryNavItem">
+			<text class="{{type==1?'cur':''}}" data-type="1" bindtap="togType" >图书馆</text>
+		</view>
+		<view class="libraryNavItem">
+			<text class="{{type==2?'cur':''}}" data-type="2" bindtap="togType">拍品</text>
+		</view>
+		<view class="libraryNavItem">
+			<text class="{{type==3?'cur':''}}" data-type="3" bindtap="togType">集市</text>
+		</view>
+
+	</view>
+</view>
+
+<view class="hotSearch">
+	<view class="hotSearchTop">
+		<view>热门搜索</view>
+		<view bindtap="togHuan">
+			<text class="icon icon-refresh">
+          </text>
+			换一换
+		</view>
+	</view>
+	<view class="hotWordList">
+		<view class="dan" wx:for='{{hotList}}' bindtap="goHotSearch">{{item.name}}</view>
+
+	</view>
+
+
+</view>

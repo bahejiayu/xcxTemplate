@@ -1,46 +1,154 @@
 {
   "pages": [
-    "pages/index/index"
- 
+    "pages/index/index",
+    "pages/artNews/artNews",
+    "pages/artNewDetail/artNewDetail",
+    "pages/search/search",
+    "pages/bookShelf/bookShelf",
+    "pages/myRelease/myRelease",
+    "pages/mySell/mySell",
+    "pages/myWallet/myWallet",
+    "pages/balance/balance",
+    "pages/deposit/deposit",
+    "pages/depositTx/depositTx",
+    "pages/tiXian/tiXian",
+    "pages/bookCoin/bookCoin",
+    "pages/coin/coin",
+    "pages/buyVip/buyVip",
+    "pages/user/user",
+    "pages/library/library",
+    "pages/librarySearch/librarySearch",
+    "pages/auction/auction",
+    "pages/auctionSearch/auctionSearch",
+    "pages/market/market",
+    "pages/marketSearch/marketSearch",
+    "pages/feedBack/feedBack",
+    "pages/chooseAccount/chooseAccount",
+    "pages/helpCenter/helpCenter",
+    "pages/articleView/articleView",
+    "pages/allXy/allXy",
+    "pages/aboutUs/aboutUs",
+    "pages/vipSearch/vipSearch",
+    "pages/readH/readH"
+
+
+  ],
+  "subPackages":[
+    {
+    "root":"library",
+    "pages":[
+      "pages/booksList/booksList",
+      "pages/librarySearch/librarySearch",
+      "pages/bookDetail/bookDetail",
+      "pages/catalog/catalog",
+      "pages/logDetail/logDetail",
+      "pages/reading/reading"
+    ]
+    },
+    {
+      "root":"car",
+      "pages":[
+        "pages/car/car",
+        "pages/order/order",
+        "pages/addressTable/addressTable",
+        "pages/addressList/addressList"
+      ]
+      },
+      {
+        "root":"auction",
+        "pages":[
+          "pages/auctionDetail/auctionDetail",
+          "pages/lotDetail/lotDetail",
+          "pages/priceZs/priceZs",
+          "pages/exponent/exponent"
+        ]
+        },
+        {
+          "root":"market",
+          "pages":[
+            "pages/marketDetail/marketDetail",
+            "pages/homePage/homePage",
+            "pages/marketSearch/marketSearch"
+
+          ]
+          },
+        {
+          "root":"user",
+          "pages":[
+            "pages/collect/collect",
+            "pages/footPrint/footPrint",
+            "pages/fans/fans",
+            "pages/concern/concern",
+            "pages/certification/certification",
+            "pages/withdrawSet/withdrawSet",
+            "pages/messageCenter/messageCenter",
+            "pages/messageDetail/messageDetail",
+            "pages/login/login",
+            "pages/modifyPhone/modifyPhone",
+            "pages/findPassword/findPassword",
+            "pages/setpassword/setpassword",
+            "pages/registered/registered",
+            "pages/sell/sell",
+            "pages/sellEditor/sellEditor",
+            "pages/set/set",
+            "pages/myOrder/myOrder",
+            "pages/orderDetail/orderDetail",
+            "pages/orderDetailSell/orderDetailSell",
+            "pages/bindPhone/bindPhone"
+
+          ]
+          }
+
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "斑马同校",
+    "navigationBarTitleText": "古今艺览",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color":"#A2A2A2",
+    "selectedColor":"#222222",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"/images/n1.png",
+      "selectedIconPath":"/images/n1c.png"
+    },
+    {
+      "pagePath": "pages/library/library",
+      "text": "图书馆",
+      "iconPath":"/images/n2.png",
+      "selectedIconPath":"/images/n2c.png"
+    },
+    {
+      "pagePath": "pages/auction/auction",
+      "text": "拍卖数据",
+      "iconPath":"/images/n3.png",
+      "selectedIconPath":"/images/n3c.png"
+    },
+    {
+      "pagePath": "pages/market/market",
+      "text": "集市",
+      "iconPath":"/images/n4.png",
+      "selectedIconPath":"/images/n4c.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath":"/images/n5.png",
+      "selectedIconPath":"/images/n5c.png"
+    }
+  
+  
+  ]
+  },
+
+
   "permission": {
     "scope.userLocation": {
-      "desc": "斑马同校将获取你的位置信息"
+      "desc": "古今艺览将获取你的位置信息"
     }
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "首页",
-        "iconPath": "/images/tabbar/home.png",
-        "selectedIconPath": "/images/tabbar/home_cur.png"
-      },
-      {
-        "pagePath": "pages/order/home",
-        "text": "订单",
-        "iconPath": "/images/tabbar/order.png",
-        "selectedIconPath": "/images/tabbar/order_cur.png"
-      },
-      {
-        "pagePath": "pages/chat/list",
-        "text": "消息",
-        "iconPath": "/images/tabbar/message.png",
-        "selectedIconPath": "/images/tabbar/message_cur.png"
-      },
-      {
-        "pagePath": "pages/ucenter/home/home",
-        "text": "我的",
-        "iconPath": "/images/tabbar/ucenter.png",
-        "selectedIconPath": "/images/tabbar/ucenter_cur.png"
-      }
-    ]
   },
   "sitemapLocation": "sitemap.json"
 }

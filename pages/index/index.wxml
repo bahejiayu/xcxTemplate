@@ -1,5 +1,133 @@
-<canvas  style="width:{{w}}px; height:{{h}}px;  " canvas-id="canvas_">
+<import src='/tpl/goodTpl.wxml' />
+
+<view class="topBanner">
+	<view class="topSearch">
+		<view class="searchBox">
+			<view class="logo_">
+				<image src="/images/logo.png"  mode="widthFix"></image>
+			</view>
+			<view class="searchInp" bindtap="goNav" data-url="../search/search">
+				<view class="searchTxt">
+					<text class="icon icon-search" ></text>
+					<text>搜索</text>
+				</view>
+				<input type="text" disabled="{{true}}"></input>
+			</view>
+		</view>
+	</view>
+
+	<view class="indicatorBox">
+		<view wx:for='{{bannerList.length}}' wx:key='index' class="indicatorItem    {{indicator==index?'cur':''}} ">
+		</view>
+	</view>
+
+	<swiper autoplay="3000" bindchange="swiperChange">
+		<swiper-item wx:for='{{bannerList}}'>
+				<navigator hover-class="none"  url="{{item.wpUrl}}" >
+					<image src="{{item.pic}}" mode="widthFix"></image>
+				</navigator>
+		
+		</swiper-item>
+	</swiper>
+</view>
+<view class="indexContent">
+	<view class="containerItem">
+		<view class="commonTitle" bindtap="goTabBar" data-url="../library/library">
+			<view class="commonTitleTxt">
+				书籍/图录
+			</view>
+			<view class="moreTxt">
+				更多 <text class="icon icon-right"></text>
+			</view>
+		</view>
+		<view class="goodsRow">
+<!-- http://images.artcpi.com/1d67ddec67f698b57c664ee0886f7925.jpg -->
+			<navigator hover-class="none" url="/library/pages/bookDetail/bookDetail?id={{item.id}}" class="goodsRowItem" wx:for='{{bookList}}' wx:if='{{index<3}}' wx:key='index' >
+				<view class="goodsRowItemImage bg2">
+					<image src="{{item.logo||'/images/jpImg.png'}}" mode="aspectFit"></image>
+					<!-- <image src="/images/jpImg.png" mode="widthFix" ></image> -->
+				</view>
+				<view class="goodsRowName ">
+					{{item.name}}
+									
+				</view>
+				<view class="goodsTip" wx:if='{{item.attribute==1}}'>
+					电子书
+				</view>
+				<view class="goodsTip" wx:if='{{item.attribute==2}}'>
+					实体书
+				</view>
+				<view class="goodsTip" wx:if='{{item.attribute==3}}'>
+					其他
+				</view>
+			</navigator>
+		</view>
+
+	</view>
 
 
 
-</canvas>
+	<view class="containerItem">
+		<view class="commonTitle" bindtap="goTabBar" data-url="../auction/auction">
+			<view class="commonTitleTxt">
+				拍卖预展
+			</view>
+			<view class="moreTxt">
+				更多 <text class="icon icon-right"></text>
+			</view>
+		</view>
+		<view class="showGoodsBox">
+			<navigator class="showGoodsItem" hover-class="none" url="/auction/pages/lotDetail/lotDetail?id={{item.id}}" wx:for='{{previewList}}' wx:if="{{index<4}}" wx:key='index' >
+				<view class="showGoodsImg bg2">
+					<image src="{{item.pics||'/images/jpImg.png'}}" binderror="errimg" data-index="{{index}}" data-obj="resultList" mode="aspectFit"></image>
+				</view>
+				<view class="showGoodsName">
+					{{item.cn_name}}
+				</view>
+				<view class="showGoodsPrice">
+					估价: {{item.evaluation}}
+				</view>
+			</navigator>
+		</view>
+	</view>
+
+	<view class="containerItem " >
+		<view class="commonTitle" bindtap="goTabBar" data-url="../auction/auction">
+			<view class="commonTitleTxt">
+				拍卖结果
+			</view>
+			<view class="moreTxt">
+				更多 <text class="icon icon-right"></text>
+			</view>
+		</view>
+		<view class="showGoodsBox">
+			<navigator class="showGoodsItem" hover-class="none" url="/auction/pages/lotDetail/lotDetail?id={{item.id}}" wx:for='{{resultList}}' wx:if="{{index<4}}" wx:key='index' >
+				<view class="showGoodsImg bg2">
+					<image binderror="errimg" data-index="{{index}}" data-obj="resultList"   src="{{item.pics||'/images/jpImg.png'}}" mode="aspectFit"></image>
+				</view>
+				<view class="showGoodsName">
+					{{item.cn_name}}
+				</view>
+				<view class="showGoodsPrice">
+					成交价:{{item.transaction_price}}
+				</view>
+			</navigator>
+		</view>
+	</view>
+	<view class="containerItem">
+		<view class="artMessage">
+			<view class="commonTitle" bindtap="goNav" data-url="../artNews/artNews">
+				<view class="commonTitleTxt">
+					艺术资讯
+				</view>
+				<view class="moreTxt">
+					更多 <text class="icon icon-right"></text>
+				</view>
+			</view>
+			<view class="artMessageList">
+				<template is="messageTpl" data="{{...{data:artNewList,home:true } }}" ></template>
+
+			</view>
+		</view>
+	</view>
+</view>

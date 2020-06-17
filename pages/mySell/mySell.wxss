@@ -1,0 +1,269 @@
+.sellNav{
+  padding: 0 40rpx;
+}
+
+.libraryNavList{
+  display: flex;
+  align-items: center;
+  height: 76rpx;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #EAEAEA;
+
+}
+.libraryNavItem{
+  font-size: 34rpx;
+  color: #A2A2A2;
+}
+.libraryNavItem text{
+  line-height: 70rpx;
+  display: inline-block;
+  position: relative;
+}
+.libraryNavItem text.cur{
+  color: #222222;
+  font-weight: bold;
+  /* border-bottom:5rpx solid #222222 ; */
+}
+.libraryNavItem text.cur::before{
+  position: absolute;
+  height: 5rpx;
+  width: 64rpx;
+  bottom: 0;
+  background-color: #222222;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.orderList{
+  padding:  40rpx;
+  padding-bottom: 0;
+}
+
+
+.booksItem{
+  position: relative;
+  height: 322rpx;
+  padding-left: 310rpx;
+  margin-bottom: 50rpx;
+  display: block;
+}
+.bookItemImg{
+  position: absolute;
+  width:240rpx ;
+  height: 322rpx;
+  left: 0;
+  top: 0;
+}
+.bookItemImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.bookInfoName{
+  font-size:34rpx ;
+  color: #000000;
+  margin-bottom: 13rpx;
+  position: relative;
+  padding-right: 120rpx;
+}
+.bookWiter{
+  font-size: 26rpx;
+  color:#222222 ;
+  /* padding-right: 140rpx; */
+  width: 250rpx;
+  position: relative;
+}
+.shadeView{
+  z-index: 100;
+}
+.buyStyle{
+  font-size: 28rpx;
+  color: #222222;
+}
+.bookPublish{
+  font-size: 24rpx;
+  color:#A2A2A2 ;
+  margin-top: 8rpx;
+  margin-bottom: 6rpx;
+}
+.icon-delete{
+  /* font-weight: bold; */
+  font-size: 100rpx;
+}
+.bookInfo{
+  height: 100%;
+  position: relative;
+}
+.bookDes{
+  font-size:24rpx ;
+  color: #ADADAD;
+  line-height: 35rpx;
+  /* height: 114rpx; */
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bookTepPriceTxt {
+ font-size: 32rpx;
+  color: #222222;
+  max-width: 55%;
+
+  }
+  .bookBottom{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+  }
+  .bookTepTip{
+    height: 42rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #A2A2A2;
+    padding: 0 12rpx;
+    line-height: 42rpx;
+    max-width: 130rpx;
+    background-color: #F5F5F5;
+    /* max-width: 40%; */
+}
+.dwI{
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.freedX{
+  width:120rpx ;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #9A141E;
+  border-radius: 5rpx;
+}
+.booksContainer{
+  padding:  40rpx;
+  padding-bottom: 0;
+
+}
+.collectAddBtn{
+  width:148rpx ;
+  height: 50rpx;
+  border: 1px solid #9A141E;
+  color: #9A141E;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+
+
+}
+.payEndTime{
+  font-size:24rpx ;
+  color: #222222;
+  padding-top: 10rpx;
+}
+
+.againBuy{
+  border: 1px solid #A2A2A2;
+color: #A2A2A2;
+
+}
+
+.orderStatus{
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 30rpx;
+  color: #A2A2A2;
+}
+.orderStatus.cur{
+  color: #9A141E;
+}
+.sellFix {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  bottom: 0;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: all 0.3s;
+
+}
+
+.sellFix.showSell {
+  transform: none;
+}
+.sellStyleTxt{
+  font-size: 30rpx;
+  color: #9A141E;
+}
+.sellFixTit {
+  padding: 40rpx 0 44rpx 0;
+  font-size: 36rpx;
+  color: #222;
+  position: relative;
+  text-align: center;
+  border-bottom: 2rpx solid #EAEAEA;
+
+}
+
+.sellFixTit .icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36rpx;
+  color: #222;
+}
+
+.sellFixInp {
+  height: 108rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+  position: relative;
+  padding-left: 180rpx;
+  line-height: 108rpx;
+  padding-right: 40rpx;
+}
+.sellFixInp .icon{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform:translateY(-50%);
+}
+
+.sellFixInpTit {
+  font-size: 32rpx;
+  position: absolute;
+  left: 0;
+  color: #222222;
+}
+
+.sellFixInp input {
+  width: 100%;
+  height: 108rpx;
+  text-align: right;
+  font-size: 34rpx;
+  color: #222222;
+
+}
+.tlbw{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sellFixBtn {
+  padding: 50rpx 0;
+}

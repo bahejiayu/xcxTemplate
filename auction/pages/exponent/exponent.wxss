@@ -1,0 +1,55 @@
+.exponentTop{
+  padding: 0 40rpx;
+  text-align: center;
+}
+.nameCn{
+  font-size: 38rpx  ;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  line-height: 53rpx;
+}
+.nameEn{
+  font-size: 26rpx;
+  color: #000000;
+}
+.exponentData{
+  padding: 0 40rpx;
+}
+.exponentData{
+  display: flex;
+  margin-top: 60rpx;
+  justify-content: space-between;
+
+}
+.exDataItem{
+  height: 140rpx;
+  width: 290rpx;
+ text-align: center;
+ box-sizing: border-box;
+ padding: 23rpx 10rpx;
+}
+.exDataItem:first-child{
+  background-color: rgba(154,20,30,.1);
+}
+.exDataItem:last-child{
+  background-color: rgba(26,74,166,.1);
+}
+.exDataItem view:last-child{
+    font-size: 24rpx;
+    margin-top: 4rpx;
+    color: #222222;
+
+}
+
+.successP view:first-child{
+  color: #9A141E;
+  font-size: 40rpx;
+}
+.pticket view:first-child{
+  color: #1A4AA6;
+  font-size: 36rpx;
+}
+.webView{
+  width: 100%!important;
+  height: 400rpx!important;
+}

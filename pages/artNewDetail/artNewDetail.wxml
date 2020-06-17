@@ -1,0 +1,45 @@
+<view class="artDetail">
+	<view class="artDetailTit">
+		{{newData.info.title}}
+	</view>
+	<view class="artDate">
+		<view>{{newData.info.source}}</view>
+		<view>{{newData.info.updated_at||newData.info.created_at}}</view>
+	</view>
+	<view class="artContent">
+		<rich-text nodes='{{newData.info.content}}'></rich-text>
+	</view>
+
+</view>
+
+<view class="orderFix">
+	<view class="circuseeBoxL">
+		<!-- <view class="cirImgs">
+			<view class="cirImgItem" wx:for='{{4}}'>
+				<image src="/images/showGood.png" mode="widthFix"></image>
+			</view>
+		</view> -->
+		<view class="circuseeTxt">
+			{{newData.info.zan_num}}人已点赞
+		</view>
+	</view>
+
+	<view class="artFixR">
+		<view class="artFixIcon" bindtap="togLike" data-type="{{newData.islike}}">
+			<view class="artIcon">
+					<image src="{{newData.islike==0?'/images/dz.png':'/images/dz_red.png'}}" mode="widthFix"></image>
+			</view>
+			<view>点赞</view>
+		</view>
+		<view class="artFixIcon"  bindtap="togCollect" data-type="{{newData.iscollect}}" >
+			<view class="artIcon">
+					<image src="{{newData.iscollect==0?'/images/icon_library_like.png':'/images/icon_library_like_red.png'}}" mode="widthFix"></image>
+			</view>
+			<view>收藏</view>
+		</view>
+
+	</view>
+
+
+
+</view>

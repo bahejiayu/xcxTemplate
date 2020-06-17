@@ -1,0 +1,41 @@
+<import src='/tpl/goodTpl.wxml' />
+
+<view class="collectNav scT">
+	<view class="collectNavList">
+		<view class="collectNavItem  {{footType==2?'cur':''}} " data-type="2" bindtap="togType">
+			集市
+		</view>
+		<view class="collectNavItem  {{footType==1?'cur':''}} " data-type="1" bindtap="togType">
+			拍品
+		</view>
+	</view>
+</view>
+
+<view class="pt70">
+	<view class="footerContainer">
+
+		<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{footList.length<=0}}' data='{{...{kongTxt:"没有相关足迹"} }}'></template>
+
+		<view class="footerMarket" wx:if='{{footType==2&&isShow}}'>
+			<view class="footerMarketItem" wx:for='{{footList}}' wx:for-index="i1" wx:for-item="t1">
+				<view class="footetDate">
+					{{t1.pull_time}}
+				</view>
+				<template is="marketTpl" wx:for='{{t1.bean}}' wx:for-index="i2" wx:for-item="t2" data="{{...{data:t2,index:i2,jy:i1 } }}"></template>
+			</view>
+		</view>
+
+
+		<view class="footerMeaasge" wx:if='{{footType==1&&isShow}}'>
+			<view class="footerMarketItem" wx:for='{{footList}}' wx:for-index="i1" wx:for-item="t1">
+				<view class="footetDate">
+					{{t1.pull_time}}
+				</view>
+				<template is="auctTpl" data="{{...{list:t1.bean } }}"></template>
+			</view>
+		</view>
+
+
+	</view>
+</view>

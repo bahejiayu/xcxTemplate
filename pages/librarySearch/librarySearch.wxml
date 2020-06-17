@@ -1,0 +1,96 @@
+<import src="../../tpl/tpl.wxml" />
+<import src='/tpl/kong.wxml' />
+<view class="fxedTop">
+	<view class="searchContainer">
+		<view class="searchInp">
+			<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+				<text class="icon icon-search" ></text>
+				<text>搜索</text>
+			</view>
+			<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+			<view class="cancelSearch" bindtap="cancelBack">
+				取消
+			</view>
+		</view>
+	</view>
+	<view class="filtrateLine">
+		<view class="filtrateItem" bindtap="togType" data-type="综合">
+			<view class=" {{chkType=='综合'?'b2':''}} ">综合</view>
+		</view>
+		<view class="filtrateItem" data-type="系列">
+			<picker range='{{condBookData.cats}}' range-key='label' bindchange="changeXl">
+				<view class=" {{chkType=='系列'?'b2':''}}">系列 <text class="icon  icon-unfold"></text> </view>
+			</picker>
+		</view>
+		<view class="filtrateItem" bindtap="togType" data-type="价格" wx:if='{{libtype==0}}'>
+			<view class="{{chkType=='价格'?'b2':''}}">价格
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="asc"}}'></image>
+			</view>
+		</view>
+		<view class="filtrateItem" bindtap="togType" data-type="年代" wx:if='{{libtype==1}}'>
+			<view class="{{chkType=='年代'?'b2':''}}">年代
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="asc"}}'></image>
+			</view>
+		</view>
+
+		<view class="filtrateItem" bindtap="togType" data-type="筛选">
+			<view class="{{chkType=='筛选'?'b2':''}}">筛选 <image src="{{chkType=='筛选'?'/images/libSelIconCur.png':'/images/libSelIcon.png'}}" class="libSelIcon" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+
+
+<view class="bookContainer">
+	<view class="bookTemplate1">
+		<navigator class="bookTemplate1Item" url="/library/pages/bookDetail/bookDetail?id={{item.id}}" hover-class="none" wx:for="{{list}}" wx:key='index'>
+			<view class="bookTemplate1Image bg2">
+				<image src="{{item.logo}}" mode="widthFix"></image>
+			</view>
+			<view class="bookTemplate1Name">
+				{{item.name}}
+			</view>
+			<view class="bookTepPrice">
+
+				<view class="freedX" wx:if='{{item.is_xianmian==1||item.is_free==1}}'>
+					限免
+				</view>
+				<view class="bookTepPriceTxt" wx:if='{{item.is_xianmian!=1&&item.is_free!=1}}'>
+					<text wx:if='{{item.attribute==1}}'>{{item.is_discount?item.discount_pice:item.price}}书币</text>
+					<text wx:if='{{item.attribute==2}}'>￥{{item.is_discount?item.discount_pice:item.price}}</text>
+				</view>
+				<view wx:if='{{libtype==1}}' class="publication_time">{{item.publication_time}}</view>
+			</view>
+			<view class="bookTepInfo">
+				<view class="antuer dan" wx:if='{{libtype==0}}'>
+					作者: {{item.author}}
+				</view>
+				<view class="antuer dan" wx:if='{{libtype==1}}'>
+					作者: {{item.city_name}}
+				</view>
+				<view class="bookTepTip dan" wx:if='{{item.attribute==1}}'>
+					电子书
+				</view>
+				<view class="bookTepTip dan" wx:if='{{item.attribute==2}}'>
+					实体书
+				</view>
+				<view class="bookTepTip dan" wx:if='{{item.attribute==3}}'>
+					其他
+				</view>
+			</view>
+		</navigator>
+
+	</view>
+
+
+	<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"找不到相关搜索"} }}' ></template>
+
+</view>
+
+<template is="rangeChe" data="{{...{letterArr,showScreen,showPress,showBookType,condBookData,startTime,endTime,postData,libtype,paiCity,enTxt} }}" />

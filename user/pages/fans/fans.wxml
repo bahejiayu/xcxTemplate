@@ -1,0 +1,43 @@
+<view class="myFans">
+ 		<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{list_.length<=0}}' data='{{...{kongTxt:"暂无粉丝"} }}'></template>
+
+
+	<view class="fansItem" wx:for='{{list_}}' wx:key='index'>
+		<view class="fansContainer">
+			<navigator url="/market/pages/homePage/homePage?uid={{item.uid}}" class="fansImg">
+				<image mode="widthFix" src="{{item.avatar||'/images/showGood.png'}}"></image>
+			</navigator>
+			<view class="fansL">
+				<view class="fansName dan">
+					{{item.nickname}}
+				</view>
+				<view class="fansSex">
+						<image src="/images/boyIocn.png" mode="widthFix" hidden="{{item.gender=='女'||item.gender=='保密'||!item.gender}}"></image>
+						<image src="/images/girlIcon.png" mode="widthFix" hidden="{{item.gender=='男'||item.gender=='保密'||!item.gender}}"></image>
+				</view>
+			</view>
+			<view class="fansR">
+      	<view class="fansBtn flexMid fansAct" wx:if='{{item.is_follow==0}}' data-type="{{item.is_follow}}" bindtap="concernEvent" data-uid="{{item.uid}}"  data-index="{{index}}">
+					<image src="/images/addIcon.png" mode="widthFix"></image>
+					关注
+				</view>
+				<view class="fansBtn flexMid" wx:if='{{item.is_follow==1}}'  data-type="{{item.is_follow}}" bindtap="concernEvent"  data-uid="{{item.uid}}" data-index="{{index}}">
+            <image src="/images/addedIcon.png" mode="widthFix"></image>
+            已关注
+				</view>
+				<!-- <view class="fansBtn flexMid">
+					<image src="/images/friendIcon.png" mode="widthFix"></image>
+					互相关注
+				</view> -->
+        	<view class="fansBtn flexMid" wx:if='{{type==2}}'   data-type="{{item.is_follow}}" bindtap="concernEvent"  data-uid="{{item.uid}}" data-index="{{index}}">
+					<!-- <image src="/images/friendIcon.png" mode="widthFix"></image> -->
+					取消关注
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+
+</view>

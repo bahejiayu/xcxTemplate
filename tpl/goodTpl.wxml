@@ -1,0 +1,266 @@
+<import src='/tpl/goodTpl.wxml' />
+<wxs module="filter" src="../filter/index.wxs"></wxs>
+
+<!-- 图书馆 -->
+
+<template name="booksItem">
+	<!-- arrowLeft -->
+	<navigator hover-class="none" url="/library/pages/bookDetail/bookDetail?id={{doc?item.doc_id:item.id}}" class="booksItem   {{item.left?'arrowLeft':''}}  tr" bind:touchstart='st' bind:touchend='end' data-index="{{index}}" wx:for='{{list}}' wx:for-index="index" wx:key='index' wx:for-item="item">
+		<view class="bookItemImg bg2">
+			<image src="{{item.logo}}"></image>
+		</view>
+		<view class="bookInfo">
+			<view class="bookInfoName dan">
+				{{item.name}}
+			</view>
+			<view class="bookWiter dan">
+				作者:{{item.author}}
+
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==1&&isCollect}}'>
+					电子书
+				</view>
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==2&&isCollect}}'>
+					实体书
+				</view>
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==3&&isCollect}}'>
+					其他
+				</view>
+			</view>
+			<view class="bookPublish dan">
+				{{item.cbs_name}}
+			</view>
+			<view class="bookDes">
+				<!-- 简介：本书针对中国古代文学进行了别开生面的深入研究，从古代文学的审美趣味。 -->
+			</view>
+			<view class="bookBottom">
+				<view class="freedX" wx:if='{{item.is_xianmian==1||item.is_free==1}}'>
+					限免
+				</view>
+				<view class="bookTepPriceTxt dan" wx:if='{{item.is_xianmian!=1&&item.is_free!=1}}'>
+					<text wx:if='{{item.attribute==1}}'>{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}书币</text>
+					<text wx:if='{{item.attribute==2}}'>￥{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}</text>
+				</view>
+				<view data-id="{{item.id}}" class="collectAddBtn" catchtap="{{item.attribute==1?'addBookSelf':'addCar'}}" wx:if='{{isCollect&&self==false}}'>
+					{{item.attribute==1?'加入书架':'加入购物车'}}
+				</view>
+				<view class="collectAddBtn" catchtap="{{item.is_buy==1?'立即阅读':'bookPay'}}" data-id="{{item.doc_id}}" data-price="{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}" data-index="{{index}}" wx:if='{{isCollect&&self==true}}'>
+					{{item.is_buy==1?'立即阅读':'立即购买'}}
+				</view>
+				<view class="bookTepTip dan " wx:if='{{item.attribute==1&&!isCollect}}'>
+					电子书
+				</view>
+				<view class="bookTepTip dan " wx:if='{{item.attribute==2&&!isCollect}}'>
+					实体书
+				</view>
+				<view class="bookTepTip dan " wx:if='{{item.attribute==3&&!isCollect}}'>
+					其他
+				</view>
+			</view>
+
+		</view>
+		<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{doc?item.id:item.cid}}">
+			<view class="icon icon-delete">
+			</view>
+		</view>
+
+	</navigator>
+</template>
+
+
+<!-- 拍品 -->
+
+<template name="auctTpl">
+	<view class="auctionGoodItem" wx:for='{{list}}' wx:key='index'>
+		<!-- arrowLeft -->
+		<navigator url="/auction/pages/lotDetail/lotDetail?id={{item.id}}" class=" {{item.left?'arrowLeft':''}}  tr" hover-class="none" bind:touchstart='st' data-index="{{index}}" bind:touchend='end'>
+			<view class="auctionGoodImg bg3">
+				<image src="{{item.logo||'/images/showGood.png'}}" data-index="{{index}}" data-obj="collectList" binderror="errImg" mode="aspectFit"></image>
+			</view>
+			<view class="auctionGoodInfo">
+				<view class="auctionGoodName twoLine">
+					{{item.cn_name||item.en_name}}
+				</view>
+				<view class="auctionHang dan">
+					{{item.company_name}}
+				</view>
+				<view class="auctionAlo">
+					<view class="auDate">
+						{{item.auction_time}}
+					</view>
+					<view class="auctionTip  {{item.is_pass==1?'':'now_'}} ">
+						{{item.is_pass==1?'已结拍':'预展'}}
+					</view>
+				</view>
+				<!-- successPri -->
+
+				<view class="auctionGoodPrice  dan" wx:if='{{item.is_pass==1}}'>
+					成交价:{{item.transaction_price}}
+				</view>
+				<view class="auctionGoodPrice dan" wx:else>
+					估价:{{item.evaluation}}
+				</view>
+				<!-- 成交价 -->
+
+			</view>
+			<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{item.cid}}">
+				<view class="icon icon-delete">
+				</view>
+			</view>
+		</navigator>
+	</view>
+</template>
+
+
+
+
+<!-- 资讯 -->
+
+<template name="messageTpl">
+	<!-- arrowLeft -->
+	<view class="artMessageItem " wx:for='{{data}}' wx:key='index'>
+		<navigator hover-class="none" class=" {{item.left?'arrowLeft':''}}  tr" url="/pages/artNewDetail/artNewDetail?id={{item.id}}" bind:touchstart='st' data-index="{{index}}" bind:touchend='end'>
+			<view class="artImage bg1">
+				<image src="{{item.logo}}" mode="widthFix" data-index="{{index}}" data-form='ppData' binderror="imgErro"></image>
+			</view>
+			<view class="artContent">
+				<view class="artName">
+					{{item.title}}
+				</view>
+				<view class="artTip">
+					{{item.cat_name}}
+				</view>
+				<view class="artBottomInfo">
+					<view class="artInfoItem">
+						{{item.created_at}}
+					</view>
+					<view class="artInfoItem">
+						<image src="/images/homey.png" mode="widthFix"></image>
+						{{item.show_num}}
+					</view>
+					<view class="artInfoItem">
+						<image src="/images/homed.png" mode="widthFix"></image>
+						{{item.zan_num}}
+					</view>
+				</view>
+			</view>
+			<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{item.cid}}">
+				<view class="icon icon-delete">
+				</view>
+			</view>
+		</navigator>
+
+	</view>
+</template>
+
+<!-- 市集的收藏 -->
+<template name="marketTpl">
+	<view class="markCollectItem ">
+
+		<!-- arrowLeft -->
+		<navigator class=" {{data.left?'arrowLeft':''}}  tr" bindtap="goDetail" data-status="{{data.status==1&&data.pass_status==0?0:1}}" data-jy="{{jy}}" data-url="/market/pages/marketDetail/marketDetail?id={{data.id}}" hover-class="none" bind:touchstart='st' data-index="{{index}}" bind:touchend='end'>
+			<view class="marColImg bg2">
+				<image src="{{data.logo||'/images/showGood.png'}}" mode="aspectFix"></image>
+			</view>
+			<view class="marColContent">
+				<view class="marColName twoLine">
+					{{data.title}}
+				</view>
+				<view class="writerATip">
+					<view class="goodWriter dan">
+						作者: {{data.author}}
+					</view>
+					<view class="goodTip" wx:if='{{data.type==1}}'>
+						一口价
+					</view>
+					<view class="goodTip 		{{data.status==1&&data.pass_status==0?'ac':''}}  " wx:else>
+						{{data.status==1&&data.pass_status==0?'竞拍中':'已结拍'}}
+					</view>
+				</view>
+				<view class="marColDes">
+					<view class="dan">{{data.cbs}}</view>
+					<view class="dan">新旧：{{filter.newTxt(data.degree)}} </view>
+					<view class="dan" wx:if='{{data.type==1}}'>{{data.like}}人想要</view>
+				</view>
+				<view class="marColBottom">
+					<view class="mcbL" wx:if='{{data.type==1}}'>
+						￥{{data.discount_pice!='0.00'&&data.discount_pice?data.discount_pice:data.price}}
+					</view>
+					<view class="mcbL" wx:if='{{data.type==2}}'>
+						￥{{data.price}}
+					</view>
+					<!-- <view class="mcbR">
+						<view class='mcbActBtn flexMid' wx:if='{{data.type==2}}'>
+							立即出价
+						</view>
+						<view  data-status="{{data.status}}" catchtap="addCar" class=" 	{{data.status==0?'mcbActBtn':'macBtn'}}    flexMid" wx:if='{{data.type==1}}'>
+							加入购物车
+						</view>
+					</view> -->
+				</view>
+			</view>
+			<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{data.cid}}">
+				<view class="icon icon-delete">
+				</view>
+			</view>
+		</navigator>
+	</view>
+</template>
+
+
+<!-- 瀑布流市集 -->
+
+<template name="marketPb">
+	<view class="marketGood">
+		<navigator hover-class="none" url="/market/pages/marketDetail/marketDetail?id={{data.id}}">
+			<view class="marketGoodImg bg2">
+				<image src="{{data.logo||'/images/jpImg.png'}}" mode='widthFix'></image>
+			</view>
+			<view class="marketGoodInfo">
+				<view class="marketGoodName twoLine">
+					{{data.title}}
+				</view>
+				<view class="pAw">
+					<view class="gPri" wx:if='{{data.type==2}}'>
+						当前价:￥{{data.price}}
+					</view>
+					<view class="gPri" wx:if='{{data.type==1}}'>
+						￥{{data.discount_pice!='0.00'&&data.discount_pice?data.discount_pice:data.price}}
+					</view>
+					<view class="peopleNub" wx:if='{{data.type==1&&data.like>0}}'>
+						{{data.like}}人想要
+					</view>
+				</view>
+				<!-- 一口价时 -->
+				<view class="newOldAyou" wx:if='{{data.type==1}}'>
+					<view class="newOld">
+						新旧：{{filter.newTxt(data.degree)}}
+					</view>
+					<view class="you_" wx:if='{{data.is_baoyou==1}}'>
+						包邮
+					</view>
+				</view>
+				<!-- 竞拍中 -->
+				<view class="auctionNow" wx:if='{{data.type==2}}'>
+					<view class="auctNub">
+						{{data.out_pric_num}}人已出价
+					</view>
+					<view class="endTime">
+						距离结束: {{data.end_time}}小时
+					</view>
+				</view>
+				<view class="marGoodBottom">
+					<view class="marHeadImg">
+						<image src="{{data.avatar}}"></image>
+					</view>
+					<view class="marStatus" wx:if='{{data.type==1}}'>
+						一口价
+					</view>
+					<view class="marStatus cur" wx:if='{{data.type==2}}'>
+						竞拍中
+					</view>
+				</view>
+			</view>
+		</navigator>
+	</view>
+
+</template>

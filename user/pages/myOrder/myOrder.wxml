@@ -1,0 +1,94 @@
+<view class="orderNav scT">
+	<view class="libraryNavList">
+		<view class="libraryNavItem">
+			<text class= "{{type==''?'cur':''}} " data-type="" bindtap="togType">全部 </text>
+		</view>
+		<view class="libraryNavItem">
+			<text class= "{{type=='0'?'cur':''}} " data-type="0" bindtap="togType">待付款</text>
+		</view>
+		<view class="libraryNavItem">
+			<text class= "{{type=='3'?'cur':''}} " data-type="3" bindtap="togType">待收货</text>
+		</view>
+		<view class="libraryNavItem">
+			<text class= "{{type=='2'?'cur':''}} " data-type="2" bindtap="togType">已完成</text>
+		</view>
+		<!-- <view class="libraryNavItem">
+			<text class= "{{type=='7'?'cur':''}} " data-type="7" bindtap="togType">已取消</text>
+		</view> -->
+	</view>
+</view>
+
+<view class="pt70">
+	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{orderList.length<=0}}' data='{{...{kongTxt:"没有相关的订单"} }}'></template>
+	<view class="orderList ">
+		<view class="orderItem">
+			<navigator class="booksItem tr  {{item.left?'arrowLeft':''}}" data-index="{{index}}" url="/user/pages/orderDetail/orderDetail?id={{item.id}}" hover-class="none" wx:for='{{orderList}}'>
+				<view class="bookItemImg">
+					<image src="{{item.order_logo||'/images/jpImg.png'}}" mode="aspect"></image>
+				</view>
+				<view class="bookInfo">
+					<view class="bookInfoName twoLine">
+						{{item.order_name}}
+						<view class="orderStatus {{item.status==0?'cur':''}} ">
+							<text wx:if='{{item.status==0}}'>待付款</text>
+							<text wx:if='{{item.status==1}}'>待发货</text>
+							<text wx:if='{{item.status==2}}'>已完成</text>
+							<text wx:if='{{item.status==3}}'>待收货</text>
+							<text wx:if='{{item.status==7}}'>已取消</text>
+						</view>
+					</view>
+					<view class="bookWiter dan">
+						作者: {{item.author||''}}
+						<view class="bookTepTip dan dwI" wx:if='{{item.order_type==1}}'>
+							电子书
+						</view>
+						<view class="bookTepTip dan dwI" wx:if='{{item.order_type==2}}'>
+							实体书
+						</view>
+						<view class="bookTepTip dan dwI" wx:if='{{item.order_type==4}}'>
+							集市书籍
+						</view>
+					</view>
+					<view class="bookPublish dan">
+						{{item.cbs||''}}
+					</view>
+					<view class="bookDes">
+						共{{item.order_num}}件
+					</view>
+					<view class="payEndTime" wx:if='{{item.status==0&&item.over_time}}'>
+						付款截止: {{item.over_time}}
+					</view>
+
+					<view class="bookBottom">
+						<view class="bookTepPriceTxt dan">
+							￥{{item.order_price}}
+						</view>
+					
+						<view class="collectAddBtn" wx:if='{{item.status==0}}'>
+							立即支付
+						</view>
+						<view class="collectAddBtn" catchtap="bohao"  wx:if='{{item.status==2&&item.order_type!=1}}'>
+							联系客服
+						</view>
+						<view class="collectAddBtn" data-index="{{index}}" data-no="{{item.order_no}}" catchtap="sureGet" wx:if='{{item.status==3}}'>
+							确认收货
+						</view>
+						<navigator  hover-class="none" url="/pages/readH/readH?id={{item.doc_id}}"  class="collectAddBtn" wx:if='{{item.status==2&&item.order_type==1}}'>
+							立即阅读
+						</navigator>
+						<!-- <view class="collectAddBtn againBuy" wx:if='{{item.status==7&&item.order_type==2}}'>
+						再次购买
+					</view> -->
+					</view>
+				</view>
+				<view class="delCarItem" catchtap="delCarItem" data-index="{{index}}" data-id="{{item.id}}">
+					<view class="icon icon-delete">
+					</view>
+				</view>
+			</navigator>
+
+		</view>
+
+	</view>
+</view>

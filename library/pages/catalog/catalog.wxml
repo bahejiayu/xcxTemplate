@@ -1,0 +1,25 @@
+
+	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"没有相关目录"} }}'></template>
+
+
+<view class="catalogList">
+
+	<view class="catalogItem   {{isBuy||item.is_free||canLook==1?'':'iock'}}"  data-iock="{{isBuy||item.is_free||canLook==1?'':'iock'}}"  wx:for='{{list}}' wx:if='{{item.name}}'  bindtap="cataEven" wx:key='{{index}}' data-url="{{item.pic}}">
+		<view class="catalogItemL">
+			<view class="dan">{{item.name}}</view>
+		</view>
+		<view class="catalogItemR" wx:if='{{isBuy||item.is_free==1}}'>
+			原书第{{item.book_page}}页
+		</view>
+  	<view class="catalogItemR" wx:else>
+			<image src="/images/iockIcon.png"  mode="widthFix"></image>
+		</view>
+
+	</view>
+
+
+
+
+
+</view>

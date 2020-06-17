@@ -1,0 +1,107 @@
+<view class="sellNav scT">
+	<view class="libraryNavList">
+		<view class="libraryNavItem" data-type="0" bindtap="togType">
+			<text class="{{type=='0'?'cur':''}}">全部</text>
+		</view>
+		<view class="libraryNavItem" data-type="100" bindtap="togType">
+			<text  class="{{type=='100'?'cur':''}}">待付款</text>
+		</view>
+		<view class="libraryNavItem" data-type="1" bindtap="togType">
+			<text  class="{{type=='1'?'cur':''}}">待发货</text>
+		</view>
+		<view class="libraryNavItem" data-type="3" bindtap="togType">
+			<text  class="{{type=='3'?'cur':''}}">待收货</text>
+		</view>
+	</view>
+</view>
+
+
+<view class="pt76">
+  	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{orderList.length<=0}}' data='{{...{kongTxt:"没有相关的订单"} }}'></template>
+
+	<view class="orderList">
+		<view class="orderItem">
+			<navigator  url="/user/pages/orderDetailSell/orderDetailSell?id={{item.id}}" class="booksItem" wx:for='{{orderList}}' hover-class="none">
+				<view class="bookItemImg">
+					<image src="{{item.order_logo||'/images/jpImg.png'}}"></image>
+				</view>
+				<view class="bookInfo">
+					<view class="bookInfoName twoLine">
+						{{item.order_name}}
+
+						<view class="orderStatus cur" wx:if='{{item.status==0}}'>
+							待买家付款
+						</view>
+						<view class="orderStatus cur" wx:if='{{item.status==1}}'>
+							待发货
+						</view>
+						<view class="orderStatus cur" wx:if='{{item.status==2}}'>
+							已完成
+						</view>
+						<view class="orderStatus cur" wx:if='{{item.status==3}}'>
+							待收货
+						</view>
+						<view class="orderStatus cur" wx:if='{{item.status==4}}'>
+							确认收货
+						</view>
+						<view class="orderStatus cur" wx:if='{{item.status==7}}'>
+							已取消
+						</view>
+					</view>
+					<view class="tlbw">
+						<view class="bookWiter dan">
+							作者: {{item.author}}
+						</view>
+						<view class="buyStyle">
+							{{item.book_type==1?'一口价':'竞拍'}}
+						</view>
+					</view>
+					<view class="bookPublish dan">
+						{{item.cbs}}
+					</view>
+					<view class="bookDes">
+						共1件
+					</view>
+					<view class="payEndTime" wx:if='{{item.status==0}}'>
+						付款截止:{{item.over_time}}
+					</view>
+
+					<view class="bookBottom">
+						<view class="bookTepPriceTxt dan">
+							￥{{item.order_price}}
+						</view>
+						<view class="collectAddBtn" data-index="{{index}}" data-no="{{item.order_no}}"  catchtap="surePost" wx:if='{{item.status==1}}'>
+							确认发货
+						</view>
+
+					</view>
+				</view>
+			</navigator>
+
+		</view>
+
+	</view>
+</view>
+
+
+<view class="shadeView" wx:if='{{sellType1}}'></view>
+<!-- 一口价 -->
+<view class="sellFix {{sellType1?'showSell':''}}">
+	<view class="sellFixTit">
+		<view>填写快递单号</view>
+		<view class="icon icon-close" bindtap="closeSellType1">
+		</view>
+	</view>
+	<form bindsubmit="ykjSubmit">
+		<view class="sellFixInp">
+			<view class="sellFixInpTit">
+				快递单号
+			</view>
+			<input type="text" name='orderno' value="{{orderno}}" placeholder="请输入" placeholder-class="inpStyle"></input>
+		</view>
+		<view class="sellFixBtn">
+			<button form-type="submit" class="formBtn isOk addressBtn">保存</button>
+		</view>
+	</form>
+</view>

@@ -1,0 +1,169 @@
+<import src="../../tpl/goodTpl.wxml" />
+<import src="../../tpl/auctionTpl.wxml" />
+<wxs module="filter" src="../../filter/index.wxs"></wxs>
+<view class="fixT">
+	<view class="topBanner">
+		<view class="topSearch">
+			<view class="searchBox">
+				<view class="searchInp">
+					<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+						<text class="icon icon-search" ></text>
+						<text>搜索</text>
+					</view>
+					<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+				</view>
+			</view>
+		</view>
+		<view class="indicatorBox">
+			<view class="indicatorItem    {{indicator==index?'cur':''}} " wx:for='{{bannerList}}'>
+			</view>
+		</view>
+		<swiper autoplay="3000" bindchange="swiperChange">
+			<swiper-item wx:for='{{bannerList}}'>
+				<navigator hover-class="none" url="{{item.wpUrl}}">
+					<image src="{{item.pic}}" mode="widthFix"></image>
+				</navigator>
+			</swiper-item>
+
+		</swiper>
+	</view>
+	<view class="libraryBox">
+		<!-- <view class="libraryNav">
+		<view class="libraryNavList">
+			<view class="libraryNavItem" bindtap="togAuction" data-type="0">
+				<text class=" {{auctionType==0?'cur':''}} ">拍卖会</text>
+			</view>
+			<view class="libraryNavItem" bindtap="togAuction" data-type="1">
+				<text  class=" {{auctionType==1?'cur':''}} ">拍品</text>
+			</view>
+		</view>
+	</view> -->
+
+
+		<!-- 拍品筛选 -->
+		<!-- <view class="filtrateLine" wx:if='{{auctionType==1}}'>
+		<view class="filtrateItem b2">
+			<picker mode='date' fields='year' bindchange="pickerChange" data-key="years">
+				<view class="">拍卖地区
+					<text class="icon icon-unfold"></text>
+				</view>
+			</picker>
+		</view>
+		<view class="filtrateItem b2" bindtap="yearSort">
+			<view class="">拍卖年份
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort=="asc"}}'></image>
+			</view>
+		</view>
+	
+		<view class="filtrateItem b2">
+			<picker range='{{companyList}}' range-key="name" bindchange="pickerChange" data-key="au_company">
+				<view class="">拍卖公司
+					<text class="icon icon-unfold"></text>
+				</view>
+			</picker>
+		</view>
+			<view class="filtrateItem" bindtap="screenBtn" data-type="筛选">
+			<view class="b2">筛选 <image src="/images/libSelIconCur.png" class="libSelIcon" mode="widthFix"></image>
+			</view>
+		</view>
+	</view> -->
+
+
+		<view class="filtrateLine">
+
+			<!-- <view class="filtrateItem b2" bindtap="yearSort">
+			<view class="">拍卖年份
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{type1Data.sort=="asc"}}'></image>
+			</view>
+		</view> -->
+			<view class="filtrateItem b2">
+				<picker mode='selector' range="{{selData.paipin_addr}}" range-key="name" bindchange="pickerChange" data-key="pai_city">
+					<view class="">地区
+						<text class="icon icon-unfold"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="filtrateItem b2">
+				<!-- mode='date' fields='year'  -->
+				<picker range="{{yearData}}" bindchange="pickerChange" data-key="years">
+					<view class="">年份
+						<text class="icon icon-unfold"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="filtrateItem b2">
+			<!-- selData.company -->
+				<picker range='{{companyList}}' range-key="name" bindchange="pickerChange" data-key="au_company">
+					<view class="">拍卖公司
+						<text class="icon icon-unfold"></text>
+					</view>
+				</picker>
+			</view>
+			<view class="filtrateItem b2">
+				<picker range='{{selData.is_pass}}' range-key="label" bindchange="pickerChange" data-key="is_pass">
+					<view class="">拍卖状态
+						<text class="icon icon-unfold"></text>
+					</view>
+				</picker>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="auctionBox" wx:if='{{auctionType==0}}'>
+	<import src='/tpl/kong.wxml' />
+	<template is='kong' wx:if='{{pmhData.length<=0}}' data='{{...{kongTxt:"没有相关的拍卖会"} }}'></template>
+
+
+	<view class="auctionItem" wx:for='{{pmhData}}' wx:for-index="i1" wx:for-item="t1">
+		<view class="auctionDate">
+			{{t1.pass_time}}
+		</view>
+		<view wx:for='{{t1.bean}}' wx:for-index="i2" wx:for-item="t2">
+			<view class="auctionTop">
+				<view class="auctionInfo" hover-class="none" url="/auction/pages/auctionDetail/auctionDetail?id={{t2.au_company_id}}">
+					<view class="auctionTilte">
+						{{filter.delYear(t2.title)}}
+					</view>
+					<view class="auctionDes">
+						<view>
+							{{t2.company_name}}
+						</view>
+						<view>{{t2.pass_time}}</view>
+					</view>
+					<view class="auctionTip  {{t2.is_pass==2?'now_':''}} ">
+						{{t2.is_pass==2?'预展':'已结拍'}}
+						<!-- 已结拍 -->
+					</view>
+				</view>
+			</view>
+			<view hover-class="none" url="/auction/pages/auctionDetail/auctionDetail?id={{t2.au_company_id}}" class="auctionGoodsList">
+				<scroll-view scroll-x='{{true}}'>
+					<navigator hover-class="none" url="/auction/pages/auctionDetail/auctionDetail?id={{t3.id}}" class="goodContainer" wx:for='{{t2.zhuanchang}}' wx:for-index="i3" wx:for-item="t3">
+						<view class="auctionGoods bg3">
+							<image binderror="errorImg" data-i3="{{i3}}" data-i2="{{i2}}" data-i1="{{i1}}" src="{{t3.logo||'/images/showGood.png'}}" mode="aspectFit"></image>
+						</view>
+						<view class="auctionGoodTit  dan">
+							{{filter.delYear(t3.title)}}
+						</view>
+					</navigator>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<!-- 拍品 -->
+
+<view class="auctionItems" wx:if='{{auctionType==1}}'>
+	<template is="auctTpl" data="{{...{list:ppData } }}"></template>
+</view>
+
+<template is="rangeChe" data="{{...{showScreen,showCity} }}" />

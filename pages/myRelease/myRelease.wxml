@@ -1,0 +1,85 @@
+<view class="orderNav scT">
+	<view class="libraryNavList">
+		<view class="libraryNavItem" data-type="0" bindtap="togType">
+			<text class="{{type=='0'?'cur':''}}">全部</text>
+		</view>
+		<view class="libraryNavItem" data-type="4" bindtap="togType">
+			<text class="{{type=='4'?'cur':''}}">一口价</text>
+		</view>
+		<view class="libraryNavItem" data-type="5" bindtap="togType">
+			<text class="{{type=='5'?'cur':''}}">竞拍中</text>
+		</view>
+		<view class="libraryNavItem" data-type="2" bindtap="togType">
+			<text class="{{type=='2'?'cur':''}}">已结拍</text>
+		</view>
+
+
+		<view class="libraryNavItem" data-type="3" bindtap="togType">
+			<text class="{{type=='3'?'cur':''}}">草稿箱</text>
+		</view>
+	</view>
+</view>
+
+<view class="releaseList pt76">
+
+	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{reList.length<=0}}' data='{{...{kongTxt:"没有相关的发布"} }}'></template>
+	<view class="orderGoods" wx:for='{{reList}}'>
+		<view class="orderGoodItem">
+			<navigator hover-class="none">
+				<view class="orderGoodImg">
+					<image src="{{item.logo||'/images/jpImg.png'}}" mode="aspectFit"> </image>
+				</view>
+				<view class="orderGoodContetn">
+					<view class="bookInfoName dan">
+						{{item.title}}
+						<view class="orderStatus cur" wx:if="{{item.tip=='一口价'||item.tip=='竞拍中'}}" >
+							{{item.tip}}
+						</view>
+							<view class="orderStatus c3" wx:if="{{item.tip=='审核中'}}"  >
+							{{item.tip}}
+						</view>
+					<view class="orderStatus" wx:if="{{item.tip=='已结拍'||item.tip=='已售出'||item.tip=='已下架'||item.tip=='审核失败'||item.tip=='草稿箱'}}" >
+							{{item.tip}}
+						</view>
+					</view>
+					<view class="bookWiter dan">
+						作者: {{item.author||""}}
+					</view>
+					<view class="bookPublish dan">
+						{{item.cbs||''}}
+					</view>
+					<view class="bookBottom">
+						<view class="bookTepPriceTxt dan" wx:if='{{item.type==1}}'>
+							￥{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}
+						</view>
+						<view class="bookTepPriceTxt dan" wx:else>
+							￥{{item.price}}
+						</view>
+					</view>
+					<view class="creatTime">
+						创建日期:{{item.created_at}}
+					</view>
+				</view>
+			</navigator>
+			<view class="relesaseBottom" wx:if='{{item.tip=="一口价"||item.tip=="竞拍中"||item.tip=="已售出"||item.tip=="已结拍"||item.tip=="草稿箱"||item.tip=="已下架"||item.tip=="审核失败"}}'>
+				<navigator hover-class="none" wx:if='{{item.tip=="一口价"||item.tip=="竞拍中"||item.tip=="草稿箱"||item.tip=="审核失败"}}' url="../../user/pages/sellEditor/sellEditor?id={{item.id}}">
+					编辑
+				</navigator>
+				<navigator bindtap="togSx" data-id="{{item.id}}"  data-show="{{item.is_show}}" data-index="{{index}}"  hover-class="none" wx:if='{{item.tip=="一口价"||item.tip=="已下架"}}'  >
+					{{item.is_show==1?'下架':'上架'}}
+				</navigator>
+				<navigator data-id="{{item.id}}"  bindtap="delItem" hover-class="none" wx:if='{{item.tip=="已售出"||item.tip=="已结拍"||item.tip=="草稿箱"||item.tip=="一口价"||item.tip=="已下架"||item.tip=="审核失败"}}'>
+					删除
+				</navigator>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="carFixBottom">
+	<navigator hover-class="none" url="/user/pages/sell/sell" class="orderPayBtn flexMid btnActive">
+		立即发布
+	</navigator>
+</view>

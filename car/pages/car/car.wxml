@@ -1,0 +1,60 @@
+<view class="carBox">
+	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{carList.length<=0}}' data='{{...{kongTxt:"您的购物车空空如也"} }}'></template>
+	<view class="carItem " wx:for='{{carList}}'  bind:touchstart='st'  data-index="{{index}}"  bind:touchend='end'  >
+		<!-- arrowLeft --> 
+		<view class="carContainer {{item.left?'arrowLeft':''}}  "  catchtap="togChk" data-index="{{index}}" >
+			<view class="delCarItem" bindtap="delCarItem" data-index="{{index}}" data-id="{{item.id}}">
+				<view class="icon icon-delete" > 
+				</view>
+			</view>
+			<view class='wai_  {{item.chk?"cur":""}}'>
+				<view class='guo_'></view>
+			</view>
+			<view class="goodsImgContainer bg2">
+				<image src="{{item.logo||'/images/jpImg.png'}}" mode="aspectFit"></image>
+				<!-- <image src="/images/indexLogo1.png" mode="aspectFit"></image> -->
+			</view>
+			<view class="carContent">
+				<view class="carGoodName" twoLine>
+					{{item.name}}
+				</view>
+				<view class="carGoodWriter dan">
+					作者: {{item.author}}
+				</view>
+				<view class="pressHourse dan ">
+					{{item.cbs_name}}
+				</view>
+				<view class="carConBottom">
+					<view class="carPrice">
+						￥{{item.discount_pice!='0.00'&&item.discount_pice?item.discount_pice:item.price}}
+					</view>
+					<view class="carRange">
+						<view class="carRangeBtn  {{item.num>1?'cur':''}}" data-type="-"   catchtap="togNub"  data-index="{{index}}"  data-id='{{item.id}}' >-</view>
+						<view class="carRangeTxt">{{item.num}}</view>
+						<view class="carRangeBtn cur" data-type="+" data-stock="{{item.stock}}" data-index="{{index}}"   catchtap="togNub" data-id='{{item.id}}'>+</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="carFixBottom">
+	<view class="carFixL" bindtap="allChk">
+		<view class='wai_  {{allChk?"cur":""}}'>
+			<view class='guo_'></view>
+		</view>
+		<view>
+			全选
+		</view>
+	</view>
+	<view class="carFixR">
+		<view class="carPrice">
+			总计:￥{{totalPrice}}
+		</view>
+		<view class="carFixBtn" bindtap="carPay">
+			结算
+		</view>
+	</view>
+</view>

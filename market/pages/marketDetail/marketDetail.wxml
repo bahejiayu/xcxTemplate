@@ -1,0 +1,261 @@
+<wxs module="filter" src="../../../filter/index.wxs"></wxs>
+
+<import  src='../../../tpl/loading.wxml' />
+<template  is='loading' data="{{...{showLoading } }}" ></template>
+<view class="auctionEndTime" wx:if='{{dataInfo.type==2}}'>
+	距离拍卖结束时间：{{endTime}}
+	<!-- {{filter.toHHmmss(endTime)}} -->
+</view>
+<view class="marketDetailBox">
+	<view class="masterInfo">
+
+		<navigator hover-class="none" url="../homePage/homePage?uid={{dataInfo.uid}}" class="masterInfoBox">
+			<view class="masterImg">
+				<image src="{{dataInfo.avatar}}" mode="widthFix"></image>
+			</view>
+			<view class="masterInfoTxt">
+				<view class="dan">
+					{{dataInfo.nickname}}
+				</view>
+				<view class="dan">发布时间: {{dataInfo.created_at}}</view>
+			</view>
+			<view class="masInfoLink">
+				<view>
+					<image src="/images/vIocn.png" mode="widthFix"  wx:if='{{dataInfo.is_real==1}}'></image>
+					<image src="/images/viconh.png" mode="widthFix" wx:else></image>
+					个人认证
+				</view>
+				<view>
+					<image src="/images/miocn.png" mode="widthFix"  wx:if='{{dataInfo.is_ensure==1}}'></image>
+					<image src="/images/miconh.png" mode="widthFix" wx:else></image>
+					店铺保证金
+				</view>
+			</view>
+		</navigator>
+
+
+	</view>
+
+	<view class="masketGoodDes">
+		<view class="maskPrice">
+			<view class="maskPriceL">
+				<view class="curPriceTip" wx:if='{{dataInfo.type==2}}'>
+					当前价
+				</view>
+				<view wx:if='{{dataInfo.type==2}}'>
+					<view class="curPriceTxt">
+						￥{{dataInfo.price}}
+					</view>
+				</view>
+				<view class="pio" wx:else>
+					<view class="curPriceTxt">
+						￥{{dataInfo.discount_pice!='0.00'&&dataInfo.discount_pice?dataInfo.discount_pice:dataInfo.price}}
+					</view>
+					<view class="del" wx:if='{{dataInfo.discount_pice!="0.00"&&dataInfo.discount_pice}}'>
+						￥{{dataInfo.price}}
+					</view>
+				</view>
+
+			</view>
+			<view class="maskPriceR">
+				新旧：{{filter.newTxt(dataInfo.degree)}}
+			</view>
+
+
+		</view>
+		<view class="masketGoodNmae">
+			{{dataInfo.title}}
+			<view class="masCollect" bindtap="togCollect" data-type="{{dataInfo.is_collect}}">
+				<image src="/images/icon_library_like{{dataInfo.is_collect==1?'_red':''}}.png" mode="widthFix"></image>
+
+			</view>
+		</view>
+		<view class="masketSource">
+			<view>作者 : {{dataInfo.author}}</view>
+			<view>出版社 : {{dataInfo.cbs}}</view>
+			<view>ISBN : {{dataInfo.isbn}}</view>
+			<view>发货地 : {{dataInfo.send_addr}}</view>
+			<view class="masCollect">
+				<text wx:if='{{dataInfo.is_baoyou==1}}'>包邮</text>
+				<text wx:else>邮费￥{{dataInfo.freight}}</text>
+			</view>
+
+		</view>
+	</view>
+	<view wx:if='{{dataInfo.desc}}'>
+		<view class="marketGoodTxt {{showAll?'showAll':''}}">
+			<text decode='{{true}}'>
+			{{dataInfo.desc}}
+			</text>
+		</view>
+		<view class="marketMore" bindtap="readingAll" wx:if='{{!showAll}}'>
+			<view>查看全文</view>
+			<view class="icon icon-unfold"></view>
+		</view>
+	</view>
+	<view class="marketImgList" wx:if='{{dataInfo.pics.length>0}}'>
+		<image src="{{item}}" mode="widthFix" wx:key='index' wx:for='{{dataInfo.pics}}' bindtap="prvImg" data-url="{{item}}"></image>
+	</view>
+	<view class="circuseeBox">
+		<view class="circuseeBoxL">
+			<view class="cirImgs">
+				<view class="cirImgItem" wx:for='{{lookMan}}' wx:key='index'>
+					<image src="{{item.avatar||'/images/showGood.png'}}" mode="widthFix"></image>
+				</view>
+			</view>
+			<view class="circuseeTxt pd{{lookMan.length}}">
+				{{wnub}}人围观
+			</view>
+		</view>
+		
+		<navigator class="circuseeBoxR" url="../../../pages/feedBack/feedBack" hover-class="none" >
+			举报
+		</navigator>
+	</view>
+	<view class="bidRecord" wx:if='{{dataInfo.type==2}}'>
+		<view class="bidRecordTit">
+			<view class="bidRecordTitL">
+				出价记录({{bidList.length}})
+			</view>
+			<view class="bidRecordTitR">
+				{{bidList[0].created_at}}
+			</view>
+		</view>
+		<view class="bidRecordList">
+			<scroll-view scroll-y='{{true}}' class="{{showBidAll==false?'showBid':''}}">
+				<view class="bidRecordItem" wx:for='{{bidList}}' wx:key='index'>
+					<view class="bidRecordItemL">
+						<view class="bidReImg">
+							<image src="{{item.avatar||'/images/showGood.png'}}" mode="widthFix"></image>
+						</view>
+						<view class="bidReName dan">
+							{{item.nickname}}
+						</view>
+					</view>
+					<view class="bidRecordItemR">
+						<view class="bidRecTip" wx:if='{{index==0}}'>
+							最高出价
+						</view>
+						<view class="bidRecPrice bold">
+							￥{{item.price}}
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view class="marketMore bd" bindtap="readingMore" wx:if='{{showBidAll&&bidList.length>3}}'>
+		<view>查看更多</view>
+		<view class="icon icon-unfold"></view>
+	</view>
+	<view class="lotBtn">
+		<view class="lotBtnItem" bindtap="showModuleEven" data-title="拍卖说明" wx:if='{{dataInfo.type==2}}'>
+			<view>拍卖说明</view>
+			<view class="icon icon-add"></view>
+		</view>
+		<view class="lotBtnItem" bindtap="showModuleEven" data-title="交易说明" wx:else>
+			<view>交易说明</view>
+			<view class="icon icon-add"></view>
+		</view>
+	</view>
+
+
+
+
+</view>
+
+
+<!-- 立即出价 -->
+<view class="orderFix" wx:if='{{dataInfo.type==2}}'>
+	<view class="bidBtn btnActive" bindtap="bidEven">
+		立即出价
+	</view>
+</view>
+
+
+<!-- 拍卖成交 -->
+<!-- <view class="orderFix">
+	<view class="orderTotal">
+		<view class="totalTxt">
+			合计:
+		</view>
+		<view class="totalPrice">
+			￥21,000
+		</view>
+	</view>
+	<view class="orderPayBtn">
+		立即支付
+	</view>
+</view> -->
+
+<!-- 一口价 -->
+<view class="orderFix" wx:if='{{dataInfo.type==1}}'>
+	<view class="orderTotal">
+		<view class="totalTxt">
+			总计:<text>(含运费)</text>
+		</view>
+		<view class="totalPrice">
+			￥{{dataInfo.totalPricea}}
+		</view>
+	</view>
+	<view class="orderPayBtn" bindtap="marketPay">
+		立即购买
+	</view>
+</view>
+
+
+<view class="shadeView z300" wx:if="{{showAddPrice}}" bindtap="closeAddPrice"></view>
+<view class="sureBid  {{showAddPrice?'showAdd':''}}  ">
+	<view class="sureBidTitle">
+		<view>
+			确认出价
+		</view>
+		<view class="sureBidClose icon icon-close" bindtap="closeAddPrice">
+		</view>
+	</view>
+	<view class="sureBidPrice">
+		<view>当前价格</view>
+		<view class="bold">￥{{dataInfo.price}}</view>
+	</view>
+	<view class="bidAddBox">
+		<view class="bidAddRange   {{inpPrice==dataInfo.price?'hAll':''}}" data-no="{{inpPrice==dataInfo.price?'hAll':''}}" data-type="-" bindtap="rangeEven">
+			<view class="icon icon-move">
+			</view>
+		</view>
+		<view class="bidInp">
+			<input type="digit" value="{{inpPrice}}" bindblur="changePrice"></input>
+		</view>
+		<view class="bidAddRange" data-type="+" bindtap="rangeEven">
+			<view class="icon icon-add">
+			</view>
+		</view>
+	</view>
+	<view class="minAddPrice">
+		最小加价幅度￥{{dataInfo.plus_price}}
+	</view>
+	<view class="addPricePay">
+		<button form-type="submit" class="formBtn isOk addressBtn" bindtap="oncePay">立即支付</button>
+	</view>
+	<view class="addPriceTip">
+
+		出价即表示同意 <navigator url="../../../pages/allXy/allXy?id=11&title=交易服务协议">《古今艺览交易服务协议》</navigator>和<navigator url="../../../pages/allXy/allXy?id=12&title=隐私保护政策">《隐私保护政策》</navigator>
+	</view>
+
+
+</view>
+
+<view class="shadeView" wx:if='{{showModule}}' bindtap="closeAll"></view>
+<view class="fixBox" wx:if='{{showModule}}'>
+	<view class="fixContent">
+		<view class="fixContentTit">
+			{{moduleData.title}}
+		</view>
+		<view class="pd20">
+			<scroll-view class="fixDes" scroll-y='{{true}}'>
+				<view class="fixNi">
+					<rich-text nodes='{{moduleData.html}}'></rich-text>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

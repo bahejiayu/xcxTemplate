@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "钱包余额",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":true,
+  "navigationBarBackgroundColor":"#457AE3"
+}

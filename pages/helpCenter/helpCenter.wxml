@@ -1,0 +1,9 @@
+<view class="helpBo">
+	<navigator  url="../articleView/articleView?id={{item.id}}&title={{item.name}}" hover-class="none" class="helpItem" wx:for='{{helpList}}' > 
+		<view class="dan">
+			{{item.title}}
+		</view>
+    <view class="icon icon-right">
+    </view>
+	</navigator>
+</view>

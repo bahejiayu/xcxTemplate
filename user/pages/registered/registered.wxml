@@ -1,0 +1,88 @@
+<view class="lgoinBox">
+	<view class="loginLogo">
+		<view>
+			<image src="/images/loginL.png" mode="widthFix"></image>
+		</view>
+		<view class="logoTxt">
+			古今艺览
+		</view>
+	</view>
+
+
+	<view class="loginTog">
+		<navigator class="loginTogItem " open-type="redirect" url="../login/login" hover-class="none"  >
+			登录
+		</navigator>
+		<navigator class="loginTogItem cur" hover-class="none" open-type="redirect" url="../registered/registered">
+			注册
+		</navigator>
+	</view>
+	<view class="loginBox">
+		<view class="loginInp">
+			<view class="loginInpContainer">
+				<view class="loginInpL  quNub">
+					 {{phoneArea.arr1[areaIndex]}}
+				</view>
+				<picker  range="{{phoneArea.arr2}}"  bindchange="changeArea">
+					<input type="number" disabled="{{true}}" placeholder="" value="{{phoneArea.arr2[areaIndex]}}" placeholder-class="inpStyle"></input>
+				</picker>
+				<view class="inpIcon">
+					<text class="icon icon-unfold"></text>
+				</view>
+			</view>
+		</view>
+		<view class="loginInp">
+			<view class="loginInpContainer">
+				<view class="loginInpL">
+					<image src="/images/user.png" mode="widthFix"></image>
+				</view>
+				<input type="number" data-name="mobile" bindinput="inputEven" placeholder="请输入手机号码" placeholder-class="inpStyle"></input>
+			</view>
+		</view>
+		<view class="loginInp">
+			<view class="loginInpContainer getCodeBox">
+				<view class="loginInpL">
+					<image src="/images/password.png" mode="widthFix"></image>
+				</view>
+				<input type="text" data-name="code" bindinput="inputEven" placeholder="请输入验证码" placeholder-class="inpStyle"></input>
+				<view class="getCode  flexMid {{codeOk?'cur':''}} "  bindtap="{{codeTxt=='获取验证码'&&codeOk?'getCode':''}}">
+					{{codeTxt}}
+				</view>
+
+			</view>
+		</view>
+		<view class="loginInp">
+			<view class="loginInpContainer">
+				<view class="loginInpL">
+					<image src="/images/password.png" mode="widthFix"></image>
+				</view>
+				<input type="password" data-name="password" bindinput="inputEven" placeholder="8-16位英文和数字组合的密码" placeholder-class="inpStyle"></input>
+			</view>
+		</view>
+		<view class="loginInp">
+			<view class="loginInpContainer">
+				<view class="loginInpL">
+					<image src="/images/password.png" mode="widthFix"></image>
+				</view>
+				<input type="password" data-name="repassword" bindinput="inputEven" placeholder="请再次输入密码" placeholder-class="inpStyle"></input>
+			</view>
+		</view>
+		<navigator class="forgetPassword" open-type="redirect" url="../login/login" hover-class="none" >
+		已有账号，点此登录
+		</navigator>
+
+		<view class="loginBtn">
+			<button form-type="submit"  bindtap="registBtn" class="formBtn {{postData.code&&postData.password&&postData.mobile&&postData.repassword?'isOk':''}}  addressBtn" data-ok="{{postData.code&&postData.password&&postData.mobile&&postData.repassword?'isOk':''}}" >注册</button>
+		</view>
+		<view class="loginTip">
+			<view class="loginTipTgo  {{checked_?'checked_':''}} " bindtap="togChk">
+				<text class="icon icon-check">
+                </text>
+			</view>
+			<view class="addPriceTip">
+				 <view bindtap="togChk">勾选即表示您同意该软件的</view><navigator hover-class="none" url="../../../pages/allXy/allXy?id=2&title=用户协议"  >《用户协议》</navigator>和<navigator hover-class="none" url="../../../pages/allXy/allXy?id=12&title=隐私政策">《隐私政策》</navigator>
+			</view>
+		</view>
+	</view>
+
+</view>

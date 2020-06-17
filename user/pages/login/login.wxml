@@ -1,0 +1,11 @@
+
+<view class='box shadow-lg' bindtap='toTuihuo'>
+  <avatar class="grey lg round">
+    <text class='icon-myfill'></text>
+  </avatar>
+  <view class='text-xl text-bold margin-tb'>用户未登录</view>
+  <view class='text-gray'>用户未登录可能无法正常体验</view>
+</view>
+<view class='padding'>
+  <button class='formBtn isOk' open-type="getPhoneNumber" bindgetphonenumber="LoginBtn">手机号登录</button>
+</view>

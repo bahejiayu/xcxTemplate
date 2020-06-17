@@ -1,0 +1,148 @@
+<template name='rangeChe'>
+	<view class="filterFix" wx:if='{{showScreen||showPress}}'>
+	</view>
+	<view bindtap="bindClose_" class="closeRange"  wx:if='{{showScreen||showPress}}' catchtouchmove='true'></view>
+
+	<view class="rightRange  {{showScreen?'showRange':''}}  "  catchtouchmove='true'>
+
+		<view class="rangeBox">
+			<view class="rangeType1">
+				<view class="rangeType1Item" bindtap="showPress">
+					<view>{{libtype==0?'出版社':'拍品公司'}}</view>
+					<text class="icon icon-right" >
+            </text>
+				</view>
+				<view class="rangeType1Item" bindtap="showBookType">
+					<view>
+						书籍分类
+					</view>
+					<text class="icon icon-right" >
+            </text>
+				</view>
+			</view>
+			<view class="rangeType2">
+
+				<view class="rangeType2Item" wx:if='{{libtype==1}}'>
+					<view class="rangeTypeTitle">
+						地区
+					</view>
+					<view class="rangeChekList">
+						<view class="rangeChkItem {{postData.paimai_city==''?'cur':''}}" bindtap="togpaiCity" data-id="">
+							全部
+						</view>
+						<view class="rangeChkItem {{postData.paimai_city==item.id?'cur':''}}" bindtap="togpaiCity" wx:for='{{paiCity}}' wx:key='{{item.id}}' data-id="{{item.id}}">
+							{{item.addr_name}}
+						</view>
+					</view>
+				</view>
+
+				<view class="rangeType2Item" wx:if='{{libtype==1}}'>
+					<view class="rangeTypeTitle">
+						出版时间
+					</view>
+					<picker mode='date' bindchange='getTime' data-type="cbTime">
+						<view class="catePicker flexMid">
+							{{postData.cbTime||'请选择时间'}}
+						</view>
+					</picker>
+
+				</view>
+
+
+				<view class="rangeType2Item" wx:if='{{libtype==0}}'>
+					<view class="rangeTypeTitle">
+						书籍语言
+					</view>
+					<view class="rangeChekList">
+						<view class="rangeChkItem {{postData.language_id==''?'cur':''}}" bindtap="togLange" data-id="">
+							全部
+						</view>
+						<view class="rangeChkItem {{postData.language_id==item.id?'cur':''}}" bindtap="togLange" wx:for='{{condBookData.language}}' wx:key='{{item.id}}' data-id="{{item.id}}">
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+				<view class="rangeType2Item" wx:if='{{libtype==0}}'>
+					<view class="rangeTypeTitle">
+						书籍类别
+					</view>
+					<view class="rangeChekList">
+						<view bindtap="togCateId" class="rangeChkItem {{postData.cate_id==''?'cur':''}}" data-id="">
+							全部
+						</view>
+						<view class="rangeChkItem {{postData.cate_id==item.id?'cur':''}}" bindtap="togCateId" wx:for='{{condBookData.cate}}' wx:key='{{item.id}}' data-id="{{item.id}}">
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+				<view class="rangeType2Item" wx:if='{{libtype==0}}'>
+					<view class="rangeTypeTitle">
+						出版时间
+					</view>
+					<view class="pTime">
+						<view class="pTimeTxt">
+							<picker mode='date' bindchange='getTime' data-type="startTime">
+								{{postData.startTime||'开始时间'}}
+							</picker>
+						</view>
+						<view>
+							至
+						</view>
+						<view class="pTimeTxt">
+							<picker mode='date' bindchange='getTime' data-type="endTime">
+								{{postData.endTime||'结束时间'}}
+							</picker>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="rangeBtnsBox">
+				<view class="rangeBtns">
+					<view class="resetBtn" bindtap="reSet">
+						重置
+					</view>
+					<view class="sureBtn" bindtap="sureRange">
+						确定
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 书籍分类 -->
+	<view class="bookClassify  {{showBookType?'showBookClassify':''}}"  catchtouchmove="true">
+		<view class="bookClassifyBox">
+			<view class="bookClassifyTitle">
+				书籍分类
+			</view>
+			<scroll-view class="bookClassifyList" scroll-y='{{true}}'>
+				<view class="bookClassifyItem  {{postData.cat_id==item.value?'cur':''}}" bindtap="togCatId" wx:for='{{condBookData.cats}}' wx:key='{{index}}' data-value="{{item.value}}">
+					{{item.label}}
+				</view>
+			</scroll-view>
+			<view class="jBtns">
+				<view bindtap="closeBookType" data-txt="取消">取消</view>
+				<view bindtap="closeBookType" data-txt="确定">确定</view>
+			</view>
+		</view>
+	</view>
+	<!-- 出版社 -->
+	<view class="pressBox " wx:if="{{showPress}}">
+		<view class="rightLetter">
+			<view wx:for='{{condBookData.cbs_sort}}' bindtap="goTxt"  wx:key='{{index}}' data-txt="{{item}}">
+				{{item}}
+			</view>
+		</view>
+		<view class="bookClassifyTitle">
+			出版社
+		</view>
+		<scroll-view class="pressList" scroll-y='{{true}}' scroll-into-view='{{enTxt}}'>
+			<view class="pressItem  {{postData.cbs_id==item.value?'cur':''}}" wx:for='{{condBookData.cbs}}' bindtap="preeBtn" data-value="{{item.value}}" wx:key='{{index}}' data-sort="{{item.sort}}" id="{{item.sort}}" >
+				{{item.label}}
+			</view>
+		</scroll-view>
+		<view class="jBtns">
+			<view bindtap="closePress" data-txt="取消">取消</view>
+			<view bindtap="closePress" data-txt="确定">确定</view>
+		</view>
+	</view>
+</template>

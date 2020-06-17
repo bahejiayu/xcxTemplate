@@ -1,0 +1,279 @@
+.topBanner {
+  height: 380rpx;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.libraryBox{
+  margin-top: 380rpx;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+}
+.fixNav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+.bcct{
+  padding-top: 190rpx;
+}
+.searchBox {
+  padding-left: 0;
+}
+.searchTxt{
+  /* color: #94959C; */
+  left: 50%;
+
+}
+.kongBox{
+  padding-top: 50rpx;
+  padding-bottom: 0;
+}
+.libraryNav{
+  position: relative;
+  padding-right: 120rpx;
+  background-color: #fff;
+
+  
+}
+ .filtrateLine{
+background-color: #F9F9F9;
+} 
+.bookContainer{
+    padding-bottom: 1px ;
+}
+.topSearch{
+  padding: 0 108rpx;
+z-index: 4;
+}
+.libraryNavList{
+ 
+
+  display: flex;
+align-items: center;
+height: 86rpx;
+justify-content: space-around;
+
+
+}
+.libraryNavItem{
+  font-size: 34rpx;
+  color: #A2A2A2;
+}
+.libraryNavItem text{
+  line-height: 74rpx;
+  display: inline-block;
+}
+.libraryNavItem text.cur{
+  color: #222222;
+  border-bottom:5rpx solid #222222 ;
+}
+.libMoreIcon image{
+
+    width: 34rpx;
+    height: 34rpx;
+    vertical-align: middle;
+
+}
+.libMoreIcon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 65rpx;
+}
+
+.bookTemplate1Item:nth-child(odd){
+  float: left;
+}
+.bookTemplate1Item:nth-child(even){
+  float: right;
+}
+.bookTemplate1Image{
+  height: 404rpx;
+}
+.bookTemplate1Image image{
+  width: 100%;
+  height: 100%!important;
+}
+.bookTemplate1Name{
+  color:#000000;
+  font-size: 32rpx;
+  overflow: hidden;
+white-space: nowrap;
+ text-overflow: ellipsis;
+ padding: 20rpx 0 10rpx 0;
+}
+.bookTepPrice{
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.closeRange{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 230rpx;
+  z-index: 1000000;
+}
+.freedX{
+  width:90rpx ;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #9A141E;
+  border-radius: 5rpx;
+}
+.bookTepInfo{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 12rpx;
+height: 42rpx;
+}
+.antuer{
+  font-size: 24rpx;
+  color: #A2A2A2;
+  max-width: 65%;
+}
+.bookTepTip{
+    height: 42rpx;
+    font-size: 24rpx;
+    color: #A2A2A2;
+    align-items: center;
+    display: flex;
+    padding: 0 12rpx;
+    background-color: #F5F5F5;
+    max-width: 40%;
+    border-radius: 8rpx;
+}
+.publication_time{
+  font-size: 24rpx;
+color: #A2A2A2;
+
+}
+.catePicker{
+    height: 54rpx;
+    border-radius: 8rpx;
+    border: 1px solid #E7E7E7;
+    color: #94959C;
+    font-size: 25rpx;
+    margin-top: 24rpx;
+}
+.vipShade{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, .65);
+}
+.vipSerachJt{
+  position: fixed;
+  right: 0;
+  bottom: 75rpx;
+  z-index: 9;
+}
+.vipSerachJtTxt{
+  font-size: 25rpx;
+  color: #AF7000;
+  position: absolute;
+  top: 35rpx;
+  left: 120rpx;
+}
+.vipSerachJt image{
+  width: 348rpx;
+  height: 100rpx!important;
+}
+.vipSerachFix{
+  position: fixed;
+  bottom: 75rpx;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 9;
+  padding-left: 40rpx;
+  transform: translateX(100%) ;
+  transition:all 0.3s ;
+}
+.vipSerachFix.showInp{
+  transform:none ;
+}
+.bipSearchContent {
+  height: 100rpx;
+  background-color: #FFDC8F;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookTemplate1{
+  overflow: hidden;
+}
+.bipSearchContent input{
+  width: 500rpx;
+  height:64rpx ;
+  box-sizing: border-box;
+  border: 1px solid #B87A1D;
+  border-radius: 6rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #AF7000;
+}
+.seLo{
+  color: #AF7000;
+
+}
+.vipSerBtn{
+  line-height: 64rpx;
+  color: #fff;
+  font-size: 28rpx;
+  background-color: #EFB24B;
+  padding: 0 40rpx;
+  border-radius: 8rpx;
+  transform:translate(8rpx) ;
+}
+.vipSerBtn::after{
+  display: none;
+}
+.vipSerachFixZZ{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, .65);
+}
+
+.vipShade image{
+  position: absolute;
+  right: 120rpx;
+  bottom: 200rpx;
+  width: 458rpx;
+  height:406rpx ;
+}
+.i_konw{
+  position: absolute;
+  width: 160rpx;
+  height: 56rpx;
+  box-sizing: border-box;
+  border: 1px dashed #fff;
+  font-size:24rpx ;
+  color: #fff;
+  border-radius: 8rpx;
+  right: 500rpx;
+  bottom:105rpx;
+  transform:translateX(50%) ;
+}
