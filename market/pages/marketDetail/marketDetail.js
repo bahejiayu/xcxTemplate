@@ -23,9 +23,12 @@ Page({
   },
   marketPay(){
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var that=this;
     var data_=that.data.dataInfo;
       var orderData=[{
@@ -127,9 +130,12 @@ Page({
    togCollect(e){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var is_collect=e.currentTarget.dataset.type;
           util.request('/market/v1.product/collect',{
             book_id:that.data.id,
@@ -233,9 +239,12 @@ Page({
   },
   bidEven(){
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       this.setData({
         showAddPrice:true
       });

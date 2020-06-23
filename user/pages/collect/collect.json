@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "navigationBarTitleText": "收藏",
   "enablePullDownRefresh": true
 
+=======
+  "navigationBarTitleText": "收藏"
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 }

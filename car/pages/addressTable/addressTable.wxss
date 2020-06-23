@@ -10,6 +10,7 @@
   padding-left: 176rpx;
   line-height: 105rpx;
 }
+<<<<<<< HEAD
 .addWxAddress{
   text-align: right;
   font-size: 32rpx;
@@ -23,6 +24,8 @@ float: right;
 
   
 }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 .pdr{
   padding-right: 40rpx;
 }

@@ -26,7 +26,10 @@ Page({
         });
   },
   bookPay(e){
+<<<<<<< HEAD
     console.log(111)
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var that=this;
     util.getUserInfo(res=>{
        console.log(res)
@@ -41,6 +44,7 @@ Page({
       bookIndex:e.currentTarget.dataset.index
     });
 },
+<<<<<<< HEAD
 goBookCoin(){
   this.setData({
     showPay:false
@@ -54,6 +58,13 @@ goBookCoin(){
 //       url: e.currentTarget.dataset.url,
 //     });
 // },
+=======
+bookPay(e){
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    });
+},
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 closePay(){
   this.setData({
     showPay:false

@@ -61,7 +61,11 @@
 }
 .bookDetailTop{
   padding-top: 20rpx;
+<<<<<<< HEAD
   padding-bottom: 30rpx;
+=======
+  padding-bottom: 10rpx;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   border-bottom: 1px solid #EAEAEA;
   margin-bottom: 5rpx;
 }
@@ -91,7 +95,11 @@
   padding-top: 12rpx;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   /* margin-right: 20rpx; */
+=======
+  margin-right: 20rpx;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   flex-wrap: wrap;
 }
 .chuTiem{
@@ -105,11 +113,19 @@
   align-items: center;
 }
 .bookPrice .pr{
+<<<<<<< HEAD
     font-size:40rpx ;
     color: #9A141E;
     padding-left: 12rpx;
     display: flex;
   font-weight: bold;
+=======
+    font-size:46rpx ;
+    color: #9A141E;
+    padding-left: 12rpx;
+    display: flex;
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 }
 .bookPrice .del{
   font-size:32rpx ;

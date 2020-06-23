@@ -381,7 +381,11 @@ clearData(){
    });
    var url=this.data.libtype==0?"/doc/v1.pages/getTuDocList":"/doc/v1.pages/tuDocList";
 
+<<<<<<< HEAD
     util.axiosRequest(url,data,'POST').then(res=>{
+=======
+    util.request(url,data,'POST').then(res=>{
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         wx.hideLoading();
         hasMore=true;
 
@@ -415,7 +419,11 @@ clearData(){
     title: '加载更多',
   });
   var url=this.data.libtype==0?"/doc/v1.pages/getTuDocList":"/doc/v1.pages/tuDocList";
+<<<<<<< HEAD
    util.axiosRequest(url,data,'POST').then(res=>{
+=======
+   util.request(url,data,'POST').then(res=>{
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
        wx.hideLoading();
        if(res.code==0){
          console.log(res)
@@ -456,18 +464,30 @@ clearData(){
                 title: '图录',
               })
           }
+<<<<<<< HEAD
       page=1;
       limit=8;
       isFlag=true;
       hasMore=true;
       postKey='';
+=======
+      
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 
 
         this.getCondBook();
         this.initData();
         this.getBookBanner();
         this.getPaiCity()
+<<<<<<< HEAD
        
+=======
+         page=1;
+         limit=8;
+         isFlag=true;
+         hasMore=true;
+         postKey='';
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
 
   /**

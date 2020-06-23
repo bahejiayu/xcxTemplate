@@ -3,13 +3,20 @@ var page = 1;
 var limit = 8;
 var isFlag = true;
 var hasMore = true;
+<<<<<<< HEAD
 var cOnce=true;
+=======
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     du_:1,
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     searFix: true,
     showSerInp: false,
     showTs: false,
@@ -60,6 +67,7 @@ Page({
    
   },
   onPageScroll(e){
+<<<<<<< HEAD
     var that=this;
 
       console.log(e);
@@ -68,6 +76,10 @@ Page({
         du_:1-e.scrollTop/that.data.bannerHeight
       });
 
+=======
+      console.log(e);
+      var that=this;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       if(that.data.bannerHeight<=e.scrollTop){
             that.setData({
               fixNav:true
@@ -459,7 +471,11 @@ Page({
     });
     var url = this.data.libtype == 0 ? "/doc/v1.pages/getTuDocList" : "/doc/v1.pages/getTuList";
 
+<<<<<<< HEAD
     util.axiosRequest(url, data, 'POST').then(res => {
+=======
+    util.request(url, data, 'POST').then(res => {
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       wx.hideLoading();
       hasMore = true;
 
@@ -477,9 +493,12 @@ Page({
         that.setData({
           list: res.data.list
         });
+<<<<<<< HEAD
       }else if(res.code==45000&&cOnce){
         cOnce=false;
         that.initData();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       }
     });
   },
@@ -495,7 +514,11 @@ Page({
       title: '加载更多',
     });
     var url = this.data.libtype == 0 ? "/doc/v1.pages/getTuDocList" : "/doc/v1.pages/getTuList";
+<<<<<<< HEAD
     util.axiosRequest(url, data, 'POST').then(res => {
+=======
+    util.request(url, data, 'POST').then(res => {
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       wx.hideLoading();
       if (res.code == 0) {
         console.log(res)
@@ -533,7 +556,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     cOnce=true;
+=======
+    wx.showTabBar();
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     if (!wx.getStorageSync('vips')) {
       wx.hideTabBar();
       this.setData({
@@ -576,9 +603,12 @@ Page({
     this.setData({
       userInfo:wx.getStorageSync('userInfo')
     });
+<<<<<<< HEAD
 
     
 
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
 
   /**

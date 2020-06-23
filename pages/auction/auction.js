@@ -1,6 +1,10 @@
 import util from '../../utils/util.js';
 var page = 1;
+<<<<<<< HEAD
 var limit = 50;
+=======
+var limit = 8;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 var hasMore = true;
 
 
@@ -128,10 +132,13 @@ Page({
     util.request('/goods/v2.home/HuiCompany').then(res => {
       console.log(res);
       if (res.code == 0) {
+<<<<<<< HEAD
         res.data.list.unshift({
           id:'',
           name:'全部'
         });
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         that.setData({
           companyList: res.data.list
         });
@@ -221,22 +228,36 @@ Page({
       duration: 0
     });
 
+<<<<<<< HEAD
     util.request('/goods/v2.home/upgradePai', data, 'POST').then(res => {
+=======
+    util.request('/goods/v2.home/newPaiMaiHui', data, 'POST').then(res => {
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       wx.hideLoading({});
       hasMore = true;
 
       if (res.code == 0) {
         res.data.list.map((item, index) => {
+<<<<<<< HEAD
           item.pass_time = util.formatTime6(new Date(item.pass_time.replace(/-/g, '/')).getTime());
           item.bean.map((item2) => {
             item2.pass_time = util.formatTime6(new Date(item2.pass_time.replace(/-/g, '/')).getTime(), '/');
+=======
+          item.pass_time = util.formatTime2(new Date(item.pass_time.replace(/-/g, '/')).getTime());
+          item.bean.map((item2) => {
+            item2.pass_time = util.formatTime2(new Date(item2.pass_time.replace(/-/g, '/')).getTime(), '/');
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
             item2.zhuanchang.map((item3, index3) => {
               item3.logo = item3.logo.replace(/\s/g, '%20');
               item3.logo = item3.logo.replace(/'/g, '%27');
             });
           });
         });
+<<<<<<< HEAD
         if (res.data.list.length ==0) {
+=======
+        if (res.data.list.length != limit) {
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
           hasMore = false;
         }
         that.setData({
@@ -261,6 +282,7 @@ Page({
     page++;
     data.page = page;
     data.limit = limit;
+<<<<<<< HEAD
     util.request('/goods/v2.home/upgradePai', data, 'POST').then(res => {
       wx.hideLoading({});
       if (res.code == 0) {
@@ -268,13 +290,26 @@ Page({
           item.pass_time = util.formatTime6(new Date(item.pass_time.replace(/-/g, '/')).getTime());
           item.bean.map((item2) => {
             item2.pass_time = util.formatTime6(new Date(item2.pass_time.replace(/-/g, '/')).getTime(), '/');
+=======
+    util.request('/goods/v2.home/newPaiMaiHui', data, 'POST').then(res => {
+      wx.hideLoading({});
+      if (res.code == 0) {
+        res.data.list.map((item, index) => {
+          item.pass_time = util.formatTime2(new Date(item.pass_time.replace(/-/g, '/')).getTime());
+          item.bean.map((item2) => {
+            item2.pass_time = util.formatTime2(new Date(item2.pass_time.replace(/-/g, '/')).getTime(), '/');
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
             item2.zhuanchang.map((item3, index3) => {
               item3.logo = item3.logo.replace(/\s/g, '%20');
               item3.logo = item3.logo.replace(/'/g, '%27');
             });
           });
         });
+<<<<<<< HEAD
         if (res.data.list.length ==0) {
+=======
+        if (res.data.list.length != limit) {
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
           hasMore = false;
         }
         that.setData({
@@ -375,7 +410,11 @@ Page({
   onLoad: function (options) {
     wx.showTabBar();
     page = 1;
+<<<<<<< HEAD
     limit = 50;
+=======
+    limit = 8;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     hasMore = true;
     this.setData({
       endYear: new Date().getFullYear()
@@ -416,7 +455,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< HEAD
     wx.showTabBar();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 
   },
 

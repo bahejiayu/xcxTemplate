@@ -296,8 +296,12 @@ enterInp(e){
                 item.logo=item.logo.replace(/\s/g,'%20');
                 item.logo=item.logo.replace(/'/g,'%27');
               }
+<<<<<<< HEAD
               item.cn_name=item.cn_name.trim();
 
+=======
+             
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 
 
             });
@@ -331,11 +335,14 @@ enterInp(e){
               if(!/[0-9]/.test(price_)){
                 item.transaction_price='流拍'
               }
+<<<<<<< HEAD
               if(item.logo){
                 item.logo=item.logo.replace(/\s/g,'%20');
                 item.logo=item.logo.replace(/'/g,'%27');
               }
               item.cn_name=item.cn_name.trim();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
             });
 
 

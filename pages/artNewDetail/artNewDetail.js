@@ -13,9 +13,12 @@ Page({
   togCollect(e){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var collectType=e.currentTarget.dataset.type;
           util.request('/news/v1.pages/setCollect',{
             id:that.data.id,
@@ -54,9 +57,12 @@ Page({
    togLike(e){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var collectType=e.currentTarget.dataset.type;
           util.request('/news/v1.pages/setLike',{
             id:that.data.id,

@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 <import src='/tpl/kong.wxml' />
 
 <view class="vipFixTop" >
 
+=======
+<view class="vipFixTop" >
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 	<view class="marketTop">
 		<view class="searchBox">
 			<view class="searchInp">
@@ -15,7 +19,11 @@
 	</view>
 
 </view>
+<<<<<<< HEAD
 	<template is='kong' wx:if='{{shelfList.length<=0}}' data='{{...{kongTxt:"找不到相关搜索"} }}' ></template>
+=======
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 <view class="bookShelfBox">
 	<!-- <template is="booksItem"  data="{{...{isCollect:true,self:true,list:shelfList,doc:true } }}" ></template> -->
 	<navigator hover-class="none" bindtap="itemTap" data-url="/library/pages/bookDetail/bookDetail?id={{item.doc_id}}" data-mian="{{item.mian}}" class="booksItem" data-index="{{index}}" wx:for='{{shelfList}}' wx:for-index="index" wx:key='index' wx:for-item="item">

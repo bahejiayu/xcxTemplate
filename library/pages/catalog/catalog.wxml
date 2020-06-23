@@ -5,11 +5,19 @@
 
 <view class="catalogList">
 
+<<<<<<< HEAD
 	<view class="catalogItem  {{isBuy==1||item.is_free==1||canLook==1?'':'iock'}}"  data-iock="{{isBuy==1||item.is_free==1||canLook==1?'':'iock'}}"  wx:for='{{list}}' wx:if='{{item.name}}'  bindtap="cataEven" wx:key='{{index}}' data-url="{{item.pic}}">
 		<view class="catalogItemL">
 			<view class="dan">{{item.name}}</view>
 		</view>
 		<view class="catalogItemR" wx:if="{{isBuy==1||item.is_free==1||canLook==1}}">
+=======
+	<view class="catalogItem   {{isBuy||item.is_free||canLook==1?'':'iock'}}"  data-iock="{{isBuy||item.is_free||canLook==1?'':'iock'}}"  wx:for='{{list}}' wx:if='{{item.name}}'  bindtap="cataEven" wx:key='{{index}}' data-url="{{item.pic}}">
+		<view class="catalogItemL">
+			<view class="dan">{{item.name}}</view>
+		</view>
+		<view class="catalogItemR" wx:if='{{isBuy||item.is_free==1}}'>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 			原书第{{item.book_page}}页
 		</view>
   	<view class="catalogItemR" wx:else>

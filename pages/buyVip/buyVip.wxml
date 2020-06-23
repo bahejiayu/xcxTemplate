@@ -25,6 +25,7 @@
 		会员套餐
 	</view>
 	<view class="packageList">
+<<<<<<< HEAD
 
 		<view wx:if='{{vipList.length==0}}'>
 			{{vipTxt}}
@@ -33,6 +34,11 @@
 			限时超值优惠
 		</view>
 
+=======
+		<view class="yhTip">
+			限时超值优惠
+		</view>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		<view class="packageItem  {{vipIndex==index?'cur':''}} " data-index="{{index}}"  wx:for='{{vipList}}' bindtap="togIndex">
 			<view class="packageName">
 				{{item.name}}

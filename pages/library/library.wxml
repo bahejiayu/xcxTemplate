@@ -1,5 +1,9 @@
 <import src="../../tpl/tpl.wxml" />
+<<<<<<< HEAD
 <view class="topBanner" id="topBanner"style=" opacity:{{du_}};" >
+=======
+<view class="topBanner" id="topBanner">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 	<view class="topSearch">
 		<view class="searchBox">
 			<view class="searchInp">
@@ -15,8 +19,14 @@
 	<view class="indicatorBox">
 		<view class="indicatorItem    {{indicator==index?'cur':''}} " wx:for='{{imgs.length}}'>
 		</view>
+<<<<<<< HEAD
 	</view>
 	<swiper autoplay="3000" bindchange="swiperChange"     >
+=======
+
+	</view>
+	<swiper autoplay="3000" bindchange="swiperChange">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		<swiper-item wx:for='{{imgs}}' wx:index='{{index}}'>
 			<navigator url="/library/pages/bookDetail/bookDetail?id={{item.path_id}}" hover-class="none">
 				<image src="{{item.pic}}" mode="widthFix"></image>
@@ -100,7 +110,11 @@
 						<text wx:if='{{item.attribute==1}}'>{{item.is_discount?item.discount_pice:item.price}}书币</text>
 						<text wx:if='{{item.attribute==2}}'>￥{{item.is_discount?item.discount_pice:item.price}}</text>
 					</view>
+<<<<<<< HEAD
 					<view wx:if='{{libtype==1}}' class="publication_time">{{item.publication_time}}{{item.publication_time.length==4?'年':''}} </view>
+=======
+					<view wx:if='{{libtype==1}}' class="publication_time">{{item.publication_time}}年</view>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 				</view>
 				<view class="bookTepInfo">
 					<view class="antuer dan" wx:if='{{libtype==0}}'>

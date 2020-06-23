@@ -16,11 +16,14 @@ Page({
       KeyWord:e.detail.value
     });
 },
+<<<<<<< HEAD
 cancelBack(){
     wx.navigateBack({
       delta:1
     });
 },
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 enterInp(e){
   var keyWordTxt= e.detail.value;
   if(keyWordTxt.trim()==''){

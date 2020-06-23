@@ -187,7 +187,14 @@ function request(url, data = {}, method = "GET", header = 'application/json') {
           if (res.data.code == 45000) {
             //登录超时
             // 清除登录相关内容
+<<<<<<< HEAD
          
+=======
+            wx.showToast({
+              title: '登录超时,请重新登陆',
+              icon:'none'
+            });
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
             wx.showTabBar();
             var vipflag=false;
             if(wx.getStorageSync('vips')){
@@ -199,6 +206,7 @@ function request(url, data = {}, method = "GET", header = 'application/json') {
             }
             setTimeout(function(){
               wx.switchTab({
+<<<<<<< HEAD
                 url:'/pages/user/user',
                 success(){
                   wx.showToast({
@@ -209,6 +217,11 @@ function request(url, data = {}, method = "GET", header = 'application/json') {
               });
             },1000);
             resolve({data:null});
+=======
+                url:'/pages/user/user'
+              });
+            },1000);
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
           } else {
             resolve(res.data);
           }
@@ -222,6 +235,7 @@ function request(url, data = {}, method = "GET", header = 'application/json') {
           title: '服务器打瞌睡了',
           icon: 'success',
           image: '/images/icon_error.png',
+<<<<<<< HEAD
           duration: 2000
         })
         reject(err)
@@ -254,6 +268,8 @@ function axiosRequest(url, data = {}, method = "GET", header = 'application/json
           title: '服务器打瞌睡了',
           icon: 'success',
           image: '/images/icon_error.png',
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
           duration: 2000
         })
         reject(err)
@@ -291,11 +307,16 @@ function wxRouter(type = 'navigateTo', url) {
 }
 
 function getUserInfo(callBack, go) {
+<<<<<<< HEAD
   
   if(!wx.getStorageSync('token')){
     console.log('1111')
     // callBack && callBack({data:null});
       return false;
+=======
+  if(!wx.getStorageSync('token')){
+      return null;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   }
 
   request('/users/v1.me/getUserInfo', {}, 'POST').then(res => {
@@ -507,6 +528,7 @@ function isAouth(){
            title: '用户未登陆',
             icon:'none'
       });
+<<<<<<< HEAD
           wx.switchTab({
             url: '/pages/user/user',
             success(){
@@ -520,12 +542,20 @@ function isAouth(){
     }else{
 return true;
 
+=======
+          wx.reLaunch({
+            url: '/user/pages/login/login',
+          });
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     }
 }
 
 
 export default {
+<<<<<<< HEAD
   axiosRequest,
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   isAouth,
   getBoxInfo,
   vipTime,

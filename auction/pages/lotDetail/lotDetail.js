@@ -9,7 +9,10 @@ Page({
     moduleData:{
 
     },
+<<<<<<< HEAD
     showZs:false,
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     showAuctionxQ:false,
     showModule:false,
       bannerIndex:1,
@@ -17,6 +20,7 @@ Page({
       pId:'',
       pData:{}
   },
+<<<<<<< HEAD
   priceBtn(){
 
       util.isAouth();
@@ -47,6 +51,8 @@ Page({
     });
 
   },
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   pevImg(e){
     var that=this;
     wx.previewImage({
@@ -91,9 +97,12 @@ Page({
    // 切换收藏
    togCollect(e){
      util.isAouth();
+<<<<<<< HEAD
      if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var that=this;
     var collectType=e.currentTarget.dataset.type;
           util.request('/goods/v2.home/setCollect',{
@@ -147,13 +156,18 @@ Page({
       title: '加载中',
     });
     var that=this;
+<<<<<<< HEAD
       util.axiosRequest('/goods/v1.pages/detail',{
+=======
+      util.request('/goods/v1.pages/detail',{
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         id:that.data.pId
       },'POST').then(res=>{
           console.log(res);
           wx.hideLoading({
             complete: (res) => {},
           });
+<<<<<<< HEAD
      
           if(res.code==0){
             if(!/[0-9]/.test(res.data.info.transaction_price)){
@@ -174,6 +188,21 @@ Page({
               console.log(res.data.pics)
               that.setData({
                 bannerJy,
+=======
+          if(!/[0-9]/.test(res.data.info.transaction_price)){
+            res.data.info.transaction_price='流拍'
+          }
+          res.data.info.size=res.data.info.size.replace(/&nbsp;/g,' ');
+          res.data.pics.map((item,index)=>{
+            if(item){
+              item=item.replace(/\s/g,'%20');
+              item=item.replace(/'/g,'%27');
+            }
+           
+          });
+          if(res.code==0){
+              that.setData({
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
                 pData:res.data
               });
           }
@@ -187,6 +216,7 @@ Page({
     this.setData({
       pId:options.id
     });
+<<<<<<< HEAD
     var that=this;
     if(!wx.getStorageSync('token')){
         that.setData({
@@ -205,6 +235,11 @@ Page({
 
    
    
+=======
+    this.setData({
+      userInfo:wx.getStorageSync('userInfo')
+    });
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     this.initDetail();
   },
 
@@ -219,9 +254,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< HEAD
     // this.setData({
     //   userInfo:wx.getStorageSync('userInfo')
     // });
+=======
+    this.setData({
+      userInfo:wx.getStorageSync('userInfo')
+    });
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
 
   /**

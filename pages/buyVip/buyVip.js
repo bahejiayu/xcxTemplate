@@ -94,6 +94,7 @@ Page({
               userInfo:res
             });
         });
+<<<<<<< HEAD
 
         util.request('/goods/v2.home/setAppletVip',{},'POST').then(res=>{
           console.log(res);
@@ -106,6 +107,9 @@ Page({
             }
         });
 
+=======
+        this.initVipList();
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
   initVipList(){
       var that=this;

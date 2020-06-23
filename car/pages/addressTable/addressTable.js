@@ -98,6 +98,7 @@ Page({
     });
 
   },
+<<<<<<< HEAD
   addWxAddress(){
     var that=this;
     wx.chooseAddress({
@@ -128,6 +129,11 @@ Page({
         console.log(e);
       var obj=this.data.addressInfo;
       console.log(e.detail.value.join('-'));
+=======
+  changeCity(e){
+        console.log(e);
+      var obj=this.data.addressInfo;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       obj.province=e.detail.value.join('-');
       this.setData({
         addressInfo:obj

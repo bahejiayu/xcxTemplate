@@ -449,6 +449,10 @@ clearData(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
+=======
+    wx.showTabBar();
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         this.getCondBook();
         this.initData();
          page=1;
@@ -468,7 +472,10 @@ clearData(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< HEAD
     wx.showTabBar();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     
   },
 

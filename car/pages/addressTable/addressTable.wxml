@@ -38,10 +38,13 @@
     </view>
       <switch checked="{{addressInfo.default==1}}" bindchange="switch1Change" color='#9A141E'/>
   </view>
+<<<<<<< HEAD
 
 	<view wx:if='{{id==""}}' bindtap="addWxAddress" class="addWxAddress">
 			导入微信地址
 	</view>
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   
   <button form-type="submit"  bindtap="submitEven" data-ok="{{addressInfo.name&&addressInfo.mobile&&addressInfo.province&&addressInfo.content?'isOk':''}}"  class="formBtn  {{addressInfo.name&&addressInfo.mobile&&addressInfo.province&&addressInfo.content?'isOk':''}}  addressBtn" >保存</button>
 

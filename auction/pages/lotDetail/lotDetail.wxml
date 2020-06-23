@@ -1,14 +1,23 @@
 <view class="lotSwiper">
 
 	<swiper bindchange="swiperChange" autoplay="{{4000}}">
+<<<<<<< HEAD
 		<swiper-item wx:for='{{bannerJy}}' >
 			<image src="{{item}}"  binderror="errimg" data-index="{{index}}" data-obj=""  mode="aspectFit" bindtap="pevImg" data-url="{{item}}"></image>
+=======
+		<swiper-item wx:for='{{pData.pics}}' >
+			<image src="{{item}}" mode="aspectFit" bindtap="pevImg" data-url="{{item}}"></image>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		</swiper-item>
 	</swiper>
 	<view class="bannerRight">
 
 		<view class="dan">
+<<<<<<< HEAD
 			{{bannerIndex}}/{{bannerJy.length}}
+=======
+			{{bannerIndex}}/{{pData.pics.length}}
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		</view>
 	</view>
 </view>
@@ -52,7 +61,11 @@
 		</view> -->
 
 
+<<<<<<< HEAD
 		<navigator hover-class="none" url="" class="PriceExponent" wx:if='{{showZs}}'  bindtap="priceBtn" >
+=======
+		<navigator hover-class="none" url="{{userInfo.is_vip==1?'../priceZs/priceZs?id='+pId:'/pages/buyVip/buyVip'}}" class="PriceExponent">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 			价格指数
 		</navigator>
 	</view>

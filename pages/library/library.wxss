@@ -244,9 +244,12 @@ color: #A2A2A2;
   border-radius: 8rpx;
   transform:translate(8rpx) ;
 }
+<<<<<<< HEAD
 .topBanner{
   /* transition: all 0.01s; */
 }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 .vipSerBtn::after{
   display: none;
 }

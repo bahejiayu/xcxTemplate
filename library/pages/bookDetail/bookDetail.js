@@ -22,9 +22,12 @@ Page({
   },
   shiPay(){
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var that=this;
     var data_=that.data.bookInfo.info;
       var orderData=[{
@@ -58,9 +61,12 @@ Page({
       });
         console.log(res);
         if(res.code==0){
+<<<<<<< HEAD
           wx.showToast({
             title: '购买成功',
           });
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
             that.getBookDetail();
             that.setData({
               showPay:false
@@ -79,9 +85,12 @@ Page({
   addCar(){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     wx.showLoading({
       title: '加入中',
     });
@@ -111,9 +120,12 @@ Page({
   addBookSelf(){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     wx.showLoading({
       title: '加入中',
     });
@@ -142,9 +154,12 @@ Page({
   togCollect(e){
     var that=this;
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
     var collectType=e.currentTarget.dataset.type;
           util.request('/doc/v1.pages/getCollection',{
             doc_id:that.data.bookId,
@@ -181,9 +196,12 @@ Page({
   },
   bookPay(){
     util.isAouth();
+<<<<<<< HEAD
     if(!util.isAouth()){
       return false;
     }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       this.setData({
         showPay:true
       });
@@ -212,7 +230,11 @@ Page({
               if(res.data.info.publication_time!='0000-00-00'){
                 var time_= res.data.info.publication_time.replace(/-/g,'/');
                 var myDate= new Date(time_)
+<<<<<<< HEAD
                  res.data.info.publication_time=`${myDate.getFullYear()}年${myDate.getMonth()+1}月${myDate.getDate()}日`;
+=======
+                 res.data.info.publication_time=`${myDate.getFullYear()}年${myDate.getMonth()+1}月${myDate.getDay()}日`;
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
    
               }
         

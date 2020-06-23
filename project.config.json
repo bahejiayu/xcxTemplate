@@ -102,7 +102,11 @@
 					"id": 6,
 					"name": "新建收货地址",
 					"pathName": "car/pages/addressTable/addressTable",
+<<<<<<< HEAD
 					"query": "",
+=======
+					"query": "id=8",
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 					"scene": null
 				},
 				{
@@ -130,7 +134,11 @@
 					"id": 10,
 					"name": "拍卖品详情",
 					"pathName": "auction/pages/lotDetail/lotDetail",
+<<<<<<< HEAD
 					"query": "id=63087",
+=======
+					"query": "id=40386",
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 					"scene": null
 				},
 				{

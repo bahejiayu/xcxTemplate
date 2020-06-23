@@ -20,7 +20,11 @@ Page({
   },
   errorImg:function(e){
     console.log(11111);
+<<<<<<< HEAD
         util.errImg(e,this);
+=======
+        // util.errImg(e,this);
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
   loadOK(){
       console.log(222)
@@ -72,7 +76,11 @@ Page({
             item.logo=item.logo.replace(/\s/g,'%20');
             item.logo=item.logo.replace(/'/g,'%27');
           }
+<<<<<<< HEAD
           item.cn_name=item.cn_name.trim();
+=======
+         
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         });
         if(res.data.info.logo_pic){
           res.data.info.logo_pic=res.data.info.logo_pic.replace(/\s/g,'%20');
@@ -116,7 +124,10 @@ Page({
             item.logo=item.logo.replace(/\s/g,'%20');
             item.logo=item.logo.replace(/'/g,'%27');
           }
+<<<<<<< HEAD
           item.cn_name=item.cn_name.trim();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
        
         });
         that.setData({

@@ -163,7 +163,11 @@ padding-top: 20rpx;
 .myDealTit{
   font-size: 36rpx;
   color: #222222;
+<<<<<<< HEAD
   font-weight: bold;
+=======
+  /* font-weight: bold; */
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 padding-bottom: 20rpx;
 }
 .myDealList{

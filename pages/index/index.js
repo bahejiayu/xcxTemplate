@@ -13,9 +13,12 @@ Page({
     resultList:[{},{},{},{}],
     artNewList:[]
   },
+<<<<<<< HEAD
   loadSuccess(e){
       console.log(e);
   },
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   goTabBar(e){
     util.wxRouter('switchTab',e.currentTarget.dataset.url)
   },
@@ -82,7 +85,11 @@ Page({
                     item.pics=item.pics.replace(/\s/g,'%20');
                     item.pics=item.pics.replace(/'/g,'%27');
                   }
+<<<<<<< HEAD
                   item.cn_name=item.cn_name.trim();
+=======
+                 
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
                 });
 
                   that.setData({
@@ -97,12 +104,18 @@ Page({
       util.request('/doc/v1.pages/passGoodsList').then(res=>{
             if(res.code==0){
               res.data.list.map((item,index)=>{
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
                 if(item.pics){
                   item.pics=item.pics.replace(/\s/g,'%20');
                   item.pics=item.pics.replace(/'/g,'%27');
                 }
+<<<<<<< HEAD
                 item.cn_name=item.cn_name.trim();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
              
               });
 
@@ -123,7 +136,11 @@ Page({
             if(res.code==0){
               console.log(res)
              res.data.list.map((item,index)=>{
+<<<<<<< HEAD
                 item.created_at=  `${new Date(item.created_at.replace(/-/g,'/')).getMonth()}月${new Date(item.created_at.replace(/-/g,'/')).getDate()}日`
+=======
+                item.created_at=  `${new Date(item.created_at.replace(/-/g,'/')).getMonth()}月${new Date(item.created_at.replace(/-/g,'/')).getDay()}日`
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
               });
                 that.setData({
                   artNewList:res.data.list

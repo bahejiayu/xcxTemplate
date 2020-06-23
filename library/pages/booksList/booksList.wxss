@@ -9,9 +9,12 @@
 .searchInp input{
   background-color: #F9F9F9;
 }
+<<<<<<< HEAD
 .searchTxt{
   left:50%;
 }
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 .catePicker{
   height: 54rpx;
   border-radius: 8rpx;

@@ -7,10 +7,17 @@
 			<text class="{{type=='4'?'cur':''}}">一口价</text>
 		</view>
 		<view class="libraryNavItem" data-type="5" bindtap="togType">
+<<<<<<< HEAD
 			<text class="{{type=='5'?'cur':''}}">售卖中</text>
 		</view>
 		<view class="libraryNavItem" data-type="2" bindtap="togType">
 			<text class="{{type=='2'?'cur':''}}">已结束</text>
+=======
+			<text class="{{type=='5'?'cur':''}}">竞拍中</text>
+		</view>
+		<view class="libraryNavItem" data-type="2" bindtap="togType">
+			<text class="{{type=='2'?'cur':''}}">已结拍</text>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		</view>
 
 

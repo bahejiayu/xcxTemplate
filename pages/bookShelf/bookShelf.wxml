@@ -60,7 +60,11 @@
 			</view>
 
 		</view>
+<<<<<<< HEAD
 		<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{item.id}}">
+=======
+		<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{doc?item.id:item.cid}}">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 			<view class="icon icon-delete">
 			</view>
 		</view>
@@ -95,7 +99,11 @@
 	<view class="bookPayBtn" bindtap="coinPay" wx:if='{{userInfo.money>needPrice}}'>
 		立即支付
 	</view>
+<<<<<<< HEAD
 	<view  bindtap="goBookCoin"  class="bookPayBtn" wx:else>
+=======
+	<view class="bookPayBtn" wx:else>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 		充值书币
 	</view>
 </view>

@@ -1,5 +1,9 @@
 <import  src='../../tpl/loading.wxml' />
+<<<<<<< HEAD
 <!-- <template  is='loading' data="{{...{showLoading } }}" ></template> -->
+=======
+<template  is='loading' data="{{...{showLoading } }}" ></template>
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 <button class="fixLogin" wx:if='{{!userInfo}}'   open-type="getPhoneNumber" bindgetphonenumber="LoginBtn" >
 <!-- bindtap="goLogin_"  -->
 
@@ -21,14 +25,22 @@
 				</view>
 			</view>
 			<view class="memberInfoContentB">
+<<<<<<< HEAD
 				<navigator hover-class="none" data-url="../buyVip/buyVip" class="vipIconBox {{userInfo.is_vip==1?'isVip':''}}" catchtap="goUrl">
+=======
+				<navigator hover-class="none" url="../buyVip/buyVip" class="vipIconBox {{userInfo.is_vip==1?'isVip':''}}">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 					<view>
 						<image src="/images/crown_grey.png" mode="widthFix" wx:if="{{userInfo.is_vip!=1}}" ></image>
 						<image src="/images/crown_gold.png" mode="widthFix" wx:else></image>
 					</view>
 					<view>VIP会员</view>
 				</navigator>
+<<<<<<< HEAD
 				<navigator class="memberTip" hover-class="none" data-url="{{userInfo.is_real!=1?'/user/pages/certification/certification':''}} "  catchtap="goUrl">
+=======
+				<navigator class="memberTip" hover-class="none" url="{{userInfo.is_real!=1?'/user/pages/certification/certification':''}} "  catchtap="a">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 					<view>
 						<image src="/images/viconh.png" mode="widthFix" wx:if="{{userInfo.is_real!=1}}"></image>
 						<image src="/images/vIocn.png" mode="widthFix" wx:else></image>
@@ -36,7 +48,11 @@
 					<!-- <view wx:if='{{userInfo.is_role_now==1}}'>审核中</view> -->
 					<view>{{userInfo.is_real==1?'已认证':'未认证'}}</view>
 				</navigator>
+<<<<<<< HEAD
 				<navigator hover-class="none" catchtap="goUrl" data-url="../deposit/deposit" class="memberTip">
+=======
+				<navigator hover-class="none" url="../deposit/deposit" class="memberTip">
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 					<view>
 						<image src="/images/bbc.png" mode="widthFix" wx:if="{{userInfo.is_ensure==1}}"></image>
 						<image src="/images/miconh.png" mode="widthFix"  wx:else></image>

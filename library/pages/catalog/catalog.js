@@ -22,6 +22,7 @@ Page({
             icon:'none'
           });
       }else{
+<<<<<<< HEAD
         wx.previewImage({
           urls: [e.currentTarget.dataset.url],
           current:e.currentTarget.dataset.url
@@ -30,6 +31,11 @@ Page({
         // wx.navigateTo({
         //   url: '../logDetail/logDetail?url='+e.currentTarget.dataset.url,
         // });
+=======
+        wx.navigateTo({
+          url: '../logDetail/logDetail?url='+e.currentTarget.dataset.url,
+        });
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
          
 
       }

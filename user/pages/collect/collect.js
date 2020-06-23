@@ -177,9 +177,13 @@ Page({
     }, 'POST').then(res => {
       console.log(res);
       hasMore=true;
+<<<<<<< HEAD
       wx.stopPullDownRefresh({
         complete: (res) => {},
       });
+=======
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
       wx.hideLoading({
         complete: (res) => {},
       });
@@ -189,13 +193,20 @@ Page({
          });
       }, 100);
       if (res.code == 0) {
+<<<<<<< HEAD
           if(that.data.collectType==1){
+=======
+       
+          if(that.data.collectType==1){
+            
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
               res.data.list.map((item,index)=>{
                 item.auction_time= util.formatTime2(new Date(item.auction_time.replace(/-/g,'/')).getTime(),'/');
                 var price_=item.transaction_price;
                 if(!/[0-9]/.test(price_)){
                   item.transaction_price='流拍'
                 }
+<<<<<<< HEAD
                 if(item.logo){
                   item.logo=item.logo.replace(/\s/g,'%20');
                   item.logo=item.logo.replace(/'/g,'%27');
@@ -207,6 +218,16 @@ Page({
             res.data.list.map((item,index)=>{
               item.created_at=  `${new Date(item.created_at.replace(/-/g,'/')).getMonth()}月${new Date(item.created_at.replace(/-/g,'/')).getDate()}日`
             });
+=======
+              }); 
+          }
+
+          if(that.data.collectType==0){
+            res.data.list.map((item,index)=>{
+              item.created_at=  `${new Date(item.created_at.replace(/-/g,'/')).getMonth()}月${new Date(item.created_at.replace(/-/g,'/')).getDay()}日`
+            });
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
           }
 
           if(limit!=res.data.list.length){
@@ -237,6 +258,7 @@ Page({
           if(limit!=res.data.list.length){
               hasMore=false;
           }
+<<<<<<< HEAD
 
           if(that.data.collectType==1){
             res.data.list.map((item,index)=>{
@@ -259,6 +281,8 @@ Page({
 
         }
 
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
         that.setData({
           collectList:that.data.collectList.concat(res.data.list) 
         });
@@ -310,7 +334,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+<<<<<<< HEAD
       this.initData();
+=======
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
   },
 
   /**

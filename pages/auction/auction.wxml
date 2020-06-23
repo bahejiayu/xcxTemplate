@@ -133,7 +133,11 @@
 					</view>
 					<view class="auctionDes">
 						<view>
+<<<<<<< HEAD
 							{{t2.company_name}}{{t2.zhuanchang[0].pai_city}}
+=======
+							{{t2.company_name}}
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
 						</view>
 						<view>{{t2.pass_time}}</view>
 					</view>

@@ -71,7 +71,12 @@ Page({
                       t2.logo=t2.logo.replace(/\s/g,'%20');
                       t2.logo=t2.logo.replace(/'/g,'%27');
                     }
+<<<<<<< HEAD
                     t2.cn_name=t2.cn_name.trim();
+=======
+                     
+
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
                   });
                 }); 
               }
@@ -118,7 +123,10 @@ Page({
                       t2.logo=t2.logo.replace(/\s/g,'%20');
                       t2.logo=t2.logo.replace(/'/g,'%27');
                     }
+<<<<<<< HEAD
                    t2.cn_name=t2.cn_name.trim();
+=======
+>>>>>>> ea5a64c463e44ebad106991aa9c0ec0b860225fe
                   
 
                   });
