@@ -1,0 +1,92 @@
+.setBox{
+  padding: 0 40rpx;
+
+}
+.setItem navigator{
+  display: block;
+  position: relative;
+  padding-right: 38rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #222222;
+  height: 85rpx;
+  border-bottom: 1px solid #eaeaea;
+
+
+}
+.setHeadImg{
+  height: 140rpx!important;
+}
+.headImgR{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.headImgR image{
+  width: 100%;
+  height: 100%!important;
+}
+.rightIcon{
+  position: absolute;
+  right: 0;
+
+}
+.rightIcon text{
+  font-size: 28rpx;
+}
+.setLien{
+  height: 20rpx;
+  background-color: #F9F9F9;
+}
+.setBox:first-child .setItem:last-child navigator{
+  border-bottom: none;
+}
+
+.loginOut{
+  padding: 60rpx 40rpx;
+  padding-top: 180rpx;
+  padding-bottom: 1px;
+}
+.loginOutBtn{
+  height: 90rpx;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 8rpx;
+  background-color: #C8C8C8;
+}
+.xgNameBox{
+  position: fixed;
+  width: 600rpx;
+  height: 500rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 60rpx;
+  z-index: 1000;
+  top: 50%;
+  transform:translate(-50%,-50%) ;
+  left: 50%;
+  border-radius: 10rpx;
+}
+.xgInp{
+  padding-top:100rpx;
+}
+.xgInp input{
+  width: 100%;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20rpx;
+  margin-bottom: 10rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+.sureXg{
+ 
+    margin-top:50rpx;
+    margin-bottom: 30rpx;
+  
+}
+
+
+

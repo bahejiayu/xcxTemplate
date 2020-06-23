@@ -1,0 +1,1 @@
+<web-view src='{{http}}/index/view/read?id={{id}}&go={{go}}&page={{page}}'></web-view>

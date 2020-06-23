@@ -1,0 +1,134 @@
+<import  src='../../tpl/loading.wxml' />
+<!-- <template  is='loading' data="{{...{showLoading } }}" ></template> -->
+<button class="fixLogin" wx:if='{{!userInfo}}'   open-type="getPhoneNumber" bindgetphonenumber="LoginBtn" >
+<!-- bindtap="goLogin_"  -->
+
+</button>
+<view class="userTop">
+	<view class="memberInfo" bindtap="memberGo">
+		<view class="icon icon-right">
+		</view>
+		<view class="memberInfoImg">
+			<image src="{{userInfo.avatar||'/images/showGood.png'}}" mode="widthFix"></image>
+		</view>
+		<!-- <view class="memberInfoContent noLogin" wx:if='{{!userInfo}}'>
+			未登陆
+		</view> -->
+		<view class="memberInfoContent" >
+			<view class="memberInfoContentT">
+				<view class="memberName dan">
+					{{userInfo.nickname||'登录'}}
+				</view>
+			</view>
+			<view class="memberInfoContentB">
+				<navigator hover-class="none" data-url="../buyVip/buyVip" class="vipIconBox {{userInfo.is_vip==1?'isVip':''}}" catchtap="goUrl">
+					<view>
+						<image src="/images/crown_grey.png" mode="widthFix" wx:if="{{userInfo.is_vip!=1}}" ></image>
+						<image src="/images/crown_gold.png" mode="widthFix" wx:else></image>
+					</view>
+					<view>VIP会员</view>
+				</navigator>
+				<navigator class="memberTip" hover-class="none" data-url="{{userInfo.is_real!=1?'/user/pages/certification/certification':''}} "  catchtap="goUrl">
+					<view>
+						<image src="/images/viconh.png" mode="widthFix" wx:if="{{userInfo.is_real!=1}}"></image>
+						<image src="/images/vIocn.png" mode="widthFix" wx:else></image>
+					</view>
+					<!-- <view wx:if='{{userInfo.is_role_now==1}}'>审核中</view> -->
+					<view>{{userInfo.is_real==1?'已认证':'未认证'}}</view>
+				</navigator>
+				<navigator hover-class="none" catchtap="goUrl" data-url="../deposit/deposit" class="memberTip">
+					<view>
+						<image src="/images/bbc.png" mode="widthFix" wx:if="{{userInfo.is_ensure==1}}"></image>
+						<image src="/images/miconh.png" mode="widthFix"  wx:else></image>
+					</view>
+					<view>{{userInfo.is_ensure==1?'已':'未'}}缴纳保证金</view>
+				</navigator>
+			</view>
+		</view>
+	</view>
+	<view class="memberNav">
+		<navigator hover-class="none" url="/user/pages/collect/collect" class="memberNavItem">
+			<view>{{userInfo.collect||0}}</view>
+			<view>收藏</view>
+		</navigator>
+		<navigator hover-class="none" url="/user/pages/footPrint/footPrint" class="memberNavItem">
+			<view>{{userInfo.browse||0}}</view>
+			<view>足迹</view>
+		</navigator>
+		<navigator hover-class="none" url="/user/pages/fans/fans?type=1" class="memberNavItem">
+			<view>{{userInfo.fans||0}}</view>
+			<view>粉丝</view>
+		</navigator>
+		<navigator hover-class="none" url="/user/pages/concern/concern?type=2" class="memberNavItem">
+			<view>{{userInfo.follow||0}}</view>
+			<view>关注</view>
+		</navigator>
+	</view>
+</view>
+
+<view class="vipBanner" wx:if='{{userInfo.is_vip!=1}}'>
+	<navigator url="../buyVip/buyVip">
+		<image src="/images/mine_vip.png" mode="widthFix"></image>
+		<view class="vipBannerTxt">开通VIP会员，享图录免费阅读</view>
+	</navigator>
+</view>
+
+<view class="viewLine" wx:else>
+</view>
+
+<view class="myDeal">
+	<view class="myDealTit">
+		我的交易
+	</view>
+	<view class="myDealList">
+		<navigator hover-class="none" url="../myRelease/myRelease" class="myDealItem">
+			<view>{{userInfo.book_fa||0}}</view>
+			<view>我发布的</view>
+		</navigator>
+		<navigator hover-class="none" url="/user/pages/myOrder/myOrder" class="myDealItem">
+			<view>{{userInfo.order_num||0}}</view>
+			<view>我的订单</view>
+		</navigator>
+		<navigator hover-class="none" url="../mySell/mySell" class="myDealItem">
+			<view>{{userInfo.sell_out||0}}</view>
+			<view>我卖出的</view>
+		</navigator>
+		<navigator hover-class="none" url="/car/pages/car/car" class="myDealItem">
+			<view>{{userInfo.my_cart||0}}</view>
+			<view>我的购物车</view>
+		</navigator>
+	</view>
+</view>
+
+<navigator  wx:if='{{userInfo.is_real!=1}}' hover-class="none" url="/user/pages/certification/certification" class="reaName">
+	<view>实名认证后宝贝更容易卖出哦~</view>
+	<view class="icon icon-right"></view>
+</navigator>
+
+<view class="viewLine">
+</view>
+
+
+<view class="myServe">
+	<view class="myServeTit">我的服务</view>
+	<view class="serveList">
+		<view class="serveItem" wx:for='{{serverNav}}'>
+			<navigator hover-class="none" url="{{item.url}}">
+				<view class="serveItemL">
+					<view class="serveIcon">
+						<image src="/images/serve{{index+1}}.png" mode="widthFix"></image>
+					</view>
+					<view class="serveNmae">
+						{{item.name}}
+					</view>
+				</view>
+				<view class="serveItemL icon icon-right">
+				</view>
+			</navigator>
+		</view>
+
+
+
+
+	</view>
+</view>

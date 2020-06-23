@@ -1,0 +1,65 @@
+<view class="certificatBox">
+	<form bindtap="">
+		<view class="ertiItem">
+			<view class="ertTitle">
+				<text class="">*</text>
+				<view>真实姓名：</view>
+			</view>
+			<view class='ertInp'>
+				<input type="text" name='name' data-name="name" bindinput="inputEven"  placeholder="提现时的用户名以此为准" placeholder-class="erInpStyle"> </input>
+			</view>
+		</view>
+		<view class="ertiItem">
+			<view class="ertTitle">
+				<text class="">*</text>
+				<view>身份证号码：</view>
+			</view>
+			<view class='ertInp'>
+				<input type="text"  name='idcard' data-name="role_no" bindinput="inputEven" placeholder="提现时的用户名以此为准" placeholder-class="erInpStyle"> </input>
+			</view>
+		</view>
+		<view class="ertiItem">
+			<view class="ertTitle">
+				<text class="">*</text>
+				<view>身份证正面照片：</view>
+			</view>
+			<view class="uploadCardBox">
+				<view class="uoloadCardL flexMid"  data-name="zm_card" bindtap="uploadCar">
+					<image src="{{postData.zm_card}}" mode="widthFix"></image>
+					<view class="icon icon-add">
+					</view>
+				</view>
+				<view class="uoloadCardR">
+					<image src="/images/id1.png" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+		<view class="ertiItem">
+			<view class="ertTitle">
+				<text class="">*</text>
+				<view>身份证反面照片：</view>
+			</view>
+			<view class="uploadCardBox">
+				<view class="uoloadCardL flexMid" data-name="fm_card" bindtap="uploadCar"> 
+					<image src="{{postData.fm_card}}" mode="widthFix"></image>
+					<view class="icon icon-add">
+					</view>
+				</view>
+				<view class="uoloadCardR">
+					<image src="/images/id2.png" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+
+
+
+
+		<view class="cerSubmit">
+			<button form-type="submit"  bindtap="submitEven" class="formBtn  {{postData.name&&postData.role_no&&postData.zm_card&&postData.fm_card?'isOk':''}} addressBtn" data-ok="{{postData.name&&postData.role_no&&postData.zm_card&&postData.fm_card?'isOk':''}}" >提交审核</button>
+		</view>
+   	<view class="addPriceTip">
+		提交即表示同意 <navigator  url="../../../pages/allXy/allXy?id=15&title=认证增值服务协议" >《认证增值服务协议》</navigator>和 <navigator url="../../../pages/allXy/allXy?id=4&title=个人信息使用授权书">《个人信息使用授权书》</navigator>
+	</view>
+	</form>
+
+</view>

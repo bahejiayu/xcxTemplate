@@ -1,0 +1,63 @@
+<view class="buyVipTop">
+	<view class="buyUserBox">
+		<view class="buyUserContent">
+			<view class="buyUserImg">
+				<image src="{{userInfo.avatar||'/images/showGood.png'}}" mode="widthFix"></image>
+			</view>
+			<view class="buyerMemberInfo">
+				<view class="buyerMemberName">
+					<view class="dan memberNameTxt">{{userInfo.nickname}}</view>
+					<view>
+						<image src="/images/crown_grey.png" mode="widthFix" wx:if='{{userInfo.is_vip!=1}}'></image>
+						<image src="/images/crown_gold.png" mode="widthFix"  wx:else></image>
+					</view>
+				</view>
+				<view class="buyerBotm">
+					<text>{{userInfo.is_vip!=1?"未开通会员":userInfo.vip_end_time+' 到期'}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="memberPackage">
+	<view class="packageTit">
+		会员套餐
+	</view>
+	<view class="packageList">
+
+		<view wx:if='{{vipList.length==0}}'>
+			{{vipTxt}}
+		</view>	
+		<view class="yhTip" wx:else>
+			限时超值优惠
+		</view>
+
+		<view class="packageItem  {{vipIndex==index?'cur':''}} " data-index="{{index}}"  wx:for='{{vipList}}' bindtap="togIndex">
+			<view class="packageName">
+				{{item.name}}
+			</view>
+			<view class="memberPrice">
+				<view>￥{{item.price}}</view>
+				<view>￥{{item.cost_price}}</view>
+			</view>
+			<view class="pjMouth" wx:if='{{item.vip_time!=30}}'>
+				   {{item.vip_time!=30?'平均每月':''}} ￥{{item.pj}}
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="privilege">
+    <view class="privilegeTit">
+    会员特权
+    </view>
+    <view class="privilegeTxt">
+    成为艺览 VIP 会员后，可免费阅读本 App 的图录和拍品详情的价格指数信息。
+    </view>
+</view>
+
+<view class="buyVipBtn" bindtap="vipPay" >
+{{userInfois_vip!=1?'立即续费':'立即开通'}}
+</view>

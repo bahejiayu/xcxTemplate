@@ -1,0 +1,32 @@
+.walletLit{
+
+    padding: 0 40rpx;
+}
+.walletItem navigator{
+  display: block;
+  height: 105rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+  padding-left: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.iconImg{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.iconImg image{
+  width:44rpx ;
+  vertical-align: middle;
+}
+.walletName{
+  font-size: 32rpx;
+  color: #222222;
+}
+.walletItem .icon{
+  font-size: 28rpx;
+  color: #222222;
+}

@@ -1,0 +1,202 @@
+.lgoinBox{
+  padding: 0 80rpx;
+}
+.loginLogo{
+  text-align: center;
+}
+.loginLogo image{
+  width: 150rpx;
+  height: auto;
+}
+.logoTxt{
+  text-align: center;
+  font-size:40rpx ;
+  margin-top: 16rpx;
+  font-weight: bold;
+  color: #222222;
+  padding-bottom: 50rpx;
+}
+.loginTog{
+  padding-bottom: 8rpx;
+  border-bottom: 1px solid #EAEAEA;
+  justify-content: space-around;
+  display: flex;
+}
+.loginTogItem{
+  font-size:38rpx ;
+  color: #94959C;
+  line-height:53rpx ;
+  position: relative;
+}
+.loginTogItem.cur{
+  font-size:38rpx ;
+  font-weight: bold;
+  color: #222222;
+}
+.loginTogItem.cur::before{
+  content: '';
+  position: absolute;
+  width: 44rpx;
+  height: 4rpx;
+  background-color: #9A141E;
+  bottom: -6rpx;
+  left: 50%;
+  transform: translate(-50%);
+
+}
+.loginBox{
+  padding-top: 10rpx;
+}
+
+.loginInp{
+  padding: 34rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.loginInpContainer{
+  height: 50rpx;
+  padding-left:120rpx ;
+  /* padding-right: 50rpx; */
+  position: relative;
+}
+
+
+.loginInpL{
+  font-size:34rpx ;
+  color: #000000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 120rpx;
+  box-sizing: border-box;
+  justify-content: center;
+  border-right: 1px solid #EAEAEA;
+
+}
+.loginInpL image{
+  width: 46rpx;
+  height: auto;
+}
+
+.loginInpContainer input{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 40rpx;
+  font-size: 34rpx;
+  color: #000000;
+}
+.inpIcon{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #94959C;
+}
+
+.forgetPassword{
+  text-align: right;
+  font-size:28rpx ;
+  color: #94959C;
+  line-height: 40rpx;
+  margin-top: 8rpx;
+  margin-bottom: 44rpx;
+  text-decoration: underline;
+}
+.loginBtn{
+  margin-bottom: 20rpx;
+}
+.loginTip{
+  display: flex;
+  align-items: center;
+}
+
+.loginTipTgo{
+      width:26rpx ;
+      margin-right: 14rpx;
+      height: 26rpx;
+      display: flex;
+      align-items: center;
+  background-color: #F0F0F0;
+  border-radius: 4rpx;
+}
+.addPriceTip{
+  font-size:22rpx ;
+  color: #94959C;
+  line-height: 30rpx;
+}
+
+.addPriceTip text{
+  color: #222222;
+
+}
+.addPriceTip navigator{
+  color: #222222;
+
+}
+.loginTipTgo text{
+  font-size: 24rpx;
+  color: #fff;
+  display: none;
+}
+
+.loginTipTgo.checked_{
+  background-color:#9A141E ;
+}
+.loginTipTgo.checked_ text{
+  display: block;
+}
+.otherLoginLine{
+  margin-top: 70rpx;
+  margin-bottom:60rpx ;
+height: 1px;
+position: relative;
+background-color: #DCDCDC;
+}
+
+
+.otherLoginLine view{
+
+  position: absolute;
+  padding: 0 70rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #C8C8C8;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+.wxLogin{
+  text-align: center;
+}
+.wxLogin image{
+  width:92rpx ;
+}
+.getCodeBox{
+    padding-right: 180rpx;
+
+}
+
+.getCode{
+  width:160rpx ;
+  height: 54rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 24rpx;
+  color: #BCBCBC;
+  background-color: #EAEAEA;
+  border-radius: 8rpx;
+  transform: translateY(-50%);
+}
+.addPriceTip{
+  display: flex;
+}
+.getCode.cur{
+  background-color: #9A141E;
+  color: #fff;
+
+}

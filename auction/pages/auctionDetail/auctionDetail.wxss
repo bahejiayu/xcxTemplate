@@ -1,0 +1,140 @@
+.auctionTop {
+  padding: 30rpx 40rpx;
+  background-color: #F9F9F9;
+}
+.auctionDesInt{
+  height: 212rpx;
+  padding-left: 252rpx;
+  position: relative;
+
+}
+.auctionDesImg{
+  width:212rpx ;
+  height: 212rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.auctionDesImg image{
+  width: 100%;
+  height: 100%;
+}
+.auctBox view{
+  margin-bottom: 4rpx;
+}
+.auctionConNmae{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222222;
+  line-height: 40rpx;
+  margin-bottom: 4rpx;
+  /* height: 122rpx; */
+}
+.auctionContent{
+  position: relative;
+  height: 100%;
+}
+.auctionTip{
+  position: static;
+  transform: none;
+  font-size: 22rpx;
+}
+.auctBox{
+  color: #94959C;
+font-size: 26rpx;
+
+}
+.auctionBottom{
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+  color: #94959C;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.auctArea{
+  color: #94959C;
+  font-size: 26rpx;
+}
+.auctionAlo{
+  position: relative;
+  padding-right: 100rpx;
+  margin-top: 8rpx;
+}
+.auDate{
+  line-height: 40rpx;
+ 
+}
+
+.auctionFilt{
+  padding: 0 40rpx;
+
+}
+
+
+.auctionFilt .filtrateLine {
+
+  justify-content: space-around;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.antqueItem{
+  padding: 30rpx 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+.antqueItem navigator{
+  display: block;
+  height: 212rpx;
+  position: relative;
+  padding-left: 252rpx;
+}
+.antiqueList{
+  padding: 0 40rpx;
+}
+.antqueImg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:212rpx ;
+  height: 212rpx;
+}
+.antqueImg image{
+  width: 100%;
+  height: 100%;
+}
+.antqueName{
+  font-size:32rpx ;
+  color: #222222;
+  line-height: 45rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.lotNub{
+  font-size: 28rpx;
+  color: #9A141E;
+  line-height: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.antqueSize text{
+    font-size: 28rpx;
+    color: #000000;
+}
+.antqueSize{
+  font-size: 28rpx;
+  color: #000000;
+  margin-bottom: 10rpx;
+}
+.makeBargainPrice{
+  font-size: 28rpx;
+  color: #222;
+}
+.makeBargainPrice text{
+  color: #222222;
+  font-size: 28rpx;
+  /* font-weight: bold; */
+}

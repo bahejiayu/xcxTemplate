@@ -1,0 +1,79 @@
+<view class="balanceTop">
+	<view class="walletTop">
+		<view class="walletBox">
+			<view>剩余书币(个)</view>
+			<view>{{balInfo.money||'0.00'}}</view>
+		</view>
+	</view>
+	<!-- <view class="walletDetail">
+		<view class="walletDetailBox">
+			<view class="walletDetailItem">
+				<view>￥{{balInfo.total_tixian||'0.00'}}</view>
+				<view>累计提现</view>
+			</view>
+			<view class="walletDetailItem">
+				<view>￥{{balInfo.bond||'0.00'}}</view>
+				<view>正在提现</view>
+			</view>
+		</view>
+	</view> -->
+</view>
+
+<view class="balanceBox">
+	<view class="topUp">
+		<navigator  url="../bookCoin/bookCoin" hover-class="none">
+			<view class="topUpL">
+				<view class="topUpIcon">
+					<image src="/images/withdraw.png" mode="widthFix"></image>
+				</view>
+				<view>充值</view>
+			</view>
+			<view>
+				<view class="icon icon-right">
+
+				</view>
+			</view>
+		</navigator>
+	</view>
+	<view class="transactionDetail">
+		<view class="transactionTit">
+			交易明细
+		</view>
+		<!-- <view class="transactionNav">
+			<view class="tranNavList">
+				<view class="{{type_==''?'cur':''}} " data-type="" bindtap="togType" >
+					全部
+				</view>
+				<view class="{{type_=='1'?'cur':''}} " data-type="1" bindtap="togType">
+					收入
+				</view>
+				<view class="{{type_=='2'?'cur':''}} " data-type="2" bindtap="togType">
+					支出
+				</view>
+			</view>
+		</view> -->
+		<view class="transactionList">
+				<import src='/tpl/kong.wxml' />
+<template is='kong' wx:if='{{balList.length<=0}}' data='{{...{kongTxt:"暂无相关信息"} }}'></template>
+			<view class="transactionItem" wx:for='{{balList}}'>
+				<navigator hover-class="none">
+					<view class="transactionItemL">
+						<view>{{item.desc}}</view>
+						<view>{{item.created_at}}</view>
+					</view>
+					<view class="transactionItemR">
+						<!-- cl -->
+						<view class=" {{item.type==1?'cl':''}}"> {{item.type==1?"+":"-"}}¥{{item.price}}</view>
+						<view class="lv_" wx:if='{{item.shouxu}}'>
+								手续费¥{{item.shouxu}}({{item.per}})
+						</view>
+					</view>
+				</navigator>
+			</view>
+		</view>
+
+
+	</view>
+
+
+</view>

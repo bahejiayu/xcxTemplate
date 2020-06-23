@@ -1,0 +1,101 @@
+<import src='/tpl/goodTpl.wxml' />
+
+
+<view class="bookShelfBox">
+	<import src='/tpl/kong.wxml' />
+		<template is='kong' wx:if='{{shelfList.length<=0}}' data='{{...{kongTxt:"您的书架空空如也"} }}'></template>
+
+	<!-- <template is="booksItem"  data="{{...{isCollect:true,self:true,list:shelfList,doc:true } }}" ></template> -->
+
+	<navigator hover-class="none" url="/library/pages/bookDetail/bookDetail?id={{item.doc_id}}" class="booksItem   {{item.left?'arrowLeft':''}}  tr" bind:touchstart='st' bind:touchend='end' data-index="{{index}}" wx:for='{{shelfList}}' wx:for-index="index" wx:key='index' wx:for-item="item">
+		<view class="bookItemImg bg2">
+			<image src="{{item.logo}}"></image>
+		</view>
+		<view class="bookInfo">
+			<view class="bookInfoName dan">
+				{{item.name}}
+			</view>
+			<view class="bookWiter dan">
+				作者:{{item.author}}
+
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==1}}'>
+					电子书
+				</view>
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==2}}'>
+					实体书
+				</view>
+				<view class="bookTepTip dan dwI" wx:if='{{item.attribute==3}}'>
+					其他
+				</view>
+			</view>
+			<view class="bookPublish dan">
+				{{item.cbs_name}}
+			</view>
+			<view class="bookDes">
+				<!-- 简介：本书针对中国古代文学进行了别开生面的深入研究，从古代文学的审美趣味。 -->
+			</view>
+			<view class="bookBottom">
+				<view class="freedX" wx:if='{{item.is_xianmian==1||item.is_free==1}}'>
+					限免
+				</view>
+				<view class="bookTepPriceTxt dan" wx:if='{{item.is_xianmian!=1&&item.is_free!=1}}'>
+					<text wx:if='{{item.attribute==1}}'>{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}书币</text>
+					<text wx:if='{{item.attribute==2}}'>￥{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}</text>
+				</view>
+
+				<view class="collectAddBtn" data-id="{{item.doc_id}}" wx:if='{{item.is_xianmian==1||item.is_free==1}}' catchtap="goRead"  data-url="/pages/readH/readH?id={{item.doc_id}}" hover-class="none" >
+					开始阅读
+				</view>
+				<view wx:else>
+					<view class="collectAddBtn"  catchtap="bookPay"  hover-class="none" data-id="{{item.doc_id}}" wx:if='{{(item.is_tulu==1&&userInfo.is_vip==1)||item.is_buy==1}}' data-url="/pages/readH/readH?id={{item.doc_id}}">
+						开始阅读
+					</view>
+					<view class="collectAddBtn" catchtap="bookPay" data-id="{{item.doc_id}}" data-price="{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}" data-index="{{index}}"  wx:else>
+						立即购买
+					</view>
+				</view>
+				<!-- <view class="collectAddBtn" catchtap="{{item.is_buy==1?'立即阅读':'bookPay'}}" data-id="{{item.doc_id}}" data-price="{{item.discount_pice&&item.discount_pice!='0.00'?item.discount_pice:item.price}}" data-index="{{index}}">
+					{{item.is_buy==1?'立即阅读':'立即购买'}}
+				</view> -->
+			</view>
+
+		</view>
+		<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{item.id}}">
+			<view class="icon icon-delete">
+			</view>
+		</view>
+	</navigator>
+
+</view>
+
+
+
+
+<view class="shadeView" wx:if='{{showPay}}' bindtap="closePay">
+</view>
+<view class="fixPay  {{showPay?'showPay':''}}  ">
+	<view class="fixPayTitle">
+		确认支付
+		<text class="icon icon-close"  bindtap="closePay" ></text>
+	</view>
+	<view class="payInfoList">
+		<view class="payInfoItem">
+			<view>
+				当前书币数量
+			</view>
+			<view>{{userInfo.money}}</view>
+		</view>
+		<view class="payInfoItem">
+			<view>
+				需支付书币
+			</view>
+			<view class="payRed">{{needPrice}}</view>
+		</view>
+	</view>
+	<view class="bookPayBtn" bindtap="coinPay" wx:if='{{userInfo.money>needPrice}}'>
+		立即支付
+	</view>
+	<view  bindtap="goBookCoin"  class="bookPayBtn" wx:else>
+		充值书币
+	</view>
+</view>

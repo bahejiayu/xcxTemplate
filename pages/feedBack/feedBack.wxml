@@ -1,0 +1,41 @@
+<view class="feedContainer">
+	<form>
+		<view class="feedArea">
+			<textarea placeholder="请输入您要反馈的问题（5-500字以内）" value="{{postData.content}}" data-name="content" bindinput='inputEven'></textarea>
+		</view>
+		<view class="feedUpBox">
+			<view class="feedTitle">
+				请提供问题的截图或照片（选填）
+			</view>
+			<view class="feedImgList">
+				<view class="feedUpBtn" bindtap="upImage" wx:if='{{img_list2.length<4}}'>
+					<view class="icon icon-camera">
+					</view>
+					<view class="addTxtB">
+						添加图片
+					</view>
+				</view>
+
+				<view class="feedImgItem" wx:for="{{img_list2}}">
+					<image src="{{item}}" mode="widthFix"></image>
+					<view class="feedDel flexMid" data-index="{{index}}" bindtap="delImg">
+						<view class="icon icon-delete">
+						</view>
+					</view>
+				</view>
+
+
+			</view>
+		</view>
+
+		<view class="feedInp">
+			<view class="feedInpTit">
+				联系方式
+			</view>
+			<input type="number" data-name="mobile" bindinput='inputEven' placeholder-class="inpStyle" value="{{postData.mobile}}" placeholder="请输入手机号码"></input>
+		</view>
+
+
+		<button form-type="submit" data-ok="{{postData.content&&postData.mobile?'isOk':''}}" bindtap="submitEven" class="formBtn  {{postData.content&&postData.mobile?'isOk':''}} ">提交</button>
+	</form>
+</view>

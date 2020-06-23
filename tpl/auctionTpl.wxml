@@ -1,0 +1,139 @@
+<template name='rangeChe'>
+	<view class="filterFix " wx:if='{{showScreen}}'>
+
+	</view>
+
+	<view class="rightRange  {{showScreen?'showRange':''}}" >
+		<view class="rangeBox">
+			<view class="rangeType1">
+				<!-- <view class="rangeType1Item">
+					<view>
+						拍品分类
+					</view>
+					<text class="icon icon-right" >
+            </text>
+				</view> -->
+				<view class="rangeType1Item" bindtap="showCity">
+					<view>
+						拍卖地区
+					</view>
+					<text class="icon icon-right" >
+            </text>
+				</view>
+			</view>
+			<view class="rangeType2">
+				<view class="rangeType2Item">
+					<view class="rangeTypeTitle">
+						拍品类别
+					</view>
+					<view class="rangeChekList">
+						<view class="rangeChkItem cur">
+							全部
+						</view>
+						<view class="rangeChkItem">
+							预展
+						</view>
+						<view class="rangeChkItem">
+							已结拍
+						</view>
+					</view>
+				</view>
+
+
+				<view class="rangeType2Item">
+					<view class="rangeTypeTitle">
+						出版时间
+					</view>
+					<view class="pTime">
+						<view class="pTimeTxt">
+							<picker>
+								1945年12月
+							</picker>
+						</view>
+						<view>
+							至
+						</view>
+						<view class="pTimeTxt">
+							<picker>
+								2020年09月
+							</picker>
+						</view>
+
+
+					</view>
+
+
+
+
+				</view>
+
+
+
+			</view>
+
+			<view class="rangeBtnsBox">
+				<view class="rangeBtns">
+					<view class="resetBtn">
+						重置
+					</view>
+					<view class="sureBtn" bindtap="closeRange">
+						确定
+					</view>
+
+				</view>
+			</view>
+
+
+
+
+
+
+		</view>
+
+
+	</view>
+
+    <!-- 拍品分类 -->
+<view   class="bookClassify" wx:if='{{false}}'>
+    <view class="bookClassifyBox">
+        <view class="bookClassifyTitle">
+            拍品分类
+        </view>
+        <scroll-view class="bookClassifyList" scroll-y='{{true}}'>
+              <view class="bookClassifyItem cur">
+                  图录
+              </view>
+                 <view class="bookClassifyItem" wx:for='{{20}}'>
+                  瓷器
+              </view>
+        </scroll-view>
+      <view class="jBtns">
+          <view>取消</view>
+          <view>确定</view>
+      </view>
+    </view>
+</view>
+
+<!-- 拍卖地区 -->
+<view   class="bookClassify {{showCity?'showCity':''}} " >
+    <view class="bookClassifyBox">
+        <view class="bookClassifyTitle">
+            拍卖地区
+        </view>
+        <scroll-view class="bookClassifyList" scroll-y='{{true}}'>
+              <view class="bookClassifyItem cur">
+                  图录
+              </view>
+                 <view class="bookClassifyItem" wx:for='{{20}}'>
+                  瓷器
+              </view>
+        </scroll-view>
+      <view class="jBtns">
+          <view bindtap="cloaseCity">取消</view>
+          <view bindtap="cloaseCity">确定</view>
+      </view>
+    </view>
+</view>
+
+
+</template>

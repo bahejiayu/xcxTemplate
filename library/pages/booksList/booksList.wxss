@@ -1,0 +1,157 @@
+.topSearch{
+  position: static;
+  padding: 20rpx 40rpx;
+  padding-bottom: 0;
+}
+.topSearch .searchBox {
+  padding-left: 0; 
+}
+.searchInp input{
+  background-color: #F9F9F9;
+}
+.searchTxt{
+  left:50%;
+}
+.catePicker{
+  height: 54rpx;
+  border-radius: 8rpx;
+  border: 1px solid #E7E7E7;
+  color: #94959C;
+  font-size: 25rpx;
+  margin-top: 24rpx;
+}
+.closeRange{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 230rpx;
+  z-index: 1000;
+}
+
+.searchTxt {
+  color: #94959C;
+}
+.booksContainer{
+  padding: 0 40rpx;
+  padding-bottom: 1px;
+  padding-top: 180rpx;
+
+}
+.bookInfo {
+  position: relative;
+}
+.bookBottom{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.booksItem{
+  position: relative;
+  height: 322rpx;
+  padding-left: 310rpx;
+  margin-bottom: 50rpx;
+  overflow: hidden;
+}
+.bookItemImg{
+  position: absolute;
+  width:240rpx ;
+  height: 322rpx;
+  left: 0;
+  top: 0;
+}
+.bookItemImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.bookInfoName{
+  font-size:34rpx ;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+.bookWiter{
+  font-size: 26rpx;
+  color:#222222 ;
+}
+.bookPublish{
+  font-size: 24rpx;
+  color:#A2A2A2 ;
+  margin-top: 10rpx;
+  margin-bottom: 6rpx;
+}
+
+.bookDes{
+  font-size:24rpx ;
+  color: #ADADAD;
+  line-height: 35rpx;
+  height: 114rpx;
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bookTepPriceTxt {
+ font-size: 32rpx;
+  color: #222222;
+  max-width: 55%;
+
+  }
+  .bookBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 10rpx; */
+  }
+  .searchInp input{
+    color: #222222;
+  }
+
+  .bookTepTip{
+    height: 42rpx;
+    font-size: 24rpx;
+    color: #A2A2A2;
+    padding: 0 12rpx;
+    line-height: 42rpx;
+    background-color: #F5F5F5;
+    max-width: 130rpx;
+}
+
+.freedX{
+  width:120rpx ;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #9A141E;
+  border-radius: 5rpx;
+}
+
+.booksDate{
+  text-align: center;
+  font-size: 42rpx;
+  color: #222;
+  padding: 30rpx 0;
+  padding-top: 20rpx;
+
+  font-weight: bold;
+}
+.bookTopFix{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  left: 0;
+  background-color: #fff;
+  top: 0;
+  z-index: 5;
+}

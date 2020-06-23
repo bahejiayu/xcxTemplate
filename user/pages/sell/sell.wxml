@@ -1,0 +1,190 @@
+<wxs module="filter" src="../../../filter/index.wxs"></wxs>
+<view class="sellBox">
+	<view class="sellInpItem codeSIcon">
+		<view class="sellInpTit">
+			ISBN：
+		</view>
+		<input type="text" value="{{postData.isbn}}" placeholder-class="inpStyle" bindinput="inputEven" data-name="isbn" placeholder="请手动输入或者扫码输入(选填) "></input>
+		<view class="sCodeIcon" bindtap="erCode">
+			<image src="/images/icon_book_scan.png" mode="widthFix"></image>
+		</view>
+	</view>
+	<view class="pdRight">
+		<view class="upBookBox" bindtap="upBookLogo">
+			<image src="{{postData.logo}}" mode="widthFix"></image>
+			<view class="icon icon-add">
+			</view>
+			<view>
+				点击添加封面
+			</view>
+		</view>
+		<view class="sellInpItem ">
+			<view class="sellInpTit">
+				书名：
+			</view>
+			<input type="text" placeholder-class="inpStyle" value="{{postData.title}}" bindinput="inputEven" data-name="title" placeholder="请输入书本的名字"></input>
+		</view>
+		<view class="sellInpItem ">
+			<view class="sellInpTit">
+				作者：
+			</view>
+			<input type="text" placeholder-class="inpStyle" value="{{postData.author}}" data-name="author" placeholder="请输入作者的姓名 " bindinput="inputEven"></input>
+		</view>
+
+		<view class="sellInpItem ">
+			<view class="sellInpTit">
+				出版社：
+			</view>
+			<input type="text" placeholder-class="inpStyle" value="{{postData.cbs}}" data-name="cbs" placeholder="请输入出版社" bindinput="inputEven"></input>
+		</view>
+
+
+		<view class="sellInpItem " wx:if='{{postData.type==1||postData.type==""}}'>
+			<view class="sellInpTit">
+				原价：
+			</view>
+			<input type="digit" placeholder-class="inpStyle" bindinput="inputEven" data-name="price" placeholder="￥0" value="{{postData.price}}"></input>
+		</view>
+		<view class="sellInpItem ">
+			<view class="sellInpTit">
+				运费：
+			</view>
+			<input type="digit" placeholder-class="inpStyle" value="{{postData.freight}}" bindinput="inputEven" placeholder="￥0" data-name="freight"></input>
+		</view>
+	</view>
+	<view class="sellInpItem picker_">
+		<view class="sellInpTit">
+			新旧：
+		</view>
+		<picker range="{{dragList}}" range-key="name" bindchange="dragChange">
+			<input type="text" placeholder-class="inpStyle" data-name="degree" disabled="{{true}}" placeholder="点击选择书本的新旧程度 " value="{{filter.newTxt2(postData.degree)}}" bindinput="inputEven"></input>
+			<view class="pickerRon">
+				<text class="icon icon-unfold"></text>
+			</view>
+		</picker>
+	</view>
+	<view class="sellStyle">
+		<view class="sellStyleL">售卖方式：
+		</view>
+		<view class="sellStyleR">
+			<view class="sellStyleTxt" bindtap="sellType1" wx:if='{{postData.discount_pice&&postData.type==1}}'>一口价￥{{postData.discount_pice}}</view>
+			<view class="sellStyleItem" bindtap="sellType1" wx:else>
+				一口价
+			</view>
+			<!-- <view class="sellStyleTxt" bindtap="sellType2" wx:if='{{postData.starting_price&&postData.type==2}}'>起拍价￥{{postData.starting_price}}</view>
+			<view class="sellStyleItem" bindtap="sellType2" wx:else>
+				拍卖
+			</view> -->
+		</view>
+	</view>
+
+	<view class="upImgBox">
+		<view class="upImgItem" wx:for="{{img_list2}}">
+			<image src="{{item}}" mode="widthFix"></image>
+			<view class="upImgDel flexMid" data-index="{{index}}" bindtap="delImg">
+				<text class="icon icon-delete">
+
+          </text>
+			</view>
+		</view>
+		<view class="upImgBtn" bindtap="upImage" wx:if='{{img_list2.length<8}}'>
+			<text class="icon icon-add"></text>
+		</view>
+
+	</view>
+	<picker mode='region' bindchange="cityChange">
+		<view class="PlaceDelivery">
+			<text class="icon icon-locationfill"></text>
+			<view>发货地:</view>
+			<input type="text" placeholder="请选择发货地" value="{{postData.send_addr}}" bindinput="inputEven" data-name="send_addr" disabled='{{true}}' placeholder-class="inpStyle"></input>
+		</view>
+	</picker>
+
+	<view class="sellArea">
+		<textarea placeholder="详情描述 " value="{{postData.desc}}" data-name="desc" placeholder-class="inpStyle" bindinput="inputEven"></textarea>
+	</view>
+	<view class="sellBtns">
+		<view class="saveBtn" data-flag="0" bindtap="successSubmit">
+			存为草稿
+		</view>
+		<view class="submitSh" data-flag="1" bindtap="successSubmit">
+			提交审核
+		</view>
+	</view>
+	<view class="sellTip">
+		提交即表示同意
+		<navigator url="../../../pages/allXy/allXy?id=13&title=服务协议" >《服务协议》</navigator><navigator url='../../../pages/allXy/allXy?id=4&title=个人信息使用授权书'>《个人信息使用授权书》</navigator><navigator url='../../../pages/allXy/allXy?id=6&title=收费办法'>《收费办法》</navigator>
+
+	</view>
+
+</view>
+
+<!-- showSell -->
+<view class="shadeView" wx:if='{{sellType1||sellType2}}'></view>
+<!-- 一口价 -->
+<view class="sellFix {{sellType1?'showSell':''}}">
+	<view class="sellFixTit">
+		<view>一口价</view>
+		<view class="icon icon-close" bindtap="closeSellType1">
+		</view>
+	</view>
+	<form bindsubmit="ykjSubmit">
+		<view class="sellFixInp">
+			<view class="sellFixInpTit">
+				请输入价格
+			</view>
+			<input type="digit" name='price' placeholder="￥0" placeholder-class="inpStyle"></input>
+		</view>
+		<view class="sellFixBtn">
+			<button form-type="submit" class="formBtn isOk addressBtn">保存</button>
+		</view>
+	</form>
+</view>
+
+
+<!-- 拍卖 -->
+<view class="sellFix {{sellType2?'showSell':''}}">
+	<form bindsubmit="pmSubmit">
+		<view class="sellFixTit">
+			<view>起拍价</view>
+			<view class="icon icon-close" bindtap="closeSellType2">
+			</view>
+		</view>
+		<view class="sellFixInp">
+			<view class="sellFixInpTit">
+				请输入价格
+			</view>
+			<input type="digit" placeholder="￥0" bindinput="inputEven" data-name='starting_price' placeholder-class="inpStyle"></input>
+		</view>
+		<view class="sellFixInp">
+			<view class="sellFixInpTit">
+				请输入加价幅度
+			</view>
+			<input type="digit" placeholder="￥0" bindinput="inputEven" data-name='plus_price' placeholder-class="inpStyle"></input>
+		</view>
+		<view class="sellFixInp">
+			<picker mode="multiSelector" value="{{dateTime1}}" data-name="start_time" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+				<view class="sellFixInpTit">
+					请输入开始时间
+				</view>
+
+				<input type="text" disabled="{{true}}" name='start_time' value="{{postData.start_time}}" placeholder-class="inpStyle"></input>
+				<view class="icon icon-unfold">
+
+				</view>
+			</picker>
+		</view>
+		<view class="sellFixInp">
+			<picker mode="multiSelector" value="{{dateTime1}}" data-name="end_time" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+				<view class="sellFixInpTit">
+					请输入结束时间
+				</view>
+				<input type="text" disabled="{{true}}" name='end_time' value="{{postData.end_time}}" placeholder-class="inpStyle"></input>
+				<view class="icon icon-unfold"></view>
+			</picker>
+		</view>
+		<view class="sellFixBtn">
+			<button form-type="{{postData.starting_price&&postData.plus_price&&postData.start_time&&postData.end_time?'submit':''}}" class="formBtn  {{postData.starting_price&&postData.plus_price&&postData.start_time&&postData.end_time?'isOk':''}}  addressBtn">保存</button>
+		</view>
+	</form>
+</view>

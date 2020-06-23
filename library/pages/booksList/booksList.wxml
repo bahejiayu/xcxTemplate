@@ -1,0 +1,77 @@
+<import src='/tpl/goodTpl.wxml' />
+<import src="/tpl/tpl.wxml" />
+<view class="bookTopFix">
+	<view class="topSearch">
+		<view class="searchBox">
+			<!-- <view class="logo_">
+				<image src="/images/logo.png" mode="widthFix"></image>
+			</view> -->
+			<view class="searchInp">
+				<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+					<text class="icon icon-search" ></text>
+					<text>搜索</text>
+				</view>
+				<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+				<view class="cancelSearch" bindtap="cancelBack">
+					取消
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="filtrateLine">
+		<view class="filtrateItem" bindtap="togType" data-type="综合">
+			<view class=" {{chkType=='综合'?'b2':''}} ">综合</view>
+		</view>
+		<view class="filtrateItem" data-type="系列">
+			<picker range='{{condBookData.cats}}' range-key='label' bindchange="changeXl">
+				<view class=" {{chkType=='系列'?'b2':''}}">系列 <text class="icon  icon-unfold"></text> </view>
+			</picker>
+		</view>
+		<view class="filtrateItem" bindtap="togType" data-type="价格" wx:if='{{libtype==0}}'>
+			<view class="{{chkType=='价格'?'b2':''}}">价格
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="asc"}}'></image>
+			</view>
+		</view>
+
+		<view class="filtrateItem" bindtap="togType" data-type="年代" wx:if='{{libtype==1}}'>
+			<view class="{{chkType=='年代'?'b2':''}}">年代
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="asc"}}'></image>
+			</view>
+		</view>
+
+
+		<view class="filtrateItem" bindtap="togType" data-type="筛选">
+			<view class="{{chkType=='筛选'?'b2':''}}">筛选 <image src="{{chkType=='筛选'?'/images/libSelIconCur.png':'/images/libSelIcon.png'}}" class="libSelIcon" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+
+</view>
+<import src='/tpl/kong.wxml' />
+
+<view class="booksContainer" wx:if="{{libtype==0}}">
+<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"没有相关书籍"} }}'></template>
+	<view class="booksContainerItem">
+		<template is="booksItem" data="{{...{list:list} }}"></template>
+	</view>
+</view>
+
+
+<view class="booksContainer" wx:if="{{libtype==1}}">
+<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"没有相关书籍"} }}'></template>
+	<view class="booksContainerItem" wx:for='{{list}}' wx:for-index="i1" wx:for-item="t1">
+		<view class="booksDate">
+			{{t1.pull_time}}
+		</view>
+		<template is="booksItem" data="{{...{list:t1.bean} }}"></template>
+	</view>
+</view>
+
+
+
+<template is="rangeChe" data="{{...{letterArr,showScreen,showPress,showBookType,condBookData,startTime,endTime,postData,libtype,paiCity,enTxt} }}" />

@@ -1,0 +1,242 @@
+<view class="detailBanner">
+
+	<swiper bindchange="swiperChange">
+		<swiper-item>
+			<image src="{{bookInfo.info.logo}}" mode="aspectFit"  data-url="{{bookInfo.info.logo}}"  bindtap="pevImg" ></image>
+		</swiper-item>
+		<!-- <swiper-item>
+			<image src="/images/timg.jpg" mode="aspectFit"></image>
+		</swiper-item>
+		<swiper-item>
+			<image src="http://images.artcpi.com/0bae3cce0cbdef56beb9bdb39a6bf640.jpg" mode="aspectFit" ></image>
+		</swiper-item> -->
+
+	</swiper>
+	<view class="bannerRight">
+		<view class="dan" wx:if='{{bookInfo.info.attribute==1}}'>
+			电子书
+		</view>
+		<view class="dan" wx:if='{{bookInfo.info.attribute==2}}'>
+			实体书
+		</view>
+		<view class="dan" wx:if='{{bookInfo.info.attribute==3}}'>
+			其他
+		</view>
+		<!-- <view class="dan">
+			{{bannerIndex}}/2
+		</view> -->
+	</view>
+</view>
+
+<view class="bookDetailContent">
+	<view class="bookDetailTop">
+		<view class="bookJ">
+			<view class="bookName">
+				{{bookInfo.info.name}}
+			</view>
+			<navigator url="../../../pages/feedBack/feedBack" hover-class="none" class="Bookinform">
+				举报
+			</navigator>
+		</view>
+		<view class="bookWiter">
+			作者: {{bookInfo.info.author}}
+		</view>
+		<view class="timeAndPrice">
+			<view class="chuTiem">
+				出版时间：{{bookInfo.info.publication_time}}
+			</view>
+			<view class="bookPrice" wx:if='{{bookInfo.info.attribute==1}}'>
+				<!-- 书币 -->
+				<view class="del" wx:if="{{bookInfo.info.is_discount&&userInfo.is_vip!=1}}">
+					{{bookInfo.info.price}}书币
+				</view>
+
+					<view class="del" wx:if="{{bookInfo.info.cat_id=='图录'&&userInfo.is_vip==1}}">
+					{{bookInfo.info.is_discount?bookInfo.info.discount_pice:bookInfo.info.price}}书币
+				</view>
+
+				<view class="pr" wx:if='{{bookInfo.info.cat_id=="图录"&&userInfo.is_vip==1}}'>
+					会员限免
+				</view>
+
+				<view class="pr" wx:else>
+					<view wx:if='{{bookInfo.info.is_free==1||bookInfo.info.is_xianmian==1}}'>
+						限免
+					</view>
+					<view wx:else>
+						{{bookInfo.info.is_discount?bookInfo.info.discount_pice:bookInfo.info.price}}书币
+					</view>
+				</view>
+
+
+			</view>
+			<view class="bookPrice" wx:else>
+				<view class="del" wx:if="{{bookInfo.info.is_discount}}">
+					￥{{bookInfo.info.price}}
+				</view>
+				<view class="pr">
+					<view wx:if='{{bookInfo.info.is_free==1||bookInfo.info.is_xianmian==1}}'>
+						限免
+					</view>
+					<view wx:else>
+						￥{{bookInfo.info.is_discount?bookInfo.info.discount_pice:bookInfo.info.price}}
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+	<view class="bookInfoBox">
+		<view class="bookInfo pdr140">
+			<navigator url="../catalog/catalog?id={{bookId}}&isBuy={{bookInfo.is_pay}}&&canLook={{userInfo.is_vip==1&&bookInfo.info.cat_id=='图录'?1:0}}" class="catalogue" hover-class="none">
+				目录
+			</navigator>
+			<view class="infoTitle">
+				语言: {{bookInfo.info.language_id}}
+			</view>
+			<view class="infoList">
+				<view>
+					出版社：{{bookInfo.info.cbs_id}}
+				</view>
+				<view>
+					纸书价格：{{bookInfo.info.book_price}}
+				</view>
+			</view>
+		</view>
+
+
+		<!-- <view class="bookInfo ">
+			<view class="infoTitle">
+				内容简介:
+			</view>
+			<view class="infoList">
+				<view class="infoDes">
+					本书内容涵盖2018年全年玉器鉴赏、辩伪、收藏与投资、
+					现代和田玉玉器的赏玩和保养本书内容涵盖2018年全年玉
+					器鉴赏、辩伪、收藏与投资、现代和田玉玉器的赏玩。
+				</view>
+			</view>
+		</view> -->
+
+
+		<view class="bookInfo ">
+			<view class="infoTitle">
+				免责声明:
+			</view>
+			<view class="infoList">
+				<view class="infoDes">
+					本书数字版权由出版社提供，数字商品不支持退换。若书中含有不良信息，请积极告知客服，如有侵权，可联系客服下架。
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+<view class="detailFixBottom">
+	<view class="fixContent">
+		<view class="fixLeft">
+			<view class="fixLeftItem" bindtap="togCollect" data-type="{{bookInfo.is_collect}}">
+				<view class="fixDetailIcon">
+					<image src="{{bookInfo.is_collect==1?'/images/icon_library_like_red.png':'/images/icon_library_like.png'}}" mode="widthFix"></image>
+				</view>
+				<view class="fixDetailIconTxt">
+					收藏
+				</view>
+			</view>
+			<navigator url="/pages/bookShelf/bookShelf" class="fixLeftItem" wx:if='{{bookInfo.info.attribute==1}}'>
+				<view class="fixDetailIcon">
+					<image src="/images/icon_library_book.png" mode="widthFix"></image>
+				</view>
+				<view class="fixDetailIconTxt">
+					书架
+				</view>
+			</navigator>
+			<navigator class="fixLeftItem" wx:else hover-class="none" url="../../../car/pages/car/car">
+				<view class="fixDetailIcon">
+					<image src="/images/icon_library_buy.png" mode="widthFix"></image>
+				</view>
+				<view class="fixDetailIconTxt">
+					购物车
+				</view>
+			</navigator>
+
+		</view>
+
+		<view class="fixRightBtns">
+			<view class="fixBtnItem  addBook" bindtap="addBookSelf" wx:if='{{bookInfo.info.attribute==1}}'>
+				加入书架
+			</view>
+			<view class="fixBtnItem  addBook" bindtap="addCar" wx:else>
+				加入购物车
+			</view>
+			<!-- 电子书 -->
+			<view wx:if="{{bookInfo.info.attribute==1}}">
+
+				<!-- book.info.cat_id=="图录"&&userInfo.is_vip==1 -->
+				<view wx:if='{{bookInfo.info.cat_id=="图录"&&userInfo.is_vip==1}}'>
+					<navigator url="/pages/readH/readH?id={{bookId}}" hover-class="none" class="fixBtnItem onceBookBuy">
+						立即阅读
+					</navigator>
+				</view>
+				<view wx:else>
+					<navigator url="/pages/readH/readH?id={{bookId}}" hover-class="none" class="fixBtnItem onceBookBuy" wx:if='{{bookInfo.info.is_xianmian==1||bookInfo.info.is_free==1||bookInfo.is_pay==1}}'>
+						{{bookInfo.is_pay==1?'开始阅读':'立即阅读'}}
+					</navigator>
+					<view class="fixBtnItem  onceBookBuy" bindtap="bookPay" wx:else>
+						立即购买
+					</view>
+
+				</view>
+
+
+			</view>
+
+
+
+			<!-- 实体书 -->
+			<view wx:if="{{bookInfo.info.attribute==2}}">
+				<!-- <navigator class="fixBtnItem  onceBookBuy" hover-class="none" wx:if='{{bookInfo.info.cat_id=="图录"&&userInfo.is_vip==1}}'>
+			  会员限免
+			 </navigator> -->
+				<view class="fixBtnItem  onceBookBuy" bindtap="shiPay">
+					{{bookInfo.is_pay==1?'再次购买':'立即购买'}}
+				</view>
+			</view>
+
+
+		</view>
+
+
+	</view>
+</view>
+
+<view class="shadeView" wx:if='{{showPay}}' bindtap="closePay" catchtouchmove="true">
+</view>
+<view class="fixPay  {{showPay?'showPay':''}}  ">
+	<view class="fixPayTitle">
+		确认支付
+		<text class="icon icon-close"  bindtap="closePay" ></text>
+	</view>
+	<view class="payInfoList">
+		<view class="payInfoItem">
+			<view>
+				当前书币数量
+			</view>
+			<view>{{userInfo.money}}</view>
+		</view>
+		<view class="payInfoItem">
+			<view>
+				需支付书币
+			</view>
+			<view class="payRed">{{bookInfo.info.is_discount&&bookInfo.info.is_discount!='0.00'?bookInfo.info.discount_pice:bookInfo.info.price}}</view>
+		</view>
+	</view>
+	<view class="bookPayBtn" bindtap="coinPay" wx:if='{{userInfo.money>(bookInfo.info.is_discount&&bookInfo.info.is_discount!="0.00"?bookInfo.info.discount_pice:bookInfo.info.price)}}'>
+		立即支付
+	</view>
+	<navigator hover-class="none" url="../../../pages/bookCoin/bookCoin" class="bookPayBtn" wx:else>
+		充值书币
+	</navigator>
+</view>

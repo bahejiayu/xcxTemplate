@@ -1,0 +1,106 @@
+.bookCoinTop{
+  padding: 0 40rpx;
+}
+.bookCoinTit{
+  padding: 12rpx 0 30rpx 0;
+  border-bottom: #F5F5F5 2rpx solid;
+  display: flex;
+  justify-content: space-between;
+}
+.bookCoinTit view:first-child{
+  font-size:36rpx ;
+  color: #222222;
+}
+
+.bookCoinTit view:last-child{
+  font-size:36rpx ;
+  color: #9A141E;
+}
+.mLvB{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #989898;
+}
+.bookCoinLine{
+  height: 20rpx;
+  background-color: #F9F9F9;
+}
+.bookCoinTip{
+  padding: 35rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #989898;
+}
+.orderFix{
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  height: 112rpx;
+  background-color: #fff;
+  z-index: 100;
+  bottom: 0;
+  box-shadow: 0px -5rpx 6rpx  #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderTotal{
+  display: flex;
+}
+.totalTxt{
+  font-size: 34rpx;
+  color: #222222;
+}
+
+.totalPrice{
+  font-size: 36rpx;
+  color: #9A141E;
+  /* font-weight: bold; */
+}
+
+.orderPayBtn{
+  width: 200rpx;
+  height: 74rpx;
+  background-color: #9A141E;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  justify-content: center;
+  border-radius: 8rpx;
+}
+.coinList{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.coinItem{
+  width: 196rpx;
+  height:104rpx ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:40rpx ;
+  background-color: rgba(154,20,30,.1);
+  color: #9A141E;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+
+}
+.coinItem.cur{
+  color: #fff;
+  background-color:#9A141E ;
+}
+
+
+
+
+
+
+
+
+
+
+

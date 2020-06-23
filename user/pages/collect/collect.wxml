@@ -1,0 +1,52 @@
+<import src='/tpl/goodTpl.wxml' />
+
+<view class="collectNav scT">
+	<view class="collectNavList">
+		<view class="collectNavItem {{collectType==3?'cur':''}} " data-type="3" bindtap="togCollect">
+			图书馆
+		</view>
+		<view class="collectNavItem {{collectType==1?'cur':''}}" data-type="1" bindtap="togCollect">
+			拍品
+		</view>
+		<view class="collectNavItem {{collectType==2?'cur':''}}" data-type="2" bindtap="togCollect">
+			集市
+		</view>
+		<view class="collectNavItem {{collectType==0?'cur':''}}" data-type="0" bindtap="togCollect">
+			资讯
+		</view>
+	</view>
+</view>
+
+
+<view class="collectBox">
+
+	<import src='/tpl/kong.wxml' />
+ 	<template is='kong' wx:if='{{collectList.length<=0}}' data='{{...{kongTxt:"没有相关收藏"} }}' ></template>
+
+	<!-- 图书馆 -->
+	<view class="booksContainer" wx:if='{{collectType==3&&isShow}}'>
+		<template is="booksItem" data="{{...{isCollect:true,list:collectList,self:false } }}"></template>
+	</view>
+
+	<!-- 拍品 -->
+	<view class="booksContainer" wx:if='{{collectType==1&&isShow}}'>
+		<template is="auctTpl" data="{{...{list:collectList } }}"></template>
+	</view>
+
+	<!-- 市集 -->
+
+	<view class="marketContainer" wx:if='{{collectType==2&&isShow}}'>
+		<template is="marketTpl"  wx:for='{{collectList}}' data="{{...{data:item,index:index } }}" ></template>
+	</view>
+
+
+	<!-- 资讯 -->
+
+	<view class="messageColBox" wx:if='{{collectType==0&&isShow}}'>
+		<template is="messageTpl" data="{{...{data:collectList } }}"></template>
+	</view>
+
+
+
+
+</view>

@@ -1,0 +1,43 @@
+<import src='/tpl/kong.wxml' />
+
+<view class="vipFixTop" >
+
+	<view class="marketTop">
+		<view class="searchBox">
+			<view class="searchInp">
+				<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+					<text class="icon icon-search" ></text>
+					<text>搜索</text>
+				</view>
+				<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+			</view>
+		</view>
+	</view>
+
+</view>
+	<template is='kong' wx:if='{{shelfList.length<=0}}' data='{{...{kongTxt:"找不到相关搜索"} }}' ></template>
+<view class="bookShelfBox">
+	<!-- <template is="booksItem"  data="{{...{isCollect:true,self:true,list:shelfList,doc:true } }}" ></template> -->
+	<navigator hover-class="none" bindtap="itemTap" data-url="/library/pages/bookDetail/bookDetail?id={{item.doc_id}}" data-mian="{{item.mian}}" class="booksItem" data-index="{{index}}" wx:for='{{shelfList}}' wx:for-index="index" wx:key='index' wx:for-item="item">
+		<view class="bookItemImg bg2">
+			<image src="{{item.pic||'/images/jpImg.png'}}"></image>
+		</view>
+		<view class="bookInfo">
+			<view class="bookInfoName threeLine">
+				{{item.name}}
+			</view>
+			<view class="bookDes">
+				<!-- 简介：本书针对中国古代文学进行了别开生面的深入研究，从古代文学的审美趣味。 -->
+			</view>
+			<view class="bookBottom">
+				<view class="formBook twoLine">出自《{{item.doc_name}}》</view>
+			</view>
+
+		</view>
+		<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{doc?item.id:item.cid}}">
+			<view class="icon icon-delete">
+			</view>
+		</view>
+	</navigator>
+
+</view>

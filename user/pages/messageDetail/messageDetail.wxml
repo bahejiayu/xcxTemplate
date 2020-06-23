@@ -1,0 +1,19 @@
+<view class="messageList">
+ <import src='/tpl/kong.wxml' />
+	<template is='kong' wx:if='{{messageList.length<=0}}' data='{{...{kongTxt:"暂无消息"} }}'></template>
+
+    <view class="messageItem" wx:for='{{messageList}}'>
+        <view class="messageTime">
+        {{item.created_at}}
+        </view>
+        <view class="messageName">
+        {{item.title}}
+        </view>
+        <view class="messageTxt">
+                <rich-text nodes='{{item.content}}' ></rich-text>
+        </view>
+    </view>
+
+
+
+</view>

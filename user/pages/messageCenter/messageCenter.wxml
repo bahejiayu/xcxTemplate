@@ -1,0 +1,33 @@
+<view class="messageTop">
+	<view>通知列表</view>
+	<view class="{{allRead?'':'b3'}}" bindtap="allEven" data-type="{{allRead?'':'b3'}}">全部已读</view>
+</view>
+
+
+<view class="mesCenterList">
+
+	<navigator url="../messageDetail/messageDetail?type={{item.type}}" wx:for='{{messageList}}' hover-class="none" class="mesCenterItem">
+		<view class="mesCenContainer">
+			<view class="mesImage">
+				<image src="/images/new.png" mode="widthFix" hidden="{{item.type!=2}}"></image>
+				<image src="/images/transaction.png" mode="widthFix" hidden="{{item.type!=3}}"></image>
+				<image src="/images/notice.png" mode="widthFix" hidden="{{item.type!=1}}"></image>
+			</view>
+			<view class="mesBox">
+				<view class="mesBoxT">
+					<view class="mesTit  {{item.no_num>0?'redY':''}} ">
+						{{item.title}}
+					</view>
+					<view class="mesDate">
+						{{item.list.created_at||''}}
+					</view>
+				</view>
+				<view class="mesBoxB dan">
+					<rich-text nodes='{{item.list.content||"暂无消息"}}' class="dan"></rich-text>
+				</view>
+			</view>
+		</view>
+	</navigator>
+
+
+</view>

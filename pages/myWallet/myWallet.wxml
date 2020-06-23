@@ -1,0 +1,38 @@
+<view class="walletLit">
+	<view class="walletItem">
+		<navigator url="../balance/balance"  hover-class="none">
+			<view class="iconImg">
+				<image src="/images/icon_wallet_money.png" mode="widthFix"></image>
+			</view>
+			<view class="walletName">
+				钱包余额
+			</view>
+			<view class="icon icon-right">
+			</view>
+		</navigator>
+	</view>
+  <view class="walletItem">
+		<navigator url="../deposit/deposit" hover-class="none">
+			<view class="iconImg">
+				<image src="/images/icon_wallet_gurantee.png" mode="widthFix"></image>
+			</view>
+			<view class="walletName">
+				保证金
+			</view>
+			<view class="icon icon-right">
+			</view>
+		</navigator>
+	</view>
+  <view class="walletItem">
+		<navigator url="../coin/coin" hover-class="none">
+			<view class="iconImg">
+				<image src="/images/icon_wallet_sb.png" mode="widthFix"></image>
+			</view>
+			<view class="walletName">
+				书币
+			</view>
+			<view class="icon icon-right">
+			</view>
+		</navigator>
+	</view>
+</view>

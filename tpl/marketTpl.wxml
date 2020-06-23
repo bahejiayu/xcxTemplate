@@ -1,0 +1,106 @@
+<template name='rangeChe'>
+	<view class="filterFix" wx:if='{{showScreen}}'>
+	</view>
+		<view bindtap="bindClose_" class="closeRange" catchtouchmove='true'  wx:if='{{showScreen}}'></view>
+
+	<view class="rightRange  {{showScreen?'showRange':''}}  " catchtouchmove='true'>
+		<view class="rangeBox">
+			<view class="rangeType1">
+				<view class="rangeType1Item" bindtap="showPress">
+					<view>
+						出版社
+					</view>
+					<text class="icon icon-right" >
+            </text>
+				</view>
+				<view class="rangeType1Item" bindtap="showBookType">
+					<view>
+						新旧层度/品相
+					</view>
+					<text class="icon icon-right" >
+            </text>
+				</view>
+			</view>
+			<view class="rangeType2">
+				<view class="rangeType2Item">
+					<view class="rangeTypeTitle">
+						一口价
+					</view>
+					<view class="rangeChekList">
+						<view class="rangeChkItem {{postData.type==''?'cur':''}}" bindtap="togLange" data-id="">
+							全部
+						</view>
+						<view class="rangeChkItem {{postData.type==item.id?'cur':''}}" bindtap="togLange" wx:for='{{typeList}}' wx:key='index' data-id="{{item.id}}">
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+				<view class="rangeType2Item">
+					<view class="rangeTypeTitle">
+						是否包邮
+					</view>
+					<view class="rangeChekList">
+						<view bindtap="togBao" class="rangeChkItem {{postData.is_baoyou==''?'cur':''}}" data-id="">
+							全部
+						</view>
+						<view bindtap="togBao" class="rangeChkItem {{postData.is_baoyou=='1'?'cur':''}}" data-id="1">
+							是
+						</view>
+						<view bindtap="togBao" class="rangeChkItem {{postData.is_baoyou=='100'?'cur':''}}" data-id="100">
+							否
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="rangeBtnsBox">
+				<view class="rangeBtns">
+					<view class="resetBtn" bindtap="reSet">
+						重置
+					</view>
+					<view class="sureBtn" bindtap="sureRange">
+						确定
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 书籍分类 -->
+	<view class="bookClassify  {{showBookType?'showBookClassify':''}}" catchtouchmove='true'>
+	<!-- <view bindtap="closeRange" class="closeRange" catchtouchmove='true'></view> -->
+
+		<view class="bookClassifyBox">
+			<view class="bookClassifyTitle">
+				新旧成度/品相
+			</view>
+			<scroll-view class="bookClassifyList" scroll-y='{{true}}' bind:touchmove='true'>
+				<view class="bookClassifyItem  {{postData.degree==index?'cur':''}}" bindtap="togDegree" wx:for='{{layerList}}' wx:key='index' data-value="{{index}}">
+					{{item}}
+				</view>
+			</scroll-view>
+			<view class="jBtns">
+				<view bindtap="closeBookType" data-txt="取消">取消</view>
+				<view bindtap="closeBookType" data-txt="确定">确定</view>
+			</view>
+		</view>
+	</view>
+	<!-- 出版社 -->
+	<view class="pressBox " wx:if="{{showPress}}">
+		<view class="rightLetter">
+			<view wx:for='{{condBookData.cbs_sort}}' wx:key='index'  bindtap="goTxt" data-txt="{{item}}">
+				{{item}}
+			</view>
+		</view>
+		<view class="bookClassifyTitle">
+			出版社
+		</view>
+		<scroll-view class="pressList" scroll-y='{{true}}' scroll-into-view='{{enTxt}}' >
+			<view class="pressItem  {{postData.cbs_id==item.value?'cur':''}}" wx:for='{{condBookData.cbs}}' bindtap="preeBtn" data-value="{{item.value}}" wx:key='index' data-sort="{{item.sort}}" id="{{item.sort}}"  >
+				{{item.label}}
+			</view>
+		</scroll-view>
+		<view class="jBtns">
+			<view bindtap="closePress" data-txt="取消">取消</view>
+			<view bindtap="closePress" data-txt="确定">确定</view>
+		</view>
+	</view>
+</template>

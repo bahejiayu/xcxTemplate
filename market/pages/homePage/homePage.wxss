@@ -1,0 +1,490 @@
+.userTop{
+  padding:0 40rpx;
+  padding-top: 30rpx;
+
+}
+
+.memberInfo{
+  position: relative;
+  height: 120rpx;
+  padding-left: 134rpx;
+  /* padding-right: 50rpx; */
+}
+.memberInfo .icon{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      font-size: 40rpx;
+      transform: translateY(-53%);
+      color: #222;
+}
+.memberInfoImg{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  overflow: hidden;
+}
+.memberInfoImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.memberInfoContentT{
+  /* padding-bottom: 10rpx; */
+  align-items: center;
+  transform: translateY(-8rpx);
+  display: flex;
+}
+.kongBox{
+  padding-top: 100rpx;
+}
+.memberName{
+  font-size: 36rpx;
+  font-weight: bold;
+  /* max-width: 330rpx; */
+  color: #222222;
+}
+.vipIconBox image{
+    width: 40rpx;
+    height: 40rpx;
+    padding-right: 10rpx;
+    vertical-align: middle;
+
+}
+.vipIconBox{
+  margin-right: 20rpx;
+
+  display: flex;
+  align-items: center;
+    font-size:24rpx ;
+    height: 48rpx;
+    justify-content: center;
+    width: 155rpx;
+    border-radius: 8rpx;
+    color: #94959C;
+    /* margin-left: 40rpx; */
+    /* daa549 */
+    background-color: rgba(205, 205, 205, 0.22);
+    /* 249 207 126 */
+}
+.vipIconBox view:last-child{
+  margin-top: 4rpx;
+}
+.memberInfoContentB{
+  display: flex;
+  align-items: center;
+}
+.memberInfoContentB .memberTip:last-child{
+  margin-right: 0;
+}
+.memberInfoContent{
+  padding-top: 12rpx;
+}
+.memberTip{
+  display: flex;
+  font-size: 24rpx;
+  color: #94959C;
+  align-items: center;
+  margin-right: 22rpx;
+  margin-top: -6rpx;
+}
+.userSex image{
+  vertical-align: middle;
+  padding-left: 4rpx;
+}
+.memberTip image{
+    width: 30rpx;
+    margin-right: 6rpx;
+    margin-top: -6rpx;
+    height: auto;
+    vertical-align: middle;
+}
+.memberNav{
+  display: flex;
+  padding: 30rpx 26rpx;
+  justify-content: space-around;
+  padding-bottom: 20rpx;
+}
+
+.memberNavItem view:first-child{
+  font-size: 38rpx;
+  line-height: 46rpx;
+  color: #696F7C;
+  margin-bottom: 4rpx;
+}
+.memberNavItem view:last-child{
+  font-size: 28rpx;
+  line-height: 46rpx;
+  color: #A2A2A2;
+  margin-bottom: 4rpx;
+}
+
+.myDealItem view:first-child{
+  font-size: 42rpx;
+  line-height: 50rpx;
+  /* font-weight: bold; */
+  color: #222222;
+  margin-bottom: 4rpx;
+}
+.myDealItem view:last-child{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #94959C;
+}
+.memberNavItem,.myDealItem{
+  text-align: center;
+}
+
+.memberNavItem view:first-child{
+font-size: 38rpx;
+line-height: 46rpx;
+color: #696F7C;
+font-weight: bold;
+margin-bottom: 4rpx;
+}
+.memberNavItem view:last-child{
+font-size: 28rpx;
+line-height: 46rpx;
+color: #A2A2A2;
+margin-bottom: 4rpx;
+}
+
+.myDealItem view:first-child{
+font-size: 42rpx;
+line-height: 50rpx;
+color: #222222;
+margin-bottom: 4rpx;
+}
+.myDealItem view:last-child{
+font-size: 28rpx;
+line-height: 40rpx;
+color: #94959C;
+}
+.memberNavItem,.myDealItem{
+text-align: center;
+}
+.myDealList{
+justify-content: space-between;
+}
+
+.userSex image{
+  width:32rpx ;
+  height: auto;
+}
+.linege{
+  height: 30rpx;
+  background-color: #F9F9F9;
+
+}
+
+
+.fansBtn{
+  width: 110rpx;
+  height:44rpx ;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #94959C;
+  border: 1px solid #DCDCDC;
+}
+
+.fansBtn image{
+  width: 22rpx;
+  padding-right: 4rpx;
+  height: auto;
+}
+.fansAct{
+  color: #9A141E;
+  border: 1px solid #9A141E;
+
+}
+.fansR{
+  /* position: absolute; */
+  right: 0;
+}
+
+.homepageNav{
+  padding: 0 40rpx;
+}
+
+.libraryNavList{
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  justify-content: space-around;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+.libraryNavItem{
+  font-size: 34rpx;
+  color: #A2A2A2;
+}
+.libraryNavItem text{
+  line-height: 90rpx;
+  display: inline-block;
+  position: relative;
+}
+.libraryNavItem text.cur{
+  color: #222222;
+  font-weight: bold;
+  /* border-bottom:5rpx solid #222222 ; */
+}
+.libraryNavItem text.cur::before{
+  position: absolute;
+  height: 5rpx;
+  width: 64rpx;
+  bottom: 0;
+  background-color: #222222;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.marketGoodList{
+  padding: 0 40rpx;
+  overflow: hidden;
+  padding-top: 40rpx;
+
+}
+.marketGoodL{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+}
+.marketGoodR{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+
+}
+.marketGoodImg{
+    /* height:312rpx ; */
+
+}
+.collectBook{
+  padding: 0 40rpx;
+  padding-top: 40rpx;
+  padding-bottom: 1px;
+
+}
+.marketGoodImg image{
+  width: 100%;
+  height: auto;
+  /* height: 100%!important; */
+}
+.marketGoodInfo{
+  padding: 0 20rpx;
+  background-color: #F5F5F5;
+  padding-top: 14rpx;
+}
+.marketGoodL navigator{
+  display: block;
+}
+.marketGood{
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 18rpx;
+  background-color: #F5F5F5;
+
+
+}
+.marketGoodName{
+    font-size: 28rpx;
+    font-weight: bold;
+   margin-bottom: 14rpx;
+    color: #222222;
+
+}
+.pAw{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.gPri{
+  font-size:30rpx ;
+  font-weight: bold;
+  color: #9A141E;
+}
+.peopleNub{
+  font-size:26rpx ;
+  color: #94959C;
+}
+.newOldAyou{
+  display: flex;
+  justify-content: space-between;
+ margin-top: 12rpx;
+}
+
+.newOld{
+  font-size: 26rpx;
+  color: #222222;
+}
+.you_{
+  font-size:26rpx ;
+  color: #94959C;
+}
+.auctNub{
+  font-size: 25rpx;
+  color: #94959C;
+}
+.auctNub{
+  margin: 12rpx 0;
+}
+.endTime{
+  font-size: 26rpx;
+  color: #222222;
+}
+.marGoodBottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 0;
+}
+.marHeadImg{
+  width:70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+.marHeadImg image{
+  width: 100%;
+  height: 100%;
+}
+.marStatus{
+  width: 106rpx;
+  height: 50rpx;
+  color: #9A141E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  border: 1px solid #9A141E;
+  border-radius: 8rpx;
+  
+}
+
+.booksItem{
+  position: relative;
+  height: 322rpx;
+  padding-left: 310rpx;
+  margin-bottom: 50rpx;
+  overflow: hidden;
+}
+.bookItemImg{
+  position: absolute;
+  width:240rpx ;
+  height: 322rpx;
+  left: 0;
+  top: 0;
+}
+.bookItemImg image{
+  width: 100%;
+  height: 100%!important;
+
+}
+.bookInfoName{
+  font-size:34rpx ;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+.bookWiter{
+  font-size: 26rpx;
+  color:#222222 ;
+  padding-right: 140rpx;
+  position: relative;
+}
+.bookPublish{
+  font-size: 24rpx;
+  color:#A2A2A2 ;
+  margin-top: 10rpx;
+  margin-bottom: 6rpx;
+}
+.icon-delete{
+  /* font-weight: bold; */
+  font-size: 100rpx;
+}
+
+.bookDes{
+  font-size:24rpx ;
+  color: #ADADAD;
+  line-height: 35rpx;
+  height: 114rpx;
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bookTepPriceTxt {
+ font-size: 32rpx;
+  color: #222222;
+  max-width: 55%;
+
+  }
+  .bookBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 10rpx; */
+  }
+  .bookTepTip{
+    height: 42rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #A2A2A2;
+    padding: 0 12rpx;
+    line-height: 42rpx;
+    max-width: 130rpx;
+    background-color: #F5F5F5;
+    /* max-width: 40%; */
+}
+.dwI{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.freedX{
+  width:120rpx ;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #9A141E;
+  border-radius: 5rpx;
+}
+.booksContainer{
+  padding:  40rpx;
+  padding-bottom: 0;
+
+}
+.collectAddBtn{
+  width:148rpx ;
+  height: 50rpx;
+  border: 1px solid #9A141E;
+  color: #9A141E;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+
+
+}
+.productBox{
+  /* padding:  40rpx ; */
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+

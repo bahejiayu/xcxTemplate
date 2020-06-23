@@ -1,0 +1,141 @@
+<view class="setBox">
+
+	<view class="setItem">
+		<navigator hover-class="none" bindtap="modHeadIcon" class="setHeadImg">
+			<view>头像</view>
+			<view>
+				<view class="headImgR">
+					<image src="{{userInfo.avatar||'/images/showGood.png'}}" mode='widthFix'></image>
+				</view>
+			</view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+
+	<!-- <view class="setItem">
+		<navigator hover-class="none">
+			<view>ID</view>
+			<view>808937585</view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view> -->
+	<view class="setItem">
+		<navigator hover-class="none" bindtap="xgEven">
+			<view>昵称</view>
+			<view>{{userInfo.nickname}}</view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+	<view class="setItem">
+		<picker range="{{sexList}}" bindchange="getSex">
+
+			<navigator hover-class="none">
+				<view>性别</view>
+				<view>{{userInfo.gender}}</view>
+				<view class="rightIcon">
+					<text class="icon icon-right"></text>
+				</view>
+			</navigator>
+		</picker>
+	</view>
+
+	<view class="setItem" wx:if='{{userInfo.mobile}}'>
+		<navigator hover-class="none">
+			<view>手机号码</view>
+			<view>{{userInfo.mobile||'请绑定手机号'}}</view>
+			<!-- <view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view> -->
+		</navigator>
+	</view>
+
+	<view class="setItem" wx:if='{{!userInfo.mobile}}'>
+		<navigator hover-class="none" url="../bindPhone/bindPhone">
+			<view>账号绑定</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+
+	<view class="setItem" wx:else>
+		<navigator hover-class="none" url="../findPassword/findPassword?type=gg">
+			<view>更改密码</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+</view>
+<view class="setLien">
+</view>
+<view class="setBox">
+	<view class="setItem">
+		<navigator hover-class="none" url="/pages/allXy/allXy?id=2&title=用户协议">
+			<view>用户协议</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+	<view class="setItem">
+		<navigator hover-class="none" url="../../../pages/feedBack/feedBack">
+			<view>意见反馈</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+	<view class="setItem">
+		<navigator hover-class="none" url="/pages/helpCenter/helpCenter">
+			<view>帮助中心</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+
+
+
+	<view class="setItem">
+		<navigator hover-class="none" url="/pages/aboutUs/aboutUs?title=关于古今艺览">
+			<view>关于古今艺览</view>
+			<view></view>
+			<view class="rightIcon">
+				<text class="icon icon-right"></text>
+			</view>
+		</navigator>
+	</view>
+</view>
+
+<!-- <view class="loginOut">
+	<view class="loginOutBtn flexMid" bindtap="loginOut">
+		退出登录
+	</view>
+</view> -->
+
+
+<view class="shadeView" wx:if='{{showXg}}' bindtap="closeXg">
+
+</view>
+<view class="xgNameBox" wx:if='{{showXg}}'>
+	<view class="xgInp">
+		<input type="text" value="{{nameValue}}" placeholder="请输入修改名称" bindinput="changeName"></input>
+	</view>
+
+	<button class="formBtn isOk sureXg" bindtap="xgName">确定</button>
+
+	<button class="formBtn isOk" open-type="getUserInfo" bindgetuserinfo='usefInfo'>使用微信名称</button>
+
+</view>

@@ -1,0 +1,52 @@
+<import src='../../tpl/goodTpl.wxml' />
+<import src="../../tpl/marketTpl.wxml" />
+
+<import src='/tpl/kong.wxml' />
+
+
+<view class="searchContainer">
+	<view class="searchInp">
+		<view class="searchTxt"  wx:if='{{KeyWord.length==0}}'>
+			<text class="icon icon-search" ></text>
+			<text>搜索</text>
+		</view>
+		<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+		<view class="cancelSearch" bindtap="cancelBack">
+			取消
+		</view>
+	</view>
+</view>
+
+<view class="filtrateLine">
+		<view class="filtrateItem {{chkType=='综合'?'b2':''}} " data-type="综合" bindtap="togType">
+			<view>综合</view>
+		</view>
+		<view class="filtrateItem {{chkType=='最新'?'b2':''}}" data-type="最新" bindtap="togType">
+			<view>最新</view>
+		</view>
+		<view class="filtrateItem {{chkType=='价格'?'b2':''}}" data-type="价格" bindtap="togType">
+			<view class="{{chkType=='价格'?'b2':''}}">价格
+				<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price==""}}'></image>
+				<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="desc"}}'></image>
+				<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="asc"}}'></image>
+			</view>
+		</view>
+		<view class="filtrateItem {{chkType=='筛选'?'b2':''}}" data-type="筛选" bindtap="togType">
+			<view>筛选 <image src="{{chkType=='筛选'?'/images/libSelIconCur.png':'/images/libSelIcon.png'}}" class="libSelIcon" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+
+
+
+<view class="marketSearchBox">
+	<template is="marketTpl"  wx:for='{{list}}' data="{{...{data:item,index:index } }}" ></template>
+
+	<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"找不到相关搜索"} }}' ></template>
+
+</view>
+
+<template is="rangeChe" data="{{...{letterArr,showScreen,showPress,showBookType,condBookData,startTime,endTime,postData,layerList,typeList} }}" />
+
+
+

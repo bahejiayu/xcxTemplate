@@ -1,0 +1,150 @@
+<import src="../../tpl/tpl.wxml" />
+<view class="topBanner" id="topBanner"style=" opacity:{{du_}};" >
+	<view class="topSearch">
+		<view class="searchBox">
+			<view class="searchInp">
+				<view class="searchTxt" wx:if='{{KeyWord.length==0}}'>
+					<text class="icon icon-search" ></text>
+					<text>搜索</text>
+				</view>
+				<input type="text" bindinput="changeKeyWord" value="{{KeyWord}}" bindconfirm="enterInp"></input>
+			</view>
+		</view>
+	</view>
+
+	<view class="indicatorBox">
+		<view class="indicatorItem    {{indicator==index?'cur':''}} " wx:for='{{imgs.length}}'>
+		</view>
+	</view>
+	<swiper autoplay="3000" bindchange="swiperChange"     >
+		<swiper-item wx:for='{{imgs}}' wx:index='{{index}}'>
+			<navigator url="/library/pages/bookDetail/bookDetail?id={{item.path_id}}" hover-class="none">
+				<image src="{{item.pic}}" mode="widthFix"></image>
+			</navigator>
+		</swiper-item>
+	</swiper>
+</view>
+
+<view class="libraryBox">
+	<view class="{{fixNav?'fixNav':''}}">
+		<view class="libraryNav">
+			<view class="libraryNavList">
+				<view class="libraryNavItem" bindtap="togLibType" data-libtype="0">
+					<text class=" {{libtype==0?'cur':''}} ">图书</text>
+				</view>
+				<view class="libraryNavItem" bindtap="togLibType" data-libtype="1">
+					<text class=" {{libtype==1?'cur':''}} ">图录</text>
+				</view>
+			</view>
+			<navigator class="libMoreIcon" hover-class="none" url="/library/pages/booksList/booksList?type={{libtype}}">
+				<image src="/images/libMoreIcon.png" mode="widthFix"></image>
+			</navigator>
+		</view>
+		<view class="filtrateLine">
+			<view class="filtrateItem" bindtap="togType" data-type="综合">
+				<view class=" {{chkType=='综合'?'b2':''}} ">综合</view>
+			</view>
+			<view class="filtrateItem" data-type="系列">
+				<picker range='{{condBookData.cats}}' range-key='label' bindchange="changeXl">
+					<view class=" {{chkType=='系列'?'b2':''}}">系列 <text class="icon  icon-unfold"></text> </view>
+				</picker>
+			</view>
+			<view class="filtrateItem" bindtap="togType" data-type="价格" wx:if='{{libtype==0}}'>
+				<view class="{{chkType=='价格'?'b2':''}}">价格
+					<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price==""}}'></image>
+					<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="desc"}}'></image>
+					<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.price=="asc"}}'></image>
+				</view>
+			</view>
+
+			<view class="filtrateItem" bindtap="togType" data-type="年代" wx:if='{{libtype==1}}'>
+				<view class="{{chkType=='年代'?'b2':''}}">年代
+					<image src="/images/tog3.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai==""}}'></image>
+					<image src="/images/tog1.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="desc"}}'></image>
+					<image src="/images/tog2.png" class="priceTogIcon" mode="widthFix" wx:if='{{postData.niandai=="asc"}}'></image>
+				</view>
+			</view>
+
+
+
+
+			<view class="filtrateItem" bindtap="togType" data-type="筛选">
+				<view class="{{chkType=='筛选'?'b2':''}}">筛选 <image src="{{chkType=='筛选'?'/images/libSelIconCur.png':'/images/libSelIcon.png'}}" class="libSelIcon" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+
+	<view class="bookContainer  {{fixNav?'bcct':''}}">
+		<view class="bookTemplate1">
+
+			<import src='/tpl/kong.wxml' />
+			<template is='kong' wx:if='{{list.length<=0}}' data='{{...{kongTxt:"没有相关书籍"} }}'></template>
+
+
+			<navigator class="bookTemplate1Item" url="/library/pages/bookDetail/bookDetail?id={{item.id}}" hover-class="none" wx:for="{{list}}" wx:key='index'>
+				<view class="bookTemplate1Image bg2">
+					<image src="{{item.logo}}" mode="widthFix"></image>
+				</view>
+				<view class="bookTemplate1Name">
+					{{item.name}}
+				</view>
+				<view class="bookTepPrice">
+
+					<view class="freedX" wx:if='{{item.is_xianmian==1||item.is_free==1}}'>
+						限免
+					</view>
+					<view class="bookTepPriceTxt" wx:if='{{item.is_xianmian!=1&&item.is_free!=1}}'>
+						<text wx:if='{{item.attribute==1}}'>{{item.is_discount?item.discount_pice:item.price}}书币</text>
+						<text wx:if='{{item.attribute==2}}'>￥{{item.is_discount?item.discount_pice:item.price}}</text>
+					</view>
+					<view wx:if='{{libtype==1}}' class="publication_time">{{item.publication_time}}{{item.publication_time.length==4?'年':''}} </view>
+				</view>
+				<view class="bookTepInfo">
+					<view class="antuer dan" wx:if='{{libtype==0}}'>
+						作者: {{item.author}}
+					</view>
+					<view class="antuer dan" wx:if='{{libtype==1}}'>
+						地区: {{item.city_name}}
+					</view>
+					<view class="bookTepTip dan" wx:if='{{item.attribute==1}}'>
+						电子书
+					</view>
+					<view class="bookTepTip dan" wx:if='{{item.attribute==2}}'>
+						实体书
+					</view>
+					<view class="bookTepTip dan" wx:if='{{item.attribute==3}}'>
+						其他
+					</view>
+				</view>
+			</navigator>
+
+		</view>
+	</view>
+</view>
+
+
+<view class="vipShade" catchtouchmove="true" wx:if='{{showTs}}'>
+	<image src="/images/jt.png" mode="widthFix"></image>
+	<view class="i_konw flexMid" bindtap="ikonw">知道了</view>
+</view>
+
+<view class="vipSerachJt" wx:if='{{searFix}}' bindtap="jzBtn">
+	<image src="/images/vipk.png" mode="widthFix"></image>
+	<view class="vipSerachJtTxt">VIP精准搜索</view>
+</view>
+<view class="vipSerachFix {{showSerInp?'showInp':''}} ">
+	<form bindsubmit="vipSubmit">
+
+		<view class="bipSearchContent">
+			<input type="text" bindconfirm="serEnter" name='keyword' placeholder-class="seLo" placeholder="请输入关键词"></input>
+			<button class="vipSerBtn" form-type='submit'>搜索</button>
+		</view>
+	</form>
+
+</view>
+<view class="vipSerachFixZZ" wx:if='{{showSerInp}}' bindtap="cancelVipS"></view>
+
+<template is="rangeChe" data="{{...{letterArr,showScreen,showPress,showBookType,condBookData,startTime,endTime,postData,libtype,paiCity,enTxt} }}" />

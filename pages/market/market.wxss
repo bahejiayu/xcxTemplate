@@ -1,0 +1,176 @@
+.marketTop{
+    padding: 0 30rpx;
+    border-bottom: 40rpx;
+
+}
+.searchBox {
+  padding-left: 0;
+}
+.searchInp {
+  /* background-color: #F9F9F9; */
+  border: 1px solid #a2a2a2;
+
+}
+.filtrateLine {
+  padding: 0 30rpx;
+}
+.searchInp input{
+  color: #222;
+}
+.searchTxt{
+  left: 50%;
+  color: #94959C;
+}
+.filtrateLine{
+  justify-content: space-around;
+  background-color: #F9F9F9;
+
+}
+
+
+.marketGoodList{
+  padding: 0 30rpx;
+  overflow: hidden;
+
+}
+.closeRange{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 230rpx;
+  z-index: 1000;
+}
+.mkBox{
+  padding-top: 180rpx;
+}
+.marketGoodL{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+}
+.marketGoodR{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+
+}
+.marketGoodImg{
+    /* height:312rpx ; */
+    height: auto;
+
+}
+.marketGoodImg image{
+  width: 100%;
+  height: auto;
+  /* height: 100%!important; */
+}
+.marketGoodInfo{
+  padding: 0 20rpx;
+  background-color: #F5F5F5;
+  padding-top: 14rpx;
+}
+.marketGoodL navigator{
+  display: block;
+}
+.marketGood{
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 25rpx;
+  background-color: #F5F5F5;
+
+
+}
+.marketGoodName{
+    font-size: 28rpx;
+    font-weight: bold;
+   margin-bottom: 14rpx;
+    color: #222222;
+
+}
+.pAw{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.gPri{
+  font-size:30rpx ;
+  font-weight: bold;
+  color: #9A141E;
+}
+.peopleNub{
+  font-size:26rpx ;
+  color: #94959C;
+}
+.newOldAyou{
+  display: flex;
+  justify-content: space-between;
+ margin-top: 12rpx;
+}
+
+.newOld{
+  font-size: 26rpx;
+  color: #222222;
+}
+.you_{
+  font-size:26rpx ;
+  color: #94959C;
+}
+.auctNub{
+  font-size: 25rpx;
+  color: #94959C;
+}
+.auctNub{
+  margin: 12rpx 0;
+}
+.endTime{
+  font-size: 26rpx;
+  color: #222222;
+}
+.marGoodBottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 0;
+}
+.marHeadImg{
+  width:70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+.marHeadImg image{
+  width: 100%;
+  height: auto;
+  height: 100%;
+}
+.marStatus{
+  width: 106rpx;
+  height: 50rpx;
+  color: #9A141E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  /* background-color: #D5D5D5; */
+  box-sizing: border-box;
+  border: 1px solid #9A141E;
+  border-radius: 8rpx;
+}
+.marStatus.cur{
+  background-color: #9A141E;
+color: #fff;
+
+}
+.mkFix{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  left: 0;
+}

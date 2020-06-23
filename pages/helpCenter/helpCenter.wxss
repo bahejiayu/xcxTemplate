@@ -1,0 +1,15 @@
+.helpItem{
+  padding: 0 40rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #222;
+  justify-content: space-between;
+}
+.helpItem .dan{
+  width: 80%;
+}
+.helpBo .helpItem:nth-child(odd){
+  background-color: #F9F9F9;
+}

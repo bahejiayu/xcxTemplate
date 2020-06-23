@@ -1,0 +1,52 @@
+<view class="container">
+
+	<view class="swiperBox">
+		<swiper current='{{curpage}}' bindchange='swiperChange'>
+			<swiper-item wx:for='{{list}}'>
+				<image src="{{item.pic||'/images/jpImg.png'}}"  data-url="{{item.pic}}" mode="aspect" bindtap="viewImg"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<view class="readBottom">
+		<view class="pageBtn" bindtap="togPage" data-type="down">
+			上一页
+		</view>
+
+		<view class="logM" bindtap="logEven">
+			目录
+		</view>
+		<!-- bindconfirm='goPage' -->
+		<input type="number" placeholder="跳转"  value="{{pVal}}" bindfocus="foEven"  bindblur="goPage"> </input>
+
+		<view class="pageBtn" bindtap="togPage" data-type="add">
+			下一页
+		</view>
+	</view>
+
+</view>
+<view class="shadeView" wx:if='{{showLog}}'>
+
+</view>
+<view class="bookClassify showBookClassify" wx:if='{{showLog}}'>
+	<view class="bookClassifyBox">
+		<!-- <view class="bookClassifyTitle">
+            拍品分类
+        </view> -->
+		<scroll-view class="bookClassifyList" scroll-y='{{true}}' bindscrolltolower='moreLog'>
+			<view class="bookClassifyItem " wx:for='{{logList}}' data-index="{{index}}" bindtap="logTap">
+				{{item.name||"未标题"}}
+			</view>
+	
+		</scroll-view>
+		<view class="jBtns">
+			<view>取消</view>
+			<view>确定</view>
+		</view>
+	</view>
+</view>
+<view class="zoomView" wx:if='{{showZoom}}'>
+	<scroll-view class="img"  bindtap="closeView"  bindtouchstart="touchstartCallback" bindtouchmove="touchmoveCallback" bindtouchend="touchendCallback" scroll-x="true" scroll-y="true">
+		<image style="zoom:{{stv.scale}};" src="{{zoomUlr}}" mode="aspect"></image>
+	</scroll-view>
+</view>

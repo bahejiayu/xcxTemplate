@@ -1,0 +1,43 @@
+<view class="addressList">
+<import src='/tpl/kong.wxml' />
+	<template is='kong' wx:if='{{addressList.length<=0}}' data='{{...{kongTxt:"暂无收货地址"} }}'></template>
+
+	<view class="addressItem  {{item.left?'arrowLeft':''}}  tr" bind:touchstart='st' data-index="{{index}}" bind:touchend='end' wx:for='{{addressList}}' wx:key='index'>
+		<view class="adresContent" hover-class="none">
+			<view>
+				<view class="geterInfo">
+					<view>
+						{{item.name}}
+					</view>
+					<view>
+						{{item.mobile}}
+					</view>
+					<view class="defaultAdr" wx:if='{{item.default==1}}'>
+						默认
+					</view>
+				</view>
+				<view class="addressTxt">
+					{{item.adTxt}}{{item.content}}
+				</view>
+			</view>
+			<view class="editorAddressIcon" data-index="{{index}}" bindtap="goEditor" data-url="/car/pages/addressTable/addressTable?id={{item.id}}" hover-class="none">
+				<image src="/images/editorAddress.png" mode="widthFix"></image>
+			</view>
+				<view class="delCarItem" catchtap="delItem" data-index="{{index}}" data-cid="{{item.id}}">
+			<view class="icon icon-delete">
+			</view>
+		</view>
+		</view>
+
+	
+	</view>
+
+
+</view>
+
+
+<view class="creatAddressFix">
+	<navigator hover-class="none" url="/car/pages/addressTable/addressTable">
+		<button class="formBtn isOk ">新建收货地址</button>
+	</navigator>
+</view>

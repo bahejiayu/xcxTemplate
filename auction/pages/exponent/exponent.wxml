@@ -1,0 +1,20 @@
+<!-- <view  class="exponentTop" >
+      <view class="nameCn">
+          宋汝窑天青釉支钉陶瓷
+      </view>
+      <view class="nameEn" >
+      AN ITALIAN WALNUT CASSONE DGONE FAMILLE VASE
+      </view>
+</view>
+<view class="exponentData">
+      <view class="exDataItem successP">
+        <view>￥240,000</view>
+        <view>平均成交价</view>
+      </view>
+      <view class="exDataItem pticket">
+        <view>3次</view>
+        <view>拍卖次数</view>
+      </view>
+</view> -->
+
+<web-view src='http://zjytest.utools.club/' class="webView"></web-view>
